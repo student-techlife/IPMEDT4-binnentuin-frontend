@@ -1,0 +1,41 @@
+name: Binnentuin - Frontend
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  deploy:
+    name: Deploy to production
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/dev'
+    steps:
+      # Checkout
+      - uses: actions/checkout@v1
+      # Docker login to private registry
+      - name: Docker registry login
+        # run: docker login ${{ secrets.DOCKER_REGISTRY }}:5000
+        run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+      - name: Create backend.conf file
+        run: |
+          mkdir location
+          cd location
+          echo "$BACKEND_LOCATION" > backend.conf
+        shell: bash
+        env:
+          BACKEND_LOCATION: ${{ secrets.BACKEND_LOCATION }}
+        working-directory: nginx/sites-available
+      # Build image {USERID}/REPO:TAG
+      - name: Create new docker image
+        run: docker build -t studenttechlife/plant:frontend .
+      # Push new docker image
+      - name: Push docker image
+        run: docker push studenttechlife/plant:frontend
+      # Deploy to swarm
+      - name: Deploy to swarm
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: docker service update --image studenttechlife/plant:frontend plant_frontend
+          host: ${{ secrets.DOCKER_REGISTRY }}
+          username: plant
+          privateKey: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
