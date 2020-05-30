@@ -10,17 +10,15 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x]
+        node: [ '10', '12' ]
+    
+    name: Node ${{ matrix.node }} sample
 
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
+      - uses: actions/checkout@v2
+      - name: Setup node
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: npm install, build, and test
-        run: |
-          npm install
-          npm run build --if-present
-          npm run lint
-          npm test
+          node-version: ${{ matrix.node }}
+      - run: npm install
+      - run: npm test
