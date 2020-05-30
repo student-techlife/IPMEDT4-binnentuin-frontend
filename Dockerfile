@@ -11,7 +11,7 @@ COPY . /app/
 RUN npm run build
 
 # Nginx proxy server
-FROM nginx:1.15-alpine
+FROM nginx:1.17.10-alpine
 
 # Kopieer react build en conf files naar web server
 COPY --from=build-stage /app/build/ /var/www/public
