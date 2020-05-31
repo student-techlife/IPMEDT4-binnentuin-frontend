@@ -10,9 +10,9 @@ jobs:
 
     strategy:
       matrix:
-        node: [ '10', '12' ]
+        node: [ '10', '12', '14']
     
-    name: Node ${{ matrix.node }} sample
+    name: Check Node version ${{ matrix.node }}
 
     steps:
       - uses: actions/checkout@v2
