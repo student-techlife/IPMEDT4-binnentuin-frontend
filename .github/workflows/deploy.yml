@@ -4,6 +4,7 @@ on:
     # Negeer commits die zijn gemaakt in:
     paths-ignore:
       - '.github/**'
+      - 'extra/**'
       - 'README.md'
       - LICENSE
     # De branch waarop het getriggerd wordt
