@@ -1,4 +1,4 @@
-![Binnentuin - Frontend](https://github.com/student-techlife/IPMEDT4-binnentuin-frontend/workflows/Binnentuin%20-%20Frontend%20deploy/badge.svg)
+![Binnentuin - Frontend deploy](https://github.com/student-techlife/IPMEDT4-binnentuin-frontend/workflows/Binnentuin%20-%20Frontend%20deploy/badge.svg?branch=dev)
 
 # De Binnentuin app (frontend)
 
