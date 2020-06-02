@@ -5,6 +5,8 @@ on:
     paths-ignore:
       - '.github/**'
       - 'extra/**'
+      - '.vscode/**'
+      - '.devcontainer/**'
       - 'README.md'
       - LICENSE
     # De branch waarop het getriggerd wordt
