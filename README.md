@@ -1,4 +1,5 @@
 ![Binnentuin - Frontend deploy](https://github.com/student-techlife/IPMEDT4-binnentuin-frontend/workflows/Binnentuin%20-%20Frontend%20deploy/badge.svg?branch=dev)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6edc5dac-f6ec-4aaf-86f1-8eed4bb01555/deploy-status)](https://app.netlify.com/sites/ipmedt4/deploys)
 
 # De Binnentuin app (frontend)
 
