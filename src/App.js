@@ -1,10 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
 import './assets/css/App.css';
 
-import Header from './shared/Header';
-
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import axios from 'axios';
+
+//Pages
+import MainPage from "./pages";
+import NotFoundPage from "./pages/errors/404";
 
 // const VPS = process.env.REACT_APP_URL_VPS
 class App extends React.Component {
@@ -17,23 +19,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <Header />
-      // <div className="App">
-      //   <header className="App-header">
-      //     <img src={logo} className="App-logo" alt="logo" />
-      //     <p>
-      //       Edit <code>src/App.js</code> and save to reload.
-      //     </p>
-      //     <a
-      //       className="App-link"
-      //       href="https://reactjs.org"
-      //       target="_blank"
-      //       rel="noopener noreferrer"
-      //     >
-      //       Learn React
-      //     </a>
-      //   </header>
-      // </div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={MainPage} />
+          <Route path="/system" />
+          {/* Onderstaand onderaan laten */}
+          <Route exact path="/404" component={NotFoundPage} />
+          <Redirect to="/404" />
+        </Switch>
+      </Router>
     );
   }
 }
