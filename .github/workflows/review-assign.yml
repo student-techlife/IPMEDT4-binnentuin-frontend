@@ -1,13 +1,5 @@
 name: Assign to Pull Request
 on:
-  # Negeer commits die zijn gemaakt in:
-  paths-ignore:
-    - '.github/**'
-    - 'extra/**'
-    - '.vscode/**'
-    - '.devcontainer/**'
-    - 'README.md'
-    - LICENSE
   pull_request:
     types: [opened, ready_for_review, reopened]
 
