@@ -1,0 +1,149 @@
+// Import
+@import '../../scss/var';
+@import '../../scss/default';
+@import url('https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600;700;800;900&display=swap');
+
+// Keuze pagina
+.keuze {
+    font-family: 'Muli', sans-serif;
+
+    .header {
+        background-color: $color_green;
+        padding: 20px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__figure {
+            margin: 0;
+            padding: 0;
+
+            > img {
+                max-width: 220px;
+                width: 100%;
+            }
+        }
+    }
+
+    .banner {
+        background-image: url(../../img/banner.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 350px;
+    }
+
+    .locatie {
+        max-width: 1280px;
+        margin: 0 auto;
+        background-color: #fff;
+        margin-top: -50px;
+        border-radius: 30px 30px 0 0;
+        padding: 0 20px;
+
+        &__heading {
+            padding-top: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            
+            > h1 {
+                font-size: 1.3em;
+                font-weight: 600;
+                margin: 0;
+                padding: 0;
+                color: $color_dark;
+            }
+
+            &--gold {
+                color: $color_gold;
+                font-weight: 900;
+            }
+
+            > h2 {
+                font-size: 1em;
+                font-weight: 400;
+                margin: 0;
+                padding: 0;
+                color: $color_grey;
+                line-height: 2;
+            }
+        }
+    }
+
+    .opties {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+
+        .optie {
+            
+            &__knop {
+                cursor: pointer;
+                background-color: $color_green;
+                border-radius: 0.5rem;
+                color: #ececec;
+                -webkit-box-shadow: 0px 0px 30px -10px rgba(0,0,0,0.7); 
+                box-shadow: 0px 0px 30px -10px rgba(0,0,0,0.7);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding: 30px 40px;
+                transition: opacity .2s ease;
+
+                &:hover {
+                    opacity: 0.9;
+                }
+    
+                h2, p {
+                    margin: 0;
+                    padding: 0;
+                }
+
+                h2 {
+                    font-weight: 900;
+                }
+    
+                img {
+                    max-width: 150px;
+                    width: 100%;
+                }
+            }
+
+            > p {
+                color: $color_grey;
+            }
+        }
+
+    }
+
+    @media screen and (max-width: $bp_laptop){
+        .opties {
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+    }
+    
+    @media screen and (max-width: $bp_mobile){
+        .opties {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+    }
+
+    .footer {
+        text-align: center;
+
+        &__adres {
+            font-size: 0.9em;
+            color: $color_grey;
+
+            p {
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+
+}
