@@ -74,29 +74,48 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 40px;
+        margin-bottom: 40px;
 
         .optie {
-            background-color: $color_green;
-            border-radius: 0.5rem;
-            color: #ececec;
-            -webkit-box-shadow: 0px 0px 30px -10px rgba(0,0,0,0.7); 
-            box-shadow: 0px 0px 30px -10px rgba(0,0,0,0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            padding: 30px 40px;
+            
+            &__knop {
+                cursor: pointer;
+                background-color: $color_green;
+                border-radius: 0.5rem;
+                color: #ececec;
+                -webkit-box-shadow: 0px 0px 30px -10px rgba(0,0,0,0.7); 
+                box-shadow: 0px 0px 30px -10px rgba(0,0,0,0.7);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding: 30px 40px;
+                transition: opacity .2s ease;
 
-            h2, p {
-                margin: 0;
-                padding: 0;
+                &:hover {
+                    opacity: 0.9;
+                }
+    
+                h2, p {
+                    margin: 0;
+                    padding: 0;
+                }
+
+                h2 {
+                    font-weight: 900;
+                }
+    
+                img {
+                    max-width: 150px;
+                    width: 100%;
+                }
             }
 
-            img {
-                max-width: 150px;
-                width: 100%;
+            > p {
+                color: $color_grey;
             }
         }
+
     }
 
     @media screen and (max-width: $bp_laptop){
@@ -110,6 +129,20 @@
         .opties {
             grid-template-columns: 1fr;
             gap: 20px;
+        }
+    }
+
+    .footer {
+        text-align: center;
+
+        &__adres {
+            font-size: 0.9em;
+            color: $color_grey;
+
+            p {
+                margin: 0;
+                padding: 0;
+            }
         }
     }
 

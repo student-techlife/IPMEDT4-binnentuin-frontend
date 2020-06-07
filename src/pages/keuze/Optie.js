@@ -10,12 +10,12 @@ class Optie extends React.Component {
 
     render(){
         return (
-            <article>
-                <section className="optie" onClick = {this.onOptieClicked}>
+            <article className="optie">
+                <section className="optie__knop" onClick = {this.onOptieClicked}>
                     <p> {this.props.content || "debug"} </p>
                     {this.props.title === "De Binnentuin" ? <img src={logo_white}/> : <h2>{this.props.title}</h2>}
                 </section>
-                <p>Geopend: 8.30 &mdash; 17.00</p>
+                <p>&#x1F550; Geopend: 8.30 &mdash; 17.00</p>
             </article>
         );
     }

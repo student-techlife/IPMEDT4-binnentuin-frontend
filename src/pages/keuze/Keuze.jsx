@@ -32,6 +32,16 @@ class KeuzePage extends React.Component {
 
           <OptieList optieClicked = {this.optieClicked} />
 
+          <footer className="footer">
+            <section className="footer__adres">
+              <p>Langegracht 70, Leiden</p>
+              <p>2e verdieping PLNT en daktuin</p>
+            </section>
+            <section className="footer__social">
+              {/* Facebook, Twitter, Instagram */}
+            </section>
+          </footer>
+
         </section>
       );
     }
