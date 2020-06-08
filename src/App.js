@@ -12,7 +12,7 @@ import NotFoundPage from "./pages/errors/404";
 // const VPS = process.env.REACT_APP_URL_VPS
 class App extends React.Component {
   componentDidMount() {
-    axios.get("system/api/test")
+    axios.get("https://api.binnentuin.live/api/test")
       .then(res => {
           console.log(res.data);
       })
