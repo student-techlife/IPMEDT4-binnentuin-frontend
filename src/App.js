@@ -7,10 +7,11 @@ import axios from 'axios';
 //Pages
 import MainPage from "./pages";
 import KeuzePage from "./pages/keuze/Keuze";
-import NotFoundPage from "./pages/errors/404";
+
 
 // const VPS = process.env.REACT_APP_URL_VPS
 class App extends React.Component {
+  // Onderstaand dient als test om te zien of de backend nog altijd te benaderen is
   componentDidMount() {
     axios.get("https://api.binnentuin.live/api/test")
       .then(res => {
@@ -24,10 +25,8 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={MainPage} />
           <Route exact path="/keuze/keuze" component={KeuzePage} />
+          {/* Onderstaand verwijst naar backend side */}
           <Route path="/system" />
-          {/* Onderstaand onderaan laten */}
-          <Route exact path="/404" component={NotFoundPage} />
-          <Redirect to="/404" />
         </Switch>
       </Router>
     );
