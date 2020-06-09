@@ -1,0 +1,90 @@
+// Import
+@import '../../scss/var';
+@import '../../scss/default';
+@import url('https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600;700;800;900&display=swap');
+
+// Tijd pagina
+.tijd {
+    font-family: 'Muli', sans-serif;
+
+    .header {
+        background-color: $color_green;
+        padding: 20px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        &__figure {
+            margin: 0;
+            padding: 0;
+
+            > img {
+                max-width: 220px;
+                width: 100%;
+            }
+        }
+    }
+
+
+    .reserveren {
+        max-width: 1280px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 0 20px;
+
+        &__heading {
+            padding-top: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+
+            > h1 {
+                font-size: 1.3em;
+                font-weight: 600;
+                margin: 0;
+                padding: 20px 80px;
+                color: $color_dark;
+                text-align: left;
+            }
+
+            &--gold {
+                color: $color_gold;
+                font-weight: 900;
+            }
+
+            > h2 {
+                font-size: 1em;
+                font-weight: 400;
+                margin: 0;
+                padding: 0;
+                color: $color_grey;
+                line-height: 2;
+            }
+        }
+      &__form--dropdown {
+        width: 80%;
+        padding: 16px 20px;
+        border: none;
+        border-radius: 4px;
+        background-color: #f1f1f1;
+      }
+
+    }
+
+
+
+    .footer {
+        text-align: center;
+
+        &__adres {
+            font-size: 0.9em;
+            color: $color_grey;
+
+            p {
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+
+}

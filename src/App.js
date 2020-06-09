@@ -7,6 +7,7 @@ import axios from 'axios';
 //Pages
 import MainPage from "./pages";
 import NotFoundPage from "./pages/errors/404";
+import TijdPage from "./pages/tijd/Tijd";
 
 // const VPS = process.env.REACT_APP_URL_VPS
 class App extends React.Component {
@@ -22,6 +23,7 @@ class App extends React.Component {
       <Router>
         <Switch>
           <Route exact path="/" component={MainPage} />
+          <Route exact path="/tijd/tijd" component={TijdPage} />
           <Route path="/system" />
           {/* Onderstaand onderaan laten */}
           <Route exact path="/404" component={NotFoundPage} />
