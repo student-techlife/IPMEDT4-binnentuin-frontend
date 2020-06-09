@@ -3,7 +3,7 @@ import logo_white from '../../img/logo_white.png';
 import './Pretest.scss';
 
 import {faCheck, faHandsWash, faPeopleArrows, faSoap} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
 class PretestPage extends React.Component {
@@ -26,13 +26,17 @@ class PretestPage extends React.Component {
                             <span className="pretest__title pretest__title--bold">Covid-19</span></h1>
                         <p className="pretest__subtitle">Als binnentuin zorgen wij ervoor dat: </p>
                         <ul className="pretest__list">
-                            <li className="pretest__listitem"><FontAwesomeIcon className="pretest__list-icon" icon={faHandsWash} /><p
+                            <li className="pretest__listitem"><FontAwesomeIcon className="pretest__list-icon"
+                                                                               icon={faHandsWash}/><p
                                 className="pretest__text">Wassen en ontsmetten onze handen na elke bestelling</p></li>
-                            <li className="pretest__listitem"><FontAwesomeIcon className="pretest__list-icon" icon={faPeopleArrows} /><p
+                            <li className="pretest__listitem"><FontAwesomeIcon className="pretest__list-icon"
+                                                                               icon={faPeopleArrows}/><p
                                 className="pretest__text">Waarborgen de 1,5 meter afstand</p></li>
-                            <li className="pretest__listitem"><FontAwesomeIcon className="pretest__list-icon" icon={faPeopleArrows} /><p
+                            <li className="pretest__listitem"><FontAwesomeIcon className="pretest__list-icon"
+                                                                               icon={faPeopleArrows}/><p
                                 className="pretest__text">Serveren en ruimen af op minimaal 1,5 meter afstand</p></li>
-                            <li className="pretest__listitem"><FontAwesomeIcon className="pretest__list-icon" icon={faSoap} /><p
+                            <li className="pretest__listitem"><FontAwesomeIcon className="pretest__list-icon"
+                                                                               icon={faSoap}/><p
                                 className="pretest__text">Zorgen voor een grondige reinging van o.a. tafels, stoelen en
                                 menukaarten</p></li>
                         </ul>
@@ -56,8 +60,8 @@ class PretestPage extends React.Component {
                             </div>
                         </fieldset>
                     </section>
+                    <button className="pretest__button" type="button" name="volgende">Volgende</button>
                 </article>
-
 
             </section>
 
