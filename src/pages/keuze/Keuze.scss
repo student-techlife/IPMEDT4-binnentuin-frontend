@@ -132,6 +132,13 @@
         .opties {
             grid-template-columns: 1fr 1fr;
             gap: 30px;
+
+            .optie {
+            
+                &__knop {
+                    padding: 30px 20px;
+                }
+            }
         }
     }
     
@@ -139,11 +146,19 @@
         .opties {
             grid-template-columns: 1fr;
             gap: 20px;
+
+            .optie {
+            
+                &__knop {
+                    padding: 30px 10px;
+                }
+            }
         }
     }
 
     .footer {
         text-align: center;
+        padding: 40px;
 
         &__adres {
             font-size: 0.9em;
