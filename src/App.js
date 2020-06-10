@@ -24,7 +24,7 @@ class App extends React.Component {
       <Router>
         <Switch>
           <Route exact path="/" component={MainPage} />
-          <Route exact path="/keuze/keuze" component={KeuzePage} />
+          <Route exact path="/keuze" component={KeuzePage} />
           {/* Onderstaand verwijst naar backend side */}
           <Route path="/system" />
         </Switch>
