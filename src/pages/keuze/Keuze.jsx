@@ -1,7 +1,8 @@
 import React from "react";
-import logo_white from '../../img/logo_white.png';
+import logo_white from '../../assets/img/logo_white.png';
 import './Keuze.scss';
 
+import Banner from "../../components/banner/Banner"
 import OptieList from "../../pages/keuze/OptieList";
 
 class KeuzePage extends React.Component {
@@ -21,7 +22,7 @@ class KeuzePage extends React.Component {
             </section>
           </header>
 
-          <section className="banner"></section> 
+          <Banner /> 
 
           <article className="locatie">
             <section className="locatie__heading">

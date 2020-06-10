@@ -1,6 +1,6 @@
 // Import
-@import '../../scss/var';
-@import '../../scss/default';
+@import '../../assets/scss/var';
+@import '../../assets/scss/default';
 @import url('https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600;700;800;900&display=swap');
 
 // Keuze pagina
@@ -22,26 +22,6 @@
                 max-width: 220px;
                 width: 100%;
             }
-        }
-    }
-
-    .banner {
-        background-image: url(../../img/banner.jpg);
-        background-position: center;
-        background-size: cover;
-        min-height: 350px;
-        animation: banner_slide 45s cubic-bezier(0.75, 0, 0.15, 1) infinite;
-    }
-
-    @keyframes banner_slide {
-        25% {
-            background-image: url(../../img/banner2.jpg);
-        }
-        50% {
-            background-image: url(../../img/banner3.jpg);
-        }
-        75% {
-            background-image: url(../../img/banner4.jpg);
         }
     }
 
