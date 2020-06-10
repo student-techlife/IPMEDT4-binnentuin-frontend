@@ -3,18 +3,6 @@
 @import '../../scss/default';
 @import url('https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600;700;800;900&display=swap');
 
-@keyframes fadeBG {
-    25% {
-      background-image: url(../../img/banner2.jpg);
-    }
-    50% {
-      background-image: url(../../img/banner3.jpg);
-    }
-    75% {
-      background-image: url(../../img/banner4.jpg);
-    }
-  }
-
 // Keuze pagina
 .keuze {
     font-family: 'Muli', sans-serif;
@@ -40,10 +28,21 @@
     .banner {
         background-image: url(../../img/banner.jpg);
         background-position: center;
-        // background-repeat: no-repeat;
         background-size: cover;
         min-height: 350px;
-        animation: fadeBG 16s cubic-bezier(0.75, 0, 0.15, 1) infinite
+        animation: banner_slide 45s cubic-bezier(0.75, 0, 0.15, 1) infinite;
+    }
+
+    @keyframes banner_slide {
+        25% {
+            background-image: url(../../img/banner2.jpg);
+        }
+        50% {
+            background-image: url(../../img/banner3.jpg);
+        }
+        75% {
+            background-image: url(../../img/banner4.jpg);
+        }
     }
 
     .locatie {
