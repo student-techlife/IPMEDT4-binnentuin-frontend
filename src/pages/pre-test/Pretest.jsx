@@ -1,6 +1,7 @@
 import React from "react";
-import logo_white from '../../img/logo_white.png';
 import './Pretest.scss';
+
+import Header from "../../components/header/Header";
 
 import {faCheck, faHandsWash, faPeopleArrows, faSoap} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -11,14 +12,7 @@ class PretestPage extends React.Component {
     render() {
         return (
             <section className="pretest">
-                {/*TODO: Dit moet apart gezet worden!*/}
-                <header className="header">
-                    <section className="container">
-                        <figure className="header__figure">
-                            <img src={logo_white} alt="Logo van Ruben en Jerry's eetcafé de Binnentuin"/>
-                        </figure>
-                    </section>
-                </header>
+                <Header />
                 <article className="pretest__content">
                     <section className="pretest__info">
                         <h1 className="prestest__title">
@@ -62,9 +56,7 @@ class PretestPage extends React.Component {
                     </section>
                     <button className="pretest__button" type="button" name="volgende">Volgende</button>
                 </article>
-
             </section>
-
         );
     }
 }
