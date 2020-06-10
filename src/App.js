@@ -12,6 +12,7 @@ import TijdPage from "./pages/tijd/Tijd";
 import PretestPage from "./pages/pre-test/Pretest"
 
 
+import Login from "./pages/auth/inloggen";
 
 // const VPS = process.env.REACT_APP_URL_VPS
 class App extends React.Component {
@@ -33,6 +34,7 @@ class App extends React.Component {
           <Route exact path="/tijd" component={TijdPage} />
           <Route exact path="/pretest" component={PretestPage} />
           <Route exact path="/binnentuin/menu" component={MenuPage} />
+          <Route exact path="/inloggen" component={Login} />
           {/* Onderstaand verwijst naar backend side */}
           <Route path="/system" />
         </Switch>
