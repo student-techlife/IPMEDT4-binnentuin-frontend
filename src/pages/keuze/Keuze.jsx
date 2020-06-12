@@ -21,7 +21,7 @@ class KeuzePage extends React.Component {
             </section>
           </header>
 
-          <section className="banner"></section> 
+          <section className="banner"></section>
 
           <article className="locatie">
             <section className="locatie__heading">
