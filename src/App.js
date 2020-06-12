@@ -8,6 +8,8 @@ import axios from 'axios';
 import MainPage from "./pages";
 import MenuPage from "./pages/binnentuin/menu/Menu";
 import KeuzePage from "./pages/keuze/Keuze";
+import TijdPage from "./pages/tijd/Tijd";
+import PretestPage from "./pages/pre-test/Pretest"
 
 
 
@@ -26,8 +28,11 @@ class App extends React.Component {
       <Router>
         <Switch>
           <Route exact path="/" component={MainPage} />
+          
+          <Route exact path="/keuze" component={KeuzePage} />
+          <Route exact path="/tijd" component={TijdPage} />
+          <Route exact path="/pretest" component={PretestPage} />
           <Route exact path="/binnentuin/menu" component={MenuPage} />
-          <Route exact path="/keuze/keuze" component={KeuzePage} />
           {/* Onderstaand verwijst naar backend side */}
           <Route path="/system" />
         </Switch>

@@ -1,37 +1,11 @@
 // Import
-@import '../../scss/var';
-@import '../../scss/default';
+@import '../../assets/scss/var';
+@import '../../assets/scss/default';
 @import url('https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600;700;800;900&display=swap');
 
 // Keuze pagina
 .keuze {
     font-family: 'Muli', sans-serif;
-
-    .header {
-        background-color: $color_green;
-        padding: 20px 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        &__figure {
-            margin: 0;
-            padding: 0;
-
-            > img {
-                max-width: 220px;
-                width: 100%;
-            }
-        }
-    }
-
-    .banner {
-        background-image: url(../../img/banner.jpg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        min-height: 350px;
-    }
 
     .locatie {
         max-width: 1280px;
@@ -91,9 +65,19 @@
                 flex-direction: column;
                 padding: 30px 40px;
                 transition: opacity .2s ease;
+                min-height: 60px;
 
                 &:hover {
                     opacity: 0.9;
+                }
+
+                &--disabled {
+                    cursor: not-allowed;
+                    opacity: 0.5;
+
+                    &:hover {
+                        opacity: 0.5;
+                    }
                 }
     
                 h2, p {
@@ -122,6 +106,13 @@
         .opties {
             grid-template-columns: 1fr 1fr;
             gap: 30px;
+
+            .optie {
+            
+                &__knop {
+                    padding: 30px 20px;
+                }
+            }
         }
     }
     
@@ -129,19 +120,12 @@
         .opties {
             grid-template-columns: 1fr;
             gap: 20px;
-        }
-    }
 
-    .footer {
-        text-align: center;
-
-        &__adres {
-            font-size: 0.9em;
-            color: $color_grey;
-
-            p {
-                margin: 0;
-                padding: 0;
+            .optie {
+            
+                &__knop {
+                    padding: 30px 10px;
+                }
             }
         }
     }
