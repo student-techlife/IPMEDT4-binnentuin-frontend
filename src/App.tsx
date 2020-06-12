@@ -3,10 +3,6 @@ import './App.css';
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { ProtectedRoute } from './components/common/router/protected';
-import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import rootReducers from "./store/reducers";
 import axios from 'axios';
 
 //Pages
@@ -22,8 +18,6 @@ interface GuestRouteInterface {
   component: any;
   exact?: boolean;
 }
-
-const store = createStore(rootReducers, applyMiddleware(thunk));
 
 const guestRoutes: Array<GuestRouteInterface> = [
   { path: "/", component: MainPage, exact: true },
@@ -71,18 +65,16 @@ class App extends Component {
               />
             );
           })}
-          <Provider store={store}>
-            {protectedRoutes.map((route, key) => {
-              return (
-                <ProtectedRoute
-                  exact={route.exact}
-                  path={route.path}
-                  component={route.component}
-                  key={key}
-                />
-              );
-            })}
-          </Provider>
+          {protectedRoutes.map((route, key) => {
+            return (
+              <ProtectedRoute
+                exact={route.exact}
+                path={route.path}
+                component={route.component}
+                key={key}
+              />
+            );
+          })}
         </Switch>
       </BrowserRouter>
     );
