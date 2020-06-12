@@ -1,5 +1,6 @@
 import React from "react";
 import './Menu.scss';
+import logo_white from '../../../img/logo_white.png';
 
 
 import CardList from "../../../pages/binnentuin/menu/CardList";
@@ -11,7 +12,18 @@ class MenuPage extends React.Component {
 
     render() {
       return (
-        <CardList cardClicked = {this.cardClicked} />
+        <section>
+
+          <header className="header">
+            <section className="container">
+              <figure className="header__figure">
+                <img src={logo_white} alt="Logo van Ruben en Jerry's eetcafé de Binnentuin"/>
+              </figure>
+            </section>
+          </header>
+
+          <CardList cardClicked = {this.cardClicked} />
+        </section>
       );
     }
 }

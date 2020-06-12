@@ -10,17 +10,19 @@ class Card extends React.Component {
 
   render() {
     return (
-      <article className="card">
-        <figure>
-          <img className="card__img" src={this.props.img} alt={this.props.title} />
-        </figure>
-        <header className="card__header">
-          <h2> {this.props.title || "Gerecht met ingredienten xxxx"} </h2>
-        </header>
-        <section className="card__content">
-          <p> {this.props.content || "Prijs"} </p>
-        </section>
-        <button className="card__button" onClick={this.onCardClicked}>{this.props.buttonText || "+"}</button>
+      <article className="card__container">
+        <article className="card">
+          <figure>
+            <img className="card__img" src={this.props.img} alt={this.props.title} />
+          </figure>
+          <header className="card__header">
+            <h2> {this.props.title || "Gerecht met ingredienten xxxx"} </h2>
+          </header>
+          <section className="card__content">
+            <p> {this.props.content || "Prijs"} </p>
+          </section>
+          <button className="card__button" onClick={this.onCardClicked}>{this.props.buttonText || "+"}</button>
+        </article>
       </article>
     );
   }
