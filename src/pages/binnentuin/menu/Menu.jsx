@@ -1,6 +1,6 @@
 import React from "react";
 import './Menu.scss';
-import logo_white from '../../../img/logo_white.png';
+import logo_white from '../../../assets/img/logo_white.png';
 
 
 import CardList from "../../../pages/binnentuin/menu/CardList";
