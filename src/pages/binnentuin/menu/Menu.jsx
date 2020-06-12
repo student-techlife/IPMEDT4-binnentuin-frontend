@@ -1,9 +1,11 @@
 import React from "react";
+
 import './Menu.scss';
 import logo_white from '../../../assets/img/logo_white.png';
 
-
+import Header from "../../../components/header/Header"
 import CardList from "../../../pages/binnentuin/menu/CardList";
+import Footer from "../../../components/footer/Footer"
 
 class MenuPage extends React.Component {
     cardClicked = (id) => {
@@ -14,15 +16,11 @@ class MenuPage extends React.Component {
       return (
         <section>
 
-          <header className="header">
-            <section className="container">
-              <figure className="header__figure">
-                <img src={logo_white} alt="Logo van Ruben en Jerry's eetcafé de Binnentuin"/>
-              </figure>
-            </section>
-          </header>
+          <Header />
 
           <CardList cardClicked = {this.cardClicked} />
+
+          <Footer />
         </section>
       );
     }
