@@ -6,9 +6,11 @@ import axios from 'axios';
 
 //Pages
 import MainPage from "./pages";
+import MenuPage from "./pages/binnentuin/menu/Menu";
 import KeuzePage from "./pages/keuze/Keuze";
 import TijdPage from "./pages/tijd/Tijd";
 import PretestPage from "./pages/pre-test/Pretest"
+
 
 
 // const VPS = process.env.REACT_APP_URL_VPS
@@ -26,9 +28,11 @@ class App extends React.Component {
       <Router>
         <Switch>
           <Route exact path="/" component={MainPage} />
+          
           <Route exact path="/keuze" component={KeuzePage} />
           <Route exact path="/tijd" component={TijdPage} />
           <Route exact path="/pretest" component={PretestPage} />
+          <Route exact path="/binnentuin/menu" component={MenuPage} />
           {/* Onderstaand verwijst naar backend side */}
           <Route path="/system" />
         </Switch>

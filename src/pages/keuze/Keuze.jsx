@@ -16,7 +16,6 @@ class KeuzePage extends React.Component {
         <section className="keuze">
           <Header />
           <Banner /> 
-
           <article className="locatie">
             <section className="locatie__heading">
               <h1>Welkom bij <span className="locatie__heading--gold">de Binnentuin</span>!</h1>
