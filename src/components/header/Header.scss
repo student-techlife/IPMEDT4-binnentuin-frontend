@@ -1,0 +1,19 @@
+@import '../../assets/scss/var';
+
+.header {
+    background-color: $color_green;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__figure {
+        margin: 0;
+        padding: 0;
+
+        > img {
+            max-width: 220px;
+            width: 100%;
+        }
+    }
+}
