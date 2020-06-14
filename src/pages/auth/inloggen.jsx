@@ -1,15 +1,21 @@
+// Packages
 import React from "react";
-import './auth.scss';
-import theme from "../styles.jsx";
-import AuthService from '../../services/AuthService';
+import Swal from 'sweetalert2';
+
+// Components
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
+import AuthService from '../../services/AuthService';
+import auth from "../../components/common/router/protected/auth";
+
+// Style
+import './auth.scss';
+import theme from "../styles.jsx";
 
 // Material UI
 import { ThemeProvider } from '@material-ui/core/styles';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { Container, Avatar, Typography, TextField, Button, Link, Box, Checkbox, FormControlLabel } from "@material-ui/core";
-import auth from "../../components/common/router/protected/auth";
 
 class Login extends React.Component {
     state = { username: '', password: '', isChecked: false }
@@ -33,7 +39,7 @@ class Login extends React.Component {
             this.props.history.push("/dashboard");
         } else {
             // Anders toon een error aan de klanten
-            alert('Je inloggegevens komen niet overeen met een account');
+            Swal.fire('Oops...', 'De inloggegevens komen niet overeen met een account', 'error');
         }
     }
 
