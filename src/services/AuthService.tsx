@@ -38,6 +38,18 @@ class AuthService {
         CookieService.set('access_token', response.access_token, options);
         return true;
     }
+
+    // Laravel API post voor aanmaken klant account
+    async createUser(credentials: Credentials) {
+        // console.log(credentials);
+        try {
+            const response = await axios.post(UrlService.registerUrl(), credentials);
+            return response.data;
+        } catch (error) {
+            console.error('Error', error.response);
+            return false;
+        }
+    }
 }
 
 export default new AuthService();

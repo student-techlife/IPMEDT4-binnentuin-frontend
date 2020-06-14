@@ -8,6 +8,7 @@ let apiDomain = 'https://admin.binnentuin.live/'
 
 class UrlService {
     static loginUrl() { return apiDomain + 'api/login'; }
+    static registerUrl() { return apiDomain + 'api/register'; }
 }
 
 export default UrlService;
