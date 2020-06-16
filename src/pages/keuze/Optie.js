@@ -15,7 +15,7 @@ class Optie extends React.Component {
                 {this.props.content ? <p>{this.props.content}</p> : null}
                     {this.props.title === "De Binnentuin" ? <img src={logo_white} alt="Logo van Ruben en Jerry's eetcafé de Binnentuin"/> : <h2>{this.props.title}</h2>}
                 </section>
-                <p>&#x1F550; Geopend: 8.30 &mdash; 17.00</p>
+                <p><span role="img" aria-label="time">&#x1F550; Geopend: 8.30 &mdash; 17.00</span></p>
             </article>
         );
     }
