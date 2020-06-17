@@ -21,7 +21,7 @@ class MenuPage extends React.Component {
 
     render() {
       return (
-        <section>
+        <section className="menupage">
 
           <Header />
           <article className="menu">

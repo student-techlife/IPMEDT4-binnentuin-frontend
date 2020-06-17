@@ -2,23 +2,18 @@
 @import '../../../assets/scss/default';
 @import url('https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600;700;800;900&display=swap');
 
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
 
-body {
+.menupage {
   font-size: 1.8rem;
   box-sizing: border-box;
   background-color: #ddd;
   line-height: 1.55em;
 }
+
 .menu {
   font-family: 'Muli', sans-serif;
   &_title {
