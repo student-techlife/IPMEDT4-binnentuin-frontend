@@ -21,7 +21,7 @@ class MenuPage extends React.Component {
 
     render() {
       return (
-        <section>
+        <section className="menupage">
 
           <Header />
           <article className="menu">
@@ -29,10 +29,10 @@ class MenuPage extends React.Component {
               <FontAwesomeIcon className="menu__list-icon" icon={faShoppingBasket}/><h2 className="menu_title--gold">Menu</h2>
             </section>
             <section className="menu__menu">
-              <a className="menu__menu__button active first" href="menu#snacks" type="button">Snacks</a>
-              <a className="menu__menu__button" href="menu#salads" type="button">Salads</a>
-              <a className="menu__menu__button" type="button">Toasts</a>
-              <a className="menu__menu__button last" type="button">Sandwiches</a>
+              <a className="menu__menu__button active first" href="#snacks" type="button">Snacks</a>
+              <a className="menu__menu__button" href="#salads" type="button">Salads</a>
+              <a className="menu__menu__button" href="#toasts" type="button">Toasts</a>
+              <a className="menu__menu__button last" href="#sandwiches" type="button">Sandwiches</a>
             </section>
           </article>
 
