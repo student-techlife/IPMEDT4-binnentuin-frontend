@@ -2,36 +2,14 @@
 @import '../../assets/scss/var';
 @import '../../assets/scss/default';
 @import url('https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600;700;800;900&display=swap');
-*{
-  margin:0;
-  padding:0;
-}
-// Keuze pagina
+
+// Pretest pagina
 .pretest {
   font-family: 'Muli', sans-serif;
   height: 100vh;
   position: relative;
   background-image: url("../../img/background_flower.png");
   background-position: top center ;
-
-
-  .header {
-    background-color: $color_green;
-    padding: 20px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &__figure {
-      margin: 0;
-      padding: 0;
-
-      > img {
-        max-width: 220px;
-        width: 100%;
-      }
-    }
-  }
 
   &__content {
     padding: 26px 20px;
