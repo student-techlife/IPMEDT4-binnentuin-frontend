@@ -5,10 +5,14 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { ProtectedRoute } from './components/common/router/protected';
 import axios from 'axios';
 
-//Pages
+// Pages
 import MainPage from "./pages";
 import KeuzePage from "./pages/keuze/Keuze";
+import MenuPageBinnentuin from "./pages/binnentuin/menu/Menu";
+import TijdPage from "./pages/tijd/Tijd";
+import PretestPage from "./pages/pre-test/Pretest"
 
+// Auth
 import Login from "./pages/auth/inloggen";
 import Register from "./pages/auth/registreren";
 import Dashboard from "./pages/profile/dashboard";
@@ -22,6 +26,9 @@ interface GuestRouteInterface {
 const guestRoutes: Array<GuestRouteInterface> = [
   { path: "/", component: MainPage, exact: true },
   { path: "/keuze", component: KeuzePage, exact: true },
+  { path: "/tijd", component: TijdPage, exact: true },
+  { path: "/pretest", component: PretestPage, exact: true },
+  { path: "/binnentuin/menu", component: MenuPageBinnentuin, exact: true },
   { path: "/inloggen", component: Login, exact: true },
   { path: "/register", component: Register, exact: true },
 ];
