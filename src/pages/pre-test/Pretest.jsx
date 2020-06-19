@@ -8,6 +8,27 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
 class PretestPage extends React.Component {
+  constructor(props) {
+  super(props);
+
+  this.state = {
+    activeTijd: '12:00-12:30',
+    tijden: [{id: "1", tijd:'12:00-12:30'},
+            {id: "2", tijd:'12:30-13:00'},
+            {id: "3", tijd:'13:00-13:30'},
+    ] };
+
+  this.handleSubmit = this.handleSubmit.bind(this);
+
+  }
+  handleSubmit(event) {
+    alert('De tijd van jou reservering is ' + this.state.activeTijd);
+    event.preventDefault();
+  }
+
+  handleChange = event => {
+    this.setState({activeTijd: event.target.value});
+  }
 
     render() {
         return (
@@ -54,7 +75,25 @@ class PretestPage extends React.Component {
                             </div>
                         </fieldset>
                     </section>
-                    <button className="pretest__button" type="button" name="volgende">Volgende</button>
+                    <section className="pretest__reserveren">
+                      <h2 className="pretest__secundarytitle__reserveren">&#8635;<span className="pretest__secundarytitle__reserveren--gold">  Tijd reserveren</span></h2>
+                        <p className="pretest__text__reserveren">U kunt een plek in het restaurant reserveren. Dit houdt in dat er een
+                          plek vrijgehouden wordt gedurende het gekozen tijdstip. Op locatie kunt u uw stoel/ tafel kiezen.</p>
+                      <label>
+                          <select className="pretest__dropdown" value={this.state.activeTijd} onChange={this.handleChange}>
+                            {this.state.tijden.map(tijd => (
+                              <option key={tijd.id} value={tijd.tijd}>
+                              {tijd.tijd}
+                              </option>
+                            ))}
+                          </select>
+                        </label>
+                    </section>
+                    <section>
+                      <form className="pretest__button" onSubmit={this.handleSubmit}>
+                        <input className="pretest__button__input" type="submit" value="Reservering bevestigen" />
+                      </form>
+                    </section>
                 </article>
             </section>
         );
