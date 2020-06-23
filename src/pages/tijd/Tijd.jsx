@@ -54,7 +54,7 @@ class TijdPage extends React.Component {
                 </label>
             </section>
             <section>
-              <h1><img src="https://img.icons8.com/metro/26/000000/sofa.png"/>
+              <h1><img src="https://img.icons8.com/metro/26/000000/sofa.png" alt="Een sofa bank" />
                 <span className="reserveren__heading--gold">  Plek reserveren</span>
               </h1>
           
