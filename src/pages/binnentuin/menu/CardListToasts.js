@@ -3,10 +3,10 @@ import Card from "./Card";
 
 import axios from "axios";
 
-class CardListSalads extends React.Component {
+class CardListToasts extends React.Component {
 
-  cardSaladClicked = (id) => {
-    this.props.cardSaladClicked(id);
+  cardToastClicked = (id) => {
+    this.props.cardToastClicked(id);
   }
 
   constructor(props) {
@@ -17,7 +17,7 @@ class CardListSalads extends React.Component {
   }
 
   getProductsData() {
-    axios.get(`https://admin.binnentuin.live/api/producten/salads`, {}).then(res => {
+    axios.get(`https://admin.binnentuin.live/api/producten/toasts`, {}).then(res => {
       const data = res.data
       console.log(data)
       const producten = data.map(u =>
@@ -27,7 +27,7 @@ class CardListSalads extends React.Component {
               buttonText="+"
               id={u.id}
               img="https://www.thuisbezorgd.nl/blog/wp-content/uploads/2019/04/bibimbap-eten-vanavond.png"
-              cardClicked={this.cardSaladClicked}
+              cardClicked={this.cardToastClicked}
               key={u.id}
         />
       )
@@ -54,4 +54,4 @@ class CardListSalads extends React.Component {
   }
 }
 
-export default CardListSalads;
+export default CardListToasts;
