@@ -1,5 +1,6 @@
 import React from "react";
 import './Pretest.scss';
+import {Link} from "react-router-dom";
 
 import Header from "../../components/header/Header";
 
@@ -90,8 +91,8 @@ class PretestPage extends React.Component {
                         </label>
                     </section>
                     <section>
-                      <form className="pretest__button" onSubmit={this.handleSubmit}>
-                        <input className="pretest__button__input" type="submit" value="Reservering bevestigen" />
+                      <form className="pretest__button" onSubmit={this.handleSubmit}><Link to="../binnentuin/menu">
+                        <input className="pretest__button__input" type="submit" value="Reservering bevestigen"/></Link>
                       </form>
                     </section>
                 </article>
