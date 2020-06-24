@@ -7,6 +7,14 @@
 .tijd {
     font-family: 'Muli', sans-serif;
 
+    h1 {
+        font-size: 1.3em;
+        font-weight: 600;
+        margin: 0;
+        padding: 20px 80px;
+        color: $color_dark;
+        text-align: left;
+    }
     .reserveren {
         max-width: 1280px;
         margin: 0 auto;
@@ -14,41 +22,79 @@
         padding: 0 20px;
 
         &__heading {
-            padding-top: 20px;
             text-align: center;
             margin-bottom: 20px;
-
-            > h1 {
-                font-size: 1.3em;
-                font-weight: 600;
-                margin: 0;
-                padding: 20px 80px;
-                color: $color_dark;
-                text-align: left;
-            }
 
             &--gold {
                 color: $color_gold;
                 font-weight: 900;
             }
 
-            > h2 {
-                font-size: 1em;
-                font-weight: 400;
-                margin: 0;
-                padding: 0;
-                color: $color_grey;
-                line-height: 2;
-            }
         }
-        &__form--dropdown {
-            width: 80%;
-            padding: 16px 20px;
-            border: none;
-            border-radius: 4px;
-            background-color: #f1f1f1;
-        }
+
+      &__dropdown {
+        width: 80%;
+        padding: 16px 20px;
+        border: none;
+        border-radius: 4px;
+        background-color: #f1f1f1;
+        font-size: 20px;
+      }
+
+      &__button__input{
+        height: 56px;
+        width: 100%;
+        background-color: $color_gold;
+        color: white;
+        border-radius: 28px;
+        font-size: 16px;
+        box-shadow: 0px 4px 15px rgba(153, 101, 1, 0.45);
+        border:none;
+        font-weight: bold;
+        margin: 10px 0;
+      }
 
     }
 
+        // &__active{
+        //   background-color: red;
+        //   font-size: 30px;
+        //   border: none;
+        //   margin: 4px 2px;
+        //   text-align: center;
+        //   text-decoration: none;
+        //   display: inline-block;
+        //   border-radius: 15px;
+
+    .tafel__card{
+      display: grid;
+
+      &__container{
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-gap: 8rem;
+      }
+      &__button{
+          background-color: $color_green;
+          border-style: solid;
+          border-color: $color_green;
+          color: white;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          margin: 4px 2px;
+          cursor: pointer;
+          padding: 20px 0;
+          font-size: 20px;
+          box-shadow: 0px 4px 15px rgba(153, 101, 1, 0.45);
+          border-radius: 15px;
+
+          &:hover {
+            background-color: #ececec;
+            color: $color_green;
+            cursor: pointer;
+          }
+      }
+
+    }
 }
