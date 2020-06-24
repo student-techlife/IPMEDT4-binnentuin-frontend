@@ -5,10 +5,13 @@ import './Menu.scss';
 import Header from "../../../components/header/Header"
 import CardList from "../../../pages/binnentuin/menu/CardList";
 import CardListSalads from "../../../pages/binnentuin/menu/CardListSalads";
+import CardListToasts from "../../../pages/binnentuin/menu/CardListToasts";
+import CardListSandwiches from "../../../pages/binnentuin/menu/CardListSandwiches";
+import CardListBagels from "../../../pages/binnentuin/menu/CardListBagels";
 import Footer from "../../../components/footer/Footer"
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faUtensils, faMortarPestle, faShoppingBasket} from "@fortawesome/free-solid-svg-icons";
+import {faUtensils, faMortarPestle, faShoppingBasket, faBreadSlice, faBacon} from "@fortawesome/free-solid-svg-icons";
 
 class MenuPage extends React.Component {
     cardClicked = (id) => {
@@ -16,6 +19,18 @@ class MenuPage extends React.Component {
     }
 
     cardSaladClicked = (id) => {
+      console.log(`Gekozen gerecht nummer: ${id}`);
+    }
+
+    cardToastClicked = (id) => {
+      console.log(`Gekozen gerecht nummer: ${id}`);
+    }
+
+    cardSandwichClicked = (id) => {
+      console.log(`Gekozen gerecht nummer: ${id}`);
+    }
+
+    cardBagelClicked = (id) => {
       console.log(`Gekozen gerecht nummer: ${id}`);
     }
 
@@ -32,7 +47,8 @@ class MenuPage extends React.Component {
               <a className="menu__menu__button active first" href="#snacks" type="button">Snacks</a>
               <a className="menu__menu__button" href="#salads" type="button">Salads</a>
               <a className="menu__menu__button" href="#toasts" type="button">Toasts</a>
-              <a className="menu__menu__button last" href="#sandwiches" type="button">Sandwiches</a>
+              <a className="menu__menu__button" href="#sandwiches" type="button">Sandwiches</a>
+              <a className="menu__menu__button last" href="#bagels" type="button">Bagels</a>
             </section>
           </article>
 
@@ -45,6 +61,21 @@ class MenuPage extends React.Component {
             <FontAwesomeIcon className="menu__list-icon" icon={faMortarPestle}/><h2 className="menu_title--gold">Salads</h2>
           </section>
           <CardListSalads cardSaladClicked = {this.cardSaladClicked} />
+
+          <section id="toasts" className="menu_title">
+            <FontAwesomeIcon className="menu__list-icon" icon={faBreadSlice}/><h2 className="menu_title--gold">Toasts</h2>
+          </section>
+          <CardListToasts cardToastClicked = {this.cardToastClicked} />
+
+          <section id="sandwiches" className="menu_title">
+            <FontAwesomeIcon className="menu__list-icon" icon={faBacon}/><h2 className="menu_title--gold">Sandwiches</h2>
+          </section>
+          <CardListSandwiches cardSandwichClicked = {this.cardSandwichClicked} />
+
+          <section id="bagels" className="menu_title">
+            <FontAwesomeIcon className="menu__list-icon" icon={faBacon}/><h2 className="menu_title--gold">Bagels</h2>
+          </section>
+          <CardListBagels cardBagelClicked = {this.cardBagelClicked} />
 
           <Footer />
 
