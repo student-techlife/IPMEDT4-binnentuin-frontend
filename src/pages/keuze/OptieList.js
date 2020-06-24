@@ -20,11 +20,6 @@ class OptieList extends React.Component {
                         id="The Roof"
                         optieClicked={this.optieClicked}
                 />
-                <Optie title="Ophalen"
-                        content=""
-                        id="Ophalen"
-                        optieClicked={this.optieClicked}
-                />
             </section>
         );
     }

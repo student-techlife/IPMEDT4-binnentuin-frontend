@@ -4,6 +4,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600;700;800;900&display=swap');
 
 // Pretest pagina
+
+//.choice__context{
+//
+//}
+.choice__subtitle{
+  font-size: 18px;
+  color: $color_darkgrey;
+  margin-bottom: 4px;
+  margin-top:20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+
+}
+
 .pretest {
   font-family: 'Muli', sans-serif;
   height: 100vh;
