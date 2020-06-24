@@ -1,6 +1,6 @@
 import React from 'react';
 import logo_white from '../../assets/img/logo_white.png';
-import './Keuze.scss';
+import './Optie.scss';
 
 class Optie extends React.Component {
 
