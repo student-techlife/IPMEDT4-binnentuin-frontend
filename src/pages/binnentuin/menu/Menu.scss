@@ -70,30 +70,38 @@ html {
 }
 
 
-.card__container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
+.card__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 article.card {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   font-family: 'Muli', sans-serif;
   margin-top: 2rem;
   white-space: nowrap;
   background-color: #fff;
   width: 11rem;
-  height: 18rem;
+  height: 21rem;
   border-radius: 0.5rem;
   color: #000;
 }
 
-.card__img {
-  max-width: 11rem;
+.card__figure {
+  max-height: 164px;
+  &__img {
+    max-width: 11rem;
+  }
 }
 
 header.card__header {
@@ -111,10 +119,11 @@ header.card__header {
 }
 
 section.card__content {
-  display: inline-block;
+  display: flex;
   padding: 0rem 1rem;
   font-size: 1.5rem;
   color: #386637;
+  flex-wrap: nowrap;
   font-weight: bold;
 }
 
@@ -122,7 +131,7 @@ button.card__button {
   display: inline-block;
   margin: 0.7rem 0rem 0rem 3rem;
   padding: 0rem 0.4rem;
-  border-radius: 5rem;
+  border-radius: 1rem;
   background-color: #386637;
   border: 0.5rem solid #386637;
   font-size: 1.5rem;
