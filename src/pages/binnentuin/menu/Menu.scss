@@ -69,9 +69,6 @@ html {
   }
 }
 
-
-
-
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -86,6 +83,7 @@ html {
 article.card {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   flex-wrap: wrap;
   font-family: 'Muli', sans-serif;
   margin-top: 2rem;
@@ -120,6 +118,8 @@ header.card__header {
 
 section.card__content {
   display: flex;
+  align-self: flex-end;
+  margin-bottom: 1rem;
   padding: 0rem 1rem;
   font-size: 1.5rem;
   color: #386637;
@@ -128,10 +128,14 @@ section.card__content {
 }
 
 button.card__button {
-  display: inline-block;
-  margin: 0.7rem 0rem 0rem 3rem;
-  padding: 0rem 0.4rem;
-  border-radius: 1rem;
+  display: flex;
+  align-self: flex-end;
+  margin-bottom: 0.5rem;
+  padding: 0.1rem 0.7rem;
+  height: 50px;
+  width: 50px;
+  margin-right: 1rem;
+  border-radius: 4rem;
   background-color: #386637;
   border: 0.5rem solid #386637;
   font-size: 1.5rem;
