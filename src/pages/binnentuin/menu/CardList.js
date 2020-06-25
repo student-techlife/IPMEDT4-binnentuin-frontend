@@ -2,6 +2,7 @@ import React from "react";
 import Card from "./Card";
 
 import axios from "axios";
+import UrlService from "../../../services/UrlService";
 
 class CardList extends React.Component {
 
@@ -17,7 +18,7 @@ class CardList extends React.Component {
   }
 
   getProductsData() {
-    axios.get(`https://admin.binnentuin.live/api/producten/snacks`, {}).then(res => {
+    axios.get(UrlService.BinnentuinMenu("snacks"), {}).then(res => {
       const data = res.data
       console.log(data)
       const producten = data.map(u =>
