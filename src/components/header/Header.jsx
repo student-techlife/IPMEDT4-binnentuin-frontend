@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo_white from '../../assets/img/logo_white.png';
 import './Header.scss';
-import {Link} from "react-router-dom";
 
 // Font Awesome
 import { faShoppingBasket, faUser } from "@fortawesome/free-solid-svg-icons";
