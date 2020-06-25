@@ -64,7 +64,7 @@ class App extends Component {
         <Switch>
           {guestRoutes.map((route, key) => {
             return (
-              <Route 
+              <Route
                 exact={route.exact}
                 path={route.path}
                 component={route.component}
