@@ -1,5 +1,6 @@
 import React from 'react';
 import Optie from '../Optie/Optie';
+import UrlService from "../../services/UrlService";
 
 import {Link} from "react-router-dom";
 import axios from "axios";
@@ -51,7 +52,7 @@ class OptieList extends React.Component {
         }
 
         // De Binnentuin
-        axios.get(`https://admin.binnentuin.live/api/openingstijden_binnentuin`, {}).then(res => {
+        axios.get(UrlService.BinnentuinOpeningstijden(), {}).then(res => {
             const data = res.data
 
             let status = data[nummer].status
@@ -85,7 +86,7 @@ class OptieList extends React.Component {
         })
 
         // The Roof
-        axios.get(`https://admin.binnentuin.live/api/openingstijden_theroof`, {}).then(res => {
+        axios.get(UrlService.TheRoofOpeningstijden(), {}).then(res => {
             const dataTheRoof = res.data
 
             let status2 = dataTheRoof[nummer].status
