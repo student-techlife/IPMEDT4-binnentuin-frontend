@@ -8,7 +8,9 @@
   //margin-bottom: 40px;
   margin: 40px;
 
-
+  &__link{
+    text-decoration: none;
+  }
 
   .optie {
 
@@ -55,8 +57,13 @@
       }
     }
 
+    &__tijd {
+      text-transform: capitalize;
+    }
+
     > p {
       color: $color_grey;
+      margin-top: 7px;
     }
   }
 
@@ -88,4 +95,5 @@
       }
     }
   }
+<<<<<<< HEAD
 }

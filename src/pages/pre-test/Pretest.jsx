@@ -1,5 +1,6 @@
 import React from "react";
 import './Pretest.scss';
+import {Link} from "react-router-dom";
 
 import Header from "../../components/header/Header";
 
@@ -62,14 +63,14 @@ class PretestPage extends React.Component {
                     </section>
                     <section className=" opties">
                         <Optie title="De Binnentuin"
-                               content="Eetcafé"
-                               id="Binnentuin"
-                               optieClicked={this.onBinnentuinClicked}
+                            content="Eetcafé"
+                            id="Binnentuin"
+                            optieClicked={this.onBinnentuinClicked}
                         />
                         <Optie title="Afhalen"
-                               content=" "
-                               id="Afhalen"
-                               optieClicked={this.onAfhalenClicked}
+                            content=" "
+                            id="Afhalen"
+                            optieClicked={this.onAfhalenClicked}
                         />
                     </section>
                 </article>
@@ -81,19 +82,22 @@ class PretestPage extends React.Component {
                             <span className="pretest__title pretest__title--bold">Covid-19</span></h1>
                         <p className="pretest__subtitle">Als binnentuin zorgen wij ervoor dat: </p>
                         <ul className="pretest__list">
-                            <li className="pretest__listitem"><FontAwesomeIcon className="pretest__list-icon"
-                                                                               icon={faHandsWash}/><p
-                                className="pretest__text">Wassen en ontsmetten onze handen na elke bestelling</p></li>
-                            <li className="pretest__listitem"><FontAwesomeIcon className="pretest__list-icon"
-                                                                               icon={faPeopleArrows}/><p
-                                className="pretest__text">Waarborgen de 1,5 meter afstand</p></li>
-                            <li className="pretest__listitem"><FontAwesomeIcon className="pretest__list-icon"
-                                                                               icon={faPeopleArrows}/><p
-                                className="pretest__text">Serveren en ruimen af op minimaal 1,5 meter afstand</p></li>
-                            <li className="pretest__listitem"><FontAwesomeIcon className="pretest__list-icon"
-                                                                               icon={faSoap}/><p
-                                className="pretest__text">Zorgen voor een grondige reinging van o.a. tafels, stoelen en
-                                menukaarten</p></li>
+                            <li className="pretest__listitem">
+                                <FontAwesomeIcon className="pretest__list-icon" icon={faHandsWash}/>
+                                <p className="pretest__text">Wassen en ontsmetten onze handen na elke bestelling</p>
+                            </li>
+                            <li className="pretest__listitem">
+                                <FontAwesomeIcon className="pretest__list-icon" icon={faPeopleArrows}/>
+                                <p className="pretest__text">Waarborgen de 1,5 meter afstand</p>
+                            </li>
+                            <li className="pretest__listitem">
+                                <FontAwesomeIcon className="pretest__list-icon" icon={faPeopleArrows}/>
+                                <p className="pretest__text">Serveren en ruimen af op minimaal 1,5 meter afstand</p>
+                            </li>
+                            <li className="pretest__listitem">
+                                <FontAwesomeIcon className="pretest__list-icon" icon={faSoap}/>
+                                <p className="pretest__text">Zorgen voor een grondige reinging van o.a. tafels, stoelen en menukaarten</p>
+                            </li>
                         </ul>
                     </section>
                     <section style={{display: this.state.pretest ? 'block' : 'none'}} className="pretest__checklist">
@@ -116,7 +120,7 @@ class PretestPage extends React.Component {
                         </fieldset>
                     </section>
                     <section className="pretest__reserveren"
-                             style={{display: this.state.time ? 'block' : 'none'}}>
+                            style={{display: this.state.time ? 'block' : 'none'}}>
                         <h2 className="pretest__secundarytitle__reserveren">&#8635;<span
                             className="pretest__secundarytitle__reserveren--gold">  Tijd reserveren</span></h2>
                         <p className="pretest__text__reserveren">U kunt een plek in het restaurant reserveren. Dit houdt
@@ -136,7 +140,9 @@ class PretestPage extends React.Component {
                     </section>
                     <section style={{display: this.state.time ? 'block' : 'none'}}>
                         <form className="pretest__button" onSubmit={this.handleSubmit}>
-                            <input className="pretest__button__input" type="submit" value="Reservering bevestigen"/>
+                            <Link to="/binnentuin/menu">
+                                <input className="pretest__button__input" type="submit" value="Reservering bevestigen"/>
+                            </Link>
                         </form>
                     </section>
                 </article>

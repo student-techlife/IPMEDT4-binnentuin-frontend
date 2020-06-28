@@ -17,6 +17,7 @@ class Card extends React.Component {
           </figure>
           <header className="card__header">
             <h2> {this.props.title || "Gerecht met ingredienten xxxx"} </h2>
+            <h2> {this.props.desc || "Gerecht met ingredienten xxxx"} </h2>
           </header>
           <section className="card__content">
             <p> {this.props.content || "Prijs"} </p>
