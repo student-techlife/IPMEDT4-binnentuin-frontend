@@ -124,19 +124,18 @@ class OptieList extends React.Component {
     }
 
     render(){
+        const BinnentuinWrap = ({children}) => this.state.status === 1 ? 
+        <Link className="opties__link" to="/pretest">{children}</Link> : 
+        children;
+
+        const RoofWrap = ({children}) => this.state.status2 === 1 ? 
+        <Link className="opties__link" to="/pretest">{children}</Link> : 
+        children;
+
         return(
             <section className="opties opties--3 container">
-                {this.state.status === 1 ? 
-                    <Link className="opties__link" to="/pretest">
-                        <Optie title="De Binnentuin"
-                            content="Eetcafé"
-                            id="Binnentuin"
-                            status={this.state.status === 1 ? "Geopend:" : "Gesloten"}
-                            openingstijd={this.state.status === 1 ? this.state.openingstijd + " -" : null}
-                            sluitingstijd={this.state.status === 1 ? this.state.sluitingstijd : null}
-                            optieClicked={this.optieClicked}
-                        />
-                    </Link> : 
+
+                <BinnentuinWrap>
                     <Optie title="De Binnentuin"
                         content="Eetcafé"
                         id="Binnentuin"
@@ -145,19 +144,9 @@ class OptieList extends React.Component {
                         sluitingstijd={this.state.status === 1 ? this.state.sluitingstijd : null}
                         optieClicked={this.optieClicked}
                     />
-                }
+                </BinnentuinWrap>
 
-                {this.state.status2 === 1 ? 
-                    <Link className="opties__link" to="/pretest">
-                        <Optie title="The Roof"
-                            content="Daktuin"
-                            id="The Roof"
-                            status={this.state.status2 === 1 ? "Geopend:" : "Gesloten"}
-                            openingstijd={this.state.status2 === 1 ? this.state.openingstijd2 + " -" : null}
-                            sluitingstijd={this.state.status2 === 1 ? this.state.sluitingstijd2 : null}
-                            optieClicked={this.optieClicked}
-                        />
-                    </Link> : 
+                <RoofWrap>
                     <Optie title="The Roof"
                         content="Daktuin"
                         id="The Roof"
@@ -166,7 +155,8 @@ class OptieList extends React.Component {
                         sluitingstijd={this.state.status2 === 1 ? this.state.sluitingstijd2 : null}
                         optieClicked={this.optieClicked}
                     />
-                }
+                </RoofWrap>
+                
             </section>
         );
     }
