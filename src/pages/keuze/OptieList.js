@@ -18,42 +18,73 @@ class OptieList extends React.Component {
     }
 
     getOpeningstijden() {
+        // Vraag de dag op en vertaal die naar een Nederlandse string
+        const dag = new Date().toLocaleString('nl-nl', {  weekday: 'long' });
+
+        // Zet variable nummer naar de index van de huidige dag om in api op te vragen
+        let nummer = 0;
+        switch(dag) {
+            case 'maandag':
+                nummer = 0;
+                break;
+            case 'dinsdag':
+                nummer = 1;
+                break;
+            case 'woensdag':
+                nummer = 2;
+                break;
+            case 'donderdag':
+                nummer = 3;
+                break;
+            case 'vrijdag':
+                nummer = 4;
+                break;
+            case 'zaterdag':
+                nummer = 5;
+                break;
+            case 'zondag':
+                nummer = 6;
+                break;
+            default:
+                nummer = 0;
+                break;
+        }
+
         // De Binnentuin
         axios.get(`https://admin.binnentuin.live/api/openingstijden_binnentuin`, {}).then(res => {
             const data = res.data
-            
-            // Vraag de dag op en vertaal die naar een Nederlandse string
-            const dag = new Date().toLocaleString('nl-nl', {  weekday: 'long' });
 
-            // Zet variable nummer naar de index van de huidige dag om in api op te vragen
-            let nummer = 0;
-            switch(dag) {
-                case 'maandag':
-                    nummer = 0;
-                    break;
-                case 'dinsdag':
-                    nummer = 1;
-                    break;
-                case 'woensdag':
-                    nummer = 2;
-                    break;
-                case 'donderdag':
-                    nummer = 3;
-                    break;
-                case 'vrijdag':
-                    nummer = 4;
-                    break;
-                case 'zaterdag':
-                    nummer = 5;
-                    break;
-                case 'zondag':
-                    nummer = 6;
-                    break;
-            }
-
-            const status = data[nummer].status
+            let status = data[nummer].status
             const openingstijd = data[nummer].openingstijd
             const sluitingstijd = data[nummer].sluitingstijd
+
+            let d = new Date();
+
+            let tijdOpen = openingstijd[0] + openingstijd[1] + openingstijd[3] + openingstijd[4]
+            let tijdDicht = sluitingstijd[0] + sluitingstijd[1] + sluitingstijd[3] + sluitingstijd[4]
+            let tijdEcht = d.getHours().toString() + d.getMinutes().toString();
+
+            console.log(tijdOpen);
+            console.log(tijdDicht);
+            console.log(tijdEcht);
+
+            if (status === 1) { // Als status van huidige dag 1 (OPEN) is
+
+                if(tijdEcht > tijdOpen && tijdEcht < tijdDicht){
+                    console.log("OPEN");
+                } else {
+                    console.log("GESLOTEN");
+                    status = 0;
+                }
+
+            }
+
+            // console.log(d.getHours());
+            // console.log(d.getMinutes());
+            
+            // console.log(openingstijd[0] + openingstijd[1]); //eerste 2 cijfers
+            // console.log(openingstijd[3] + openingstijd[4]); // laatste 2 cijfers
+            
 
             this.setState({
                 status,
@@ -68,38 +99,10 @@ class OptieList extends React.Component {
         // The Roof
         axios.get(`https://admin.binnentuin.live/api/openingstijden_theroof`, {}).then(res => {
             const dataTheRoof = res.data
-            // Vraag de dag op en vertaal die naar een Nederlandse string
-            const dag2 = new Date().toLocaleString('nl-nl', {  weekday: 'long' });
 
-            // Zet variable nummer naar de index van de huidige dag om in api op te vragen
-            let nummer2 = 0;
-            switch(dag2) {
-                case 'maandag':
-                    nummer2 = 0;
-                    break;
-                case 'dinsdag':
-                    nummer2 = 1;
-                    break;
-                case 'woensdag':
-                    nummer2 = 2;
-                    break;
-                case 'donderdag':
-                    nummer2 = 3;
-                    break;
-                case 'vrijdag':
-                    nummer2 = 4;
-                    break;
-                case 'zaterdag':
-                    nummer2 = 5;
-                    break;
-                case 'zondag':
-                    nummer2 = 6;
-                    break;
-            }
-
-            const status2 = dataTheRoof[nummer2].status
-            const openingstijd2 = dataTheRoof[nummer2].openingstijd
-            const sluitingstijd2 = dataTheRoof[nummer2].sluitingstijd
+            const status2 = dataTheRoof[nummer].status
+            const openingstijd2 = dataTheRoof[nummer].openingstijd
+            const sluitingstijd2 = dataTheRoof[nummer].sluitingstijd
 
             this.setState({
                 status2,
@@ -123,9 +126,9 @@ class OptieList extends React.Component {
                     <Optie title="De Binnentuin"
                         content="Eetcafé"
                         id="Binnentuin"
-                        status={this.state.status == 1 ? "Geopend" : "Gesloten"}
-                        openingstijd={this.state.openingstijd}
-                        sluitingstijd={this.state.sluitingstijd}
+                        status={this.state.status === 1 ? "Geopend" + ":" : "Gesloten"}
+                        openingstijd={this.state.status === 1 ? this.state.openingstijd + " -" : ""}
+                        sluitingstijd={this.state.status === 1 ? this.state.sluitingstijd : ""}
                         optieClicked={this.optieClicked}
                     />
                 </Link>
@@ -133,9 +136,9 @@ class OptieList extends React.Component {
                     <Optie title="The Roof"
                         content="Daktuin"
                         id="The Roof"
-                        status={this.state.status2 == 1 ? "Geopend" : "Gesloten"}
-                        openingstijd={this.state.openingstijd2}
-                        sluitingstijd={this.state.sluitingstijd2}
+                        status={this.state.status2 === 1 ? "Geopend" : "Gesloten"}
+                        openingstijd={this.state.status2 === 1 ? this.state.openingstijd2 + " -" : ""}
+                        sluitingstijd={this.state.status2 === 1 ? this.state.sluitingstijd2 : ""}
                         optieClicked={this.optieClicked}
                     />
                 </Link>
