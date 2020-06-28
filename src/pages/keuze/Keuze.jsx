@@ -11,11 +11,6 @@ class KeuzePage extends React.Component {
       console.log(`Gekozen optie: ${id}`);
     }
 
-    componentDidMount() {
-      console.log("Ja");
-      
-    }
-
     render() {
       return(
         <section className="keuze">
