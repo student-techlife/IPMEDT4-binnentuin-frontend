@@ -9,11 +9,11 @@ class Header extends React.Component {
         return(
             <header className="header">
                 <section className="container">
-                  <Link className="opties" to="../keuze/">
-                    <figure className="header__figure">
-                        <img src={logo_white} alt="Logo van Ruben en Jerry's eetcafé de Binnentuin"/>
-                    </figure>
-                  </Link>
+                    <Link to="/keuze">
+                        <figure className="header__figure">
+                            <img src={logo_white} alt="Logo van Ruben en Jerry's eetcafé de Binnentuin"/>
+                        </figure>
+                    </Link>
                 </section>
             </header>
         );
