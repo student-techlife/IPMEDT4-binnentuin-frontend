@@ -66,7 +66,7 @@ class OptieList extends React.Component {
 
             if (status === 1) { // Als status van huidige dag 1 (OPEN) is
 
-                if(tijdEcht > tijdOpen && tijdEcht < tijdDicht){ // Als de echte tijd groter / later is dan openingstijdtijd en kleiner / eerder dan sluitingstijd
+                if(tijdEcht >= tijdOpen && tijdEcht <= tijdDicht){ // Als de echte tijd groter / later is dan openingstijdtijd en kleiner / eerder dan sluitingstijd
                     status = 1; // Status is 1
                 } else {
                     status = 0; // Anders status wordt 0
@@ -100,7 +100,7 @@ class OptieList extends React.Component {
 
             if (status2 === 1) { // Als status van huidige dag 1 (OPEN) is
 
-                if(tijdEcht > tijdOpen && tijdEcht < tijdDicht){ // Als de echte tijd groter / later is dan openingstijdtijd en kleiner / eerder dan sluitingstijd
+                if(tijdEcht >= tijdOpen && tijdEcht <= tijdDicht){ // Als de echte tijd groter / later is dan openingstijdtijd en kleiner / eerder dan sluitingstijd
                     status2 = 1; // Status is 1
                 } else {
                     status2 = 0; // Anders status wordt 0
