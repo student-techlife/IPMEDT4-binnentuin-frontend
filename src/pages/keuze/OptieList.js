@@ -64,27 +64,15 @@ class OptieList extends React.Component {
             let tijdDicht = sluitingstijd[0] + sluitingstijd[1] + sluitingstijd[3] + sluitingstijd[4]
             let tijdEcht = d.getHours().toString() + d.getMinutes().toString();
 
-            console.log(tijdOpen);
-            console.log(tijdDicht);
-            console.log(tijdEcht);
-
             if (status === 1) { // Als status van huidige dag 1 (OPEN) is
 
-                if(tijdEcht > tijdOpen && tijdEcht < tijdDicht){
-                    console.log("OPEN");
+                if(tijdEcht > tijdOpen && tijdEcht < tijdDicht){ // Als de echte tijd groter / later is dan openingstijdtijd en kleiner / eerder dan sluitingstijd
+                    status = 1; // Status is 1
                 } else {
-                    console.log("GESLOTEN");
-                    status = 0;
+                    status = 0; // Anders status wordt 0
                 }
 
             }
-
-            // console.log(d.getHours());
-            // console.log(d.getMinutes());
-            
-            // console.log(openingstijd[0] + openingstijd[1]); //eerste 2 cijfers
-            // console.log(openingstijd[3] + openingstijd[4]); // laatste 2 cijfers
-            
 
             this.setState({
                 status,
@@ -100,9 +88,25 @@ class OptieList extends React.Component {
         axios.get(`https://admin.binnentuin.live/api/openingstijden_theroof`, {}).then(res => {
             const dataTheRoof = res.data
 
-            const status2 = dataTheRoof[nummer].status
+            let status2 = dataTheRoof[nummer].status
             const openingstijd2 = dataTheRoof[nummer].openingstijd
             const sluitingstijd2 = dataTheRoof[nummer].sluitingstijd
+
+            let d = new Date();
+
+            let tijdOpen = openingstijd2[0] + openingstijd2[1] + openingstijd2[3] + openingstijd2[4]
+            let tijdDicht = sluitingstijd2[0] + sluitingstijd2[1] + sluitingstijd2[3] + sluitingstijd2[4]
+            let tijdEcht = d.getHours().toString() + d.getMinutes().toString();
+
+            if (status2 === 1) { // Als status van huidige dag 1 (OPEN) is
+
+                if(tijdEcht > tijdOpen && tijdEcht < tijdDicht){ // Als de echte tijd groter / later is dan openingstijdtijd en kleiner / eerder dan sluitingstijd
+                    status2 = 1; // Status is 1
+                } else {
+                    status2 = 0; // Anders status wordt 0
+                }
+
+            }
 
             this.setState({
                 status2,
@@ -126,7 +130,7 @@ class OptieList extends React.Component {
                     <Optie title="De Binnentuin"
                         content="Eetcafé"
                         id="Binnentuin"
-                        status={this.state.status === 1 ? "Geopend" + ":" : "Gesloten"}
+                        status={this.state.status === 1 ? "Geopend:" : "Gesloten"}
                         openingstijd={this.state.status === 1 ? this.state.openingstijd + " -" : ""}
                         sluitingstijd={this.state.status === 1 ? this.state.sluitingstijd : ""}
                         optieClicked={this.optieClicked}
@@ -136,7 +140,7 @@ class OptieList extends React.Component {
                     <Optie title="The Roof"
                         content="Daktuin"
                         id="The Roof"
-                        status={this.state.status2 === 1 ? "Geopend" : "Gesloten"}
+                        status={this.state.status2 === 1 ? "Geopend:" : "Gesloten"}
                         openingstijd={this.state.status2 === 1 ? this.state.openingstijd2 + " -" : ""}
                         sluitingstijd={this.state.status2 === 1 ? this.state.sluitingstijd2 : ""}
                         optieClicked={this.optieClicked}
