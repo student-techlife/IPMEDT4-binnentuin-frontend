@@ -4,7 +4,6 @@ import './Keuze.scss';
 import Header from "../../components/header/Header"
 import Banner from "../../components/banner/Banner"
 import Footer from "../../components/footer/Footer"
-import Loader from "../../components/loader/Loader"
 import OptieList from "../../pages/keuze/OptieList";
 
 class KeuzePage extends React.Component {
