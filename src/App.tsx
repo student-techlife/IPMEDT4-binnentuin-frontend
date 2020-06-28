@@ -13,6 +13,10 @@ import TijdPage from "./pages/tijd/Tijd";
 import PretestPage from "./pages/pre-test/Pretest";
 import WinkelmandPage from "./pages/winkelmand/winkelmand";
 
+// Winkelmand
+import Home from './components/Home'
+import Cart from './components/Cart'
+
 // Auth
 import Login from "./pages/auth/inloggen";
 import Register from "./pages/auth/registreren";
@@ -25,8 +29,9 @@ interface GuestRouteInterface {
 }
 
 const guestRoutes: Array<GuestRouteInterface> = [
-  { path: "/", component: MainPage, exact: true },
+  { path: "/", component: Home, exact: true },
   { path: "/keuze", component: KeuzePage, exact: true },
+  { path: "/cart", component: Cart, exact: true },
   { path: "/tijd", component: TijdPage, exact: true },
   { path: "/pretest", component: PretestPage, exact: true },
   { path: "/binnentuin/menu", component: MenuPageBinnentuin, exact: true },
