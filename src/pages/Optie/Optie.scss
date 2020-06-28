@@ -57,8 +57,13 @@
       }
     }
 
+    &__tijd {
+      text-transform: capitalize;
+    }
+
     > p {
       color: $color_grey;
+      margin-top: 7px;
     }
   }
 
