@@ -13,9 +13,9 @@ class Footer extends React.Component {
                     <p>2e verdieping PLNT en daktuin</p>
                 </section>
                 <section className="footer__social">
-                    <a href="https://www.instagram.com/de_binnentuin_leiden/" target="_blank"><FontAwesomeIcon icon={faInstagram}/></a>
-                    <a href="https://www.facebook.com/debinnentuin" target="_blank"><FontAwesomeIcon icon={faFacebook}/></a>
-                    <a href="https://twitter.com/DBinnentuin" target="_blank"><FontAwesomeIcon icon={faTwitter}/></a>
+                    <a href="https://www.instagram.com/de_binnentuin_leiden/" target="_blank" rel="noreferrer noopener"><FontAwesomeIcon icon={faInstagram}/></a>
+                    <a href="https://www.facebook.com/debinnentuin" target="_blank" rel="noreferrer noopener"><FontAwesomeIcon icon={faFacebook}/></a>
+                    <a href="https://twitter.com/DBinnentuin" target="_blank" rel="noreferrer noopener"><FontAwesomeIcon icon={faTwitter}/></a>
                 </section>
             </footer>
         );
