@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { addToCart } from './actions/cartActions'
-import Navbar from './Navbar'
+import { connect } from 'react-redux';
+import { addToCart } from './actions/cartActions';
+import Navbar from './Navbar';
 
- class Home extends Component{
+class Home extends Component {
     
-    handleClick = (id)=>{
-        this.props.addToCart(id); 
+    handleClick = (id) => {
+        this.props.addToCart(id);
     }
 
-    render(){
-        let itemList = this.props.items.map(item=>{
-            return(
+    render() {
+        let itemList = this.props.items.map(item => {
+            return (
                 <div className="card" key={item.id}>
                         <div className="card-image">
                             <img src={item.img} alt={item.title}/>
@@ -23,7 +23,7 @@ import Navbar from './Navbar'
                             <p>{item.desc}</p>
                             <p><b>Price: {item.price}$</b></p>
                         </div>
-                 </div>
+                </div>
 
             )
         })
@@ -39,12 +39,12 @@ import Navbar from './Navbar'
         )
     }
 }
-const mapStateToProps = (state)=>{
+const mapStateToProps = (state) => {
     return {
-      items: state.items
+        items: state.items
     }
-  }
-const mapDispatchToProps= (dispatch)=>{
+}
+const mapDispatchToProps= (dispatch) => {
     
     return{
         addToCart: (id)=>{dispatch(addToCart(id))}
