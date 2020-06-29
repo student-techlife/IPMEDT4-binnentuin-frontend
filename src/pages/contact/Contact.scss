@@ -1,0 +1,33 @@
+// Import
+@import '../../assets/scss/var';
+@import '../../assets/scss/default';
+@import url('https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600;700;800;900&display=swap');
+
+.contact {
+  font-family: 'Muli', sans-serif;
+  height: 100vh;
+  position: relative;
+  background-image: url("../../img/background_flower.png");
+  background-position: top center;
+
+  &__content {
+    padding: 26px 20px;
+  }
+
+  &__info {
+    margin-bottom: 30px;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 7px;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    color: $color_darkgrey;
+    margin-bottom: 4px;
+    font-weight: bold;
+  }
+}
