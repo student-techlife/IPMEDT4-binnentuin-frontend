@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-.box{
+/* .box{
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap
@@ -48,4 +48,4 @@ code {
 }
 .item-desc{
   align-self:center;
-}
+} */
