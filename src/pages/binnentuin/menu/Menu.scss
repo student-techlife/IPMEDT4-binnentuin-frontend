@@ -188,10 +188,6 @@ button.card__button {
       font-size: 1.2rem;
     }
   }
-
-  button.card__button {
-    padding: 0.1rem 0.65rem;
-  }
 }
 
 @media screen and (min-width: $bp_laptop) {
@@ -234,9 +230,5 @@ button.card__button {
 
   section.card__content {
     margin-bottom: 0.6rem;
-  }
-
-  button.card__button {
-    padding: 0.2rem 0.6rem;
   }
 }
