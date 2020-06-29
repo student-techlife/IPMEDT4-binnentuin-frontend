@@ -34,11 +34,11 @@ class Winkelmand extends Component {
                             </div>
 
                             <div className="item-desc">
-                                <span className="title">{item.title}</span>
+                                <span className="title">{item.naam}</span>
                                 <p>{item.desc}</p>
-                                <p><b>Price: {item.price}$</b></p>
+                                <p><b>Prijs: {item.prijs}$</b></p>
                                 <p>
-                                    <b>Quantity: {item.quantity}</b>
+                                    <b>Aantal: {item.quantity}</b>
                                 </p>
                                 <div className="add-remove">
                                     <Link to="/winkelmand"><i className="material-icons" onClick={()=>{this.handleAddQuantity(item.id)}}>arrow_drop_up</i></Link>
