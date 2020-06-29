@@ -69,6 +69,10 @@ html {
   }
 }
 
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 
 .card__container {
   display: flex;
@@ -76,24 +80,28 @@ html {
   align-items: center;
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
 article.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
   font-family: 'Muli', sans-serif;
   margin-top: 2rem;
   white-space: nowrap;
   background-color: #fff;
   width: 11rem;
-  height: 18rem;
+  height: 21rem;
   border-radius: 0.5rem;
   color: #000;
 }
 
-.card__img {
-  max-width: 11rem;
+.card__figure {
+  max-height: 164px;
+  &__img {
+    max-width: 11rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
 }
 
 header.card__header {
@@ -111,18 +119,25 @@ header.card__header {
 }
 
 section.card__content {
-  display: inline-block;
+  display: flex;
+  align-self: flex-end;
+  margin-bottom: 1rem;
   padding: 0rem 1rem;
   font-size: 1.5rem;
   color: #386637;
+  flex-wrap: nowrap;
   font-weight: bold;
 }
 
 button.card__button {
-  display: inline-block;
-  margin: 0.7rem 0rem 0rem 3rem;
-  padding: 0rem 0.4rem;
-  border-radius: 5rem;
+  display: flex;
+  align-self: flex-end;
+  margin-bottom: 0.5rem;
+  padding: 0.1rem 0.7rem;
+  height: 50px;
+  width: 50px;
+  margin-right: 1rem;
+  border-radius: 4rem;
   background-color: #386637;
   border: 0.5rem solid #386637;
   font-size: 1.5rem;
@@ -134,4 +149,51 @@ button.card__button {
     color: #386637;
     cursor: pointer;
   }
+}
+
+@media screen and (min-width: $bp_tablet) {
+  .menupage {
+    font-size: 1.8rem;
+  }
+
+  .menu {
+    &__menu {
+      margin-top: 0.8rem;
+
+      &__button {
+        padding: 20px 50px;
+        font-size: 24px;
+      }
+    }
+  }
+
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  article.card {
+    width: 13rem;
+    height: 23rem;
+  }
+
+  .card__figure {
+    max-height: 194px;
+    &__img {
+      max-width: 13rem;
+    }
+  }
+
+  header.card__header {
+    & h2 {
+      font-size: 1.2rem;
+    }
+  }
+
+  button.card__button {
+    padding: 0.1rem 0.65rem;
+  }
+}
+
+@media screen and (min-width: $bp_laptop) {
+
 }
