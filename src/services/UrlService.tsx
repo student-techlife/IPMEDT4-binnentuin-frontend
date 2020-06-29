@@ -12,6 +12,7 @@ class UrlService {
     static BinnentuinMenu(category) { return apiDomain + 'api/producten/' + category; }
     static BinnentuinOpeningstijden() { return apiDomain + 'api/openingstijden_binnentuin'; }
     static TheRoofOpeningstijden() { return apiDomain + 'api/openingstijden_theroof'; }
+    static ReserveerTijden() {return apiDomain + 'api/reserveertijden'; }
 }
 
 export default UrlService;
