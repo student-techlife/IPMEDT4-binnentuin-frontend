@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from 'react-redux';
+import { addToCart } from '../../../components/actions/cartActions';
 
 import './Menu.scss';
 
@@ -14,24 +16,29 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faUtensils, faMortarPestle, faShoppingBasket, faBreadSlice, faBacon} from "@fortawesome/free-solid-svg-icons";
 
 class MenuPage extends React.Component {
+
+    handleClick = (id) => {
+        this.props.addToCart(id);
+    }
+
     cardClicked = (id) => {
-      console.log(`Gekozen gerecht nummer: ${id}`);
+        console.log(`Gekozen gerecht nummer: ${id}`);
     }
 
     cardSaladClicked = (id) => {
-      console.log(`Gekozen gerecht nummer: ${id}`);
+        console.log(`Gekozen gerecht nummer: ${id}`);
     }
 
     cardToastClicked = (id) => {
-      console.log(`Gekozen gerecht nummer: ${id}`);
+        console.log(`Gekozen gerecht nummer: ${id}`);
     }
 
     cardSandwichClicked = (id) => {
-      console.log(`Gekozen gerecht nummer: ${id}`);
+        console.log(`Gekozen gerecht nummer: ${id}`);
     }
 
     cardBagelClicked = (id) => {
-      console.log(`Gekozen gerecht nummer: ${id}`);
+        console.log(`Gekozen gerecht nummer: ${id}`);
     }
 
     render() {
@@ -55,7 +62,7 @@ class MenuPage extends React.Component {
           <section id="snacks" className="menu_title">
             <FontAwesomeIcon className="menu__list-icon" icon={faUtensils}/><h2 className="menu_title--gold">Snacks</h2>
           </section>
-          <CardList cardClicked = {this.cardClicked} />
+          <CardList cardClicked = {this.handleClick} />
 
           <section id="salads" className="menu_title">
             <FontAwesomeIcon className="menu__list-icon" icon={faMortarPestle}/><h2 className="menu_title--gold">Salads</h2>
@@ -84,4 +91,17 @@ class MenuPage extends React.Component {
     }
 }
 
-export default MenuPage;
+const mapStateToProps = (state) => {
+    return {
+        items: state.items
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToCart: (id) => {dispatch(addToCart(id))}
+    }
+}
+
+// export default MenuPage;
+export default connect(mapStateToProps,mapDispatchToProps)(MenuPage);

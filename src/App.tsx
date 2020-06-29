@@ -6,7 +6,7 @@ import { ProtectedRoute } from './components/common/router/protected';
 import axios from 'axios';
 
 // Pages
-import MainPage from "./pages";
+// import MainPage from "./pages";
 import KeuzePage from "./pages/keuze/Keuze";
 import MenuPageBinnentuin from "./pages/binnentuin/menu/Menu";
 import TijdPage from "./pages/tijd/Tijd";
@@ -37,7 +37,7 @@ const guestRoutes: Array<GuestRouteInterface> = [
   { path: "/binnentuin/menu", component: MenuPageBinnentuin, exact: true },
   { path: "/inloggen", component: Login, exact: true },
   { path: "/register", component: Register, exact: true },
-  { path: "/winkelmand", component: WinkelmandPage, exact: true},
+  { path: "/winkelmand", component: WinkelmandPage, exact: true },
 ];
 
 const protectedRoutes: Array<any> = [
