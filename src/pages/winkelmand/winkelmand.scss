@@ -1,45 +1,130 @@
-.box{
+// Import
+@import '../../assets/scss/var';
+@import '../../assets/scss/default';
+@import url('https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600;700;800;900&display=swap');
+
+.shop .shop-item{
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap
+    align-items: center;
 }
 
-.material-icons{
-    font-size: 2.4em;
-    cursor: pointer;
+.winkelmand {
+    font-family: 'Muli', sans-serif;
 }
 
-.card{
-    width: 300px;
+.go-back{
+    margin-top: 20px;
+    transition: margin-left .2s ease;
+
+    &__icon {
+        color: $color_dark;
+        font-size: 1.4em;
+        margin-right: 10px;
+    }
+
+    &:hover {
+        margin-left: -10px;
+    }
 }
 
-.card .card-image .card-title{
-    color: black;
-    font-weight: 400
+.cart {
+    margin-top: 20px;
+
+    &__title {
+        color: $color_dark;
+    }
+
+    &__icon {
+        color: $color_gold;
+    }
+
+    ul {
+        margin-top: 20px;
+
+        li{
+            border-bottom: 2px $color_dark solid;
+            display: flex;
+            padding: 20px 0;
+            position: relative;
+
+            &:last-child {
+                // border-bottom: none;
+            }
+
+            &:nth-child(even) {
+                // background-color: #eee;
+            }
+
+            .shop-item__img > img {
+                border-radius: 10px;
+                max-width: 150px;
+                width: 100%;
+                margin-right: 20px;
+            }
+
+            .shop-item__desc {
+                line-height: 1.5;
+                
+                .shop-item__title {
+                    color: $color_green;
+                    font-weight: 800;
+                    font-size: 1.3em;
+                }
+
+                .shop-item__desc {
+                    font-size: 0.9em;
+                }
+
+                .shop-item__price {
+                    margin: 10px 0;
+                    font-weight: 800;
+                }
+
+                .shop-item__add-remove {
+                    i {
+                        background-color: #eee;
+                        border-radius: 5px;
+                        color: $color_dark;
+                        padding: 2px 10px;
+                        font-size: 0.8em;
+                    }
+                    span {
+                        margin: 0 20px;
+                    }
+                }
+
+                .shop-item__remove {
+                    position: absolute;
+                    top: 15%;
+                    right: 0;
+                    outline: none;
+                    border: none;
+                    background-color: #fff;
+                    color: #aaa;
+                    transition: .2s color ease;
+
+                    &:hover {
+                        color: $color_dark;
+                    }
+                }
+            }
+        }
+    }
 }
 
-.cart{
-    margin-top:40px;
+@media screen and (max-width: $bp_mobile) {
+
+
 }
 
-.collection .collection-item{
-    display: flex;
-}
-
-.collection-item.avatar .title {
-    font-size: 20px;
-    font-weight: 500;
-    color: #ee6e73;
-    display: block;
-    margin-bottom: 20px;
+@media screen and (max-width: 350px) {
     
-}
+    .shop .shop-item{
+        flex-direction: column;
+        align-items: baseline;
+    }
 
-.collection .collection-item img{
-    width: 150px;
-    margin-right: 25px;
-}
-
-.item-desc{
-    align-self:center;
+    .shop-item__remove {
+        top: 8% !important;
+    }
 }

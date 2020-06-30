@@ -8,6 +8,9 @@ import Recipe from '../../components/Recipe';
 import Header from "../../components/header/Header"
 import Footer from "../../components/footer/Footer"
 
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faShoppingBasket, faArrowLeft, faPlus, faMinus, faTimes} from "@fortawesome/free-solid-svg-icons";
+
 import './winkelmand.scss';
 
 class Winkelmand extends Component {
@@ -30,23 +33,21 @@ class Winkelmand extends Component {
             (
                 this.props.items.map(item=>{
                     return (
-                        <li className="collection-item avatar" key={item.id}>
-                            <div className="item-img">
+                        <li className="shop-item avatar" key={item.id}>
+                            <div className="shop-item__img">
                                 <img src={item.img} alt={item.img} className=""/>
                             </div>
 
-                            <div className="item-desc">
-                                <span className="title">{item.naam}</span>
-                                <p>{item.desc}</p>
-                                <p><b>Prijs: {item.prijs}$</b></p>
-                                <p>
-                                    <b>Aantal: {item.quantity}</b>
-                                </p>
-                                <div className="add-remove">
-                                    <Link to="/winkelmand"><i className="material-icons" onClick={()=>{this.handleAddQuantity(item.id)}}>arrow_drop_up</i></Link>
-                                    <Link to="/winkelmand"><i className="material-icons" onClick={()=>{this.handleSubtractQuantity(item.id)}}>arrow_drop_down</i></Link>
+                            <div className="shop-item__desc">
+                                <span className="shop-item__title">{item.naam}</span>
+                                <p className="shop-item__desc">{item.beschrijving}</p>
+                                <p className="shop-item__price">&euro; {item.prijs}</p>
+                                <div className="shop-item__add-remove">
+                                    <Link to="/winkelmand"><i onClick={()=>{this.handleSubtractQuantity(item.id)}}><FontAwesomeIcon icon={faMinus}/></i></Link>
+                                    <span>{item.quantity}</span>
+                                    <Link to="/winkelmand"><i onClick={()=>{this.handleAddQuantity(item.id)}}><FontAwesomeIcon icon={faPlus}/></i></Link>
                                 </div>
-                                <button className="" onClick={()=>{this.handleRemove(item.id)}}>Remove</button>
+                                <button className="shop-item__remove" onClick={()=>{this.handleRemove(item.id)}}><FontAwesomeIcon icon={faTimes}/></button>
                             </div>
                         </li>
                     )
@@ -57,19 +58,25 @@ class Winkelmand extends Component {
                 <p>Niets.</p>
             )
         return(
-            <section>
+            <section className="winkelmand">
                 <Header />
 
                 <main className="container">
-                    <div className="cart">
-                        <h5>Je hebt het volgende in de winkelwagen liggen:</h5>
-                        <ul className="collection">
+                    <nav className="go-back">
+                        <Link to="/binnentuin/menu">
+                            <FontAwesomeIcon className="go-back__icon" icon={faArrowLeft}/>
+                        </Link>
+                    </nav>
+                    <article className="cart">
+                        <h1 className="cart__title"><FontAwesomeIcon className="cart__icon" icon={faShoppingBasket}/> U heeft het volgende in uw winkelwagen liggen:</h1>
+                        
+                        <ul className="shop">
                             {addedItems}
                         </ul>
-                    </div>
+                    </article>
                     <Recipe />
-                    <Footer />
                 </main>
+                    <Footer />
             </section>
         )
     }
