@@ -16,37 +16,6 @@ class ContactPage extends React.Component {
     }
 
     getOpeningstijden() {
-        // Vraag de dag op en vertaal die naar een Nederlandse string
-        const dag = new Date().toLocaleString('nl-nl', {  weekday: 'long' });
-
-        // Zet variable nummer naar de index van de huidige dag om in api op te vragen
-        let nummer = 0;
-        switch(dag) {
-            case 'maandag':
-                nummer = 0;
-                break;
-            case 'dinsdag':
-                nummer = 1;
-                break;
-            case 'woensdag':
-                nummer = 2;
-                break;
-            case 'donderdag':
-                nummer = 3;
-                break;
-            case 'vrijdag':
-                nummer = 4;
-                break;
-            case 'zaterdag':
-                nummer = 5;
-                break;
-            case 'zondag':
-                nummer = 6;
-                break;
-            default:
-                nummer = 0;
-                break;
-        }
 
         // De Binnentuin
         axios.get(UrlService.BinnentuinOpeningstijden(), {}).then(res => {
