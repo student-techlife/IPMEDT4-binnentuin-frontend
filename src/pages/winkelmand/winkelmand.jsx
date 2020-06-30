@@ -8,6 +8,8 @@ import Recipe from '../../components/Recipe';
 import Header from "../../components/header/Header"
 import Footer from "../../components/footer/Footer"
 
+import './winkelmand.scss';
+
 class Winkelmand extends Component {
 
     //to remove the item completely
@@ -29,7 +31,7 @@ class Winkelmand extends Component {
                 this.props.items.map(item=>{
                     return (
                         <li className="collection-item avatar" key={item.id}>
-                            <div className="item-img"> 
+                            <div className="item-img">
                                 <img src={item.img} alt={item.img} className=""/>
                             </div>
 
@@ -44,7 +46,7 @@ class Winkelmand extends Component {
                                     <Link to="/winkelmand"><i className="material-icons" onClick={()=>{this.handleAddQuantity(item.id)}}>arrow_drop_up</i></Link>
                                     <Link to="/winkelmand"><i className="material-icons" onClick={()=>{this.handleSubtractQuantity(item.id)}}>arrow_drop_down</i></Link>
                                 </div>
-                                <button className="waves-effect waves-light btn pink remove" onClick={()=>{this.handleRemove(item.id)}}>Remove</button>
+                                <button className="" onClick={()=>{this.handleRemove(item.id)}}>Remove</button>
                             </div>
                         </li>
                     )
@@ -58,7 +60,7 @@ class Winkelmand extends Component {
             <div className="container">
             <Header />
                 <div className="cart">
-                    <h5>Je hebt besteld:</h5>
+                    <h5>Je hebt het volgende in de winkelwagen liggen:</h5>
                     <ul className="collection">
                         {addedItems}
                     </ul>
