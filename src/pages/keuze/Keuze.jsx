@@ -20,14 +20,6 @@ class KeuzePage extends React.Component {
             <section className="locatie__heading">
               <h1>Welkom bij <span className="locatie__heading--gold">de Binnentuin</span>!</h1>
               <h2>Hoe wil je bestellen?</h2>
-              <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
             </section>
           </article>
 
