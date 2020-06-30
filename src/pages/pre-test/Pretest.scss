@@ -36,7 +36,6 @@
   font-family: 'Muli', sans-serif;
   height: 100vh;
   position: relative;
-  background-image: url("../../assets/img/background_flower.png");
   background-position: top center ;
 
   &__content {
@@ -194,7 +193,7 @@
       text-align: center;
       margin-bottom: 20px;
 }
-  &__button__input{
+  &__button {
     height: 56px;
     width: 100%;
     background-color: $color_gold;
@@ -220,6 +219,13 @@
 
   }
 
+}
+
+.error__message{
+  background-color: #FF6D6D;
+  color: white;
+  padding: 10px;
+  margin-bottom: 20px;
 }
 
 @media screen and (max-width: $bp_tablet){

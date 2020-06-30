@@ -1,9 +1,9 @@
 import React from 'react';
-import Optie from '../Optie/Optie';
 import UrlService from "../../services/UrlService";
 
 import {Link} from "react-router-dom";
 import axios from "axios";
+import Optie from '../Optie/Optie';
 
 class OptieList extends React.Component {
 
