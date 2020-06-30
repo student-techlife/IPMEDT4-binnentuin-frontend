@@ -57,7 +57,7 @@ class PretestPage extends React.Component {
             console.log(pair);
         }
 
-        fetch('http://192.168.1.112:8000/api/pretest', {
+        fetch('https://admin.binnentuin.live/api/pretest', {
             method: 'POST',
             body: data,
         })

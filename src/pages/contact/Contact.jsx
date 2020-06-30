@@ -1,13 +1,7 @@
 import React from "react";
-import {Link} from "react-router-dom";
 
 import Header from "../../components/header/Header";
 import './Contact.scss';
-
-
-import {faCheck, faHandsWash, faPeopleArrows, faSoap} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import Optie from "../Optie/Optie";
 
 
 class ContactPage extends React.Component {
