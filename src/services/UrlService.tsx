@@ -1,4 +1,4 @@
-let apiDomain = 'https://admin.binnentuin.live/'
+let apiDomain = 'http://192.168.1.112:8000/'
 
 // if (process.env.NODE_ENV === 'development') {
 //     apiDomain = 'https://admin.binnentuin.live/';

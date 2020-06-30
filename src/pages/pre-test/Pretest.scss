@@ -221,6 +221,13 @@
 
 }
 
+.error__message{
+  background-color: #FF6D6D;
+  color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
 @media screen and (max-width: $bp_tablet){
   .pretest {
 

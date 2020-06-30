@@ -7,7 +7,7 @@ import axios from "axios";
 
 class ContactPage extends React.Component {
 
-    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -17,11 +17,11 @@ class ContactPage extends React.Component {
 
     getOpeningstijden() {
         // Vraag de dag op en vertaal die naar een Nederlandse string
-        const dag = new Date().toLocaleString('nl-nl', {  weekday: 'long' });
+        const dag = new Date().toLocaleString('nl-nl', {weekday: 'long'});
 
         // Zet variable nummer naar de index van de huidige dag om in api op te vragen
         let nummer = 0;
-        switch(dag) {
+        switch (dag) {
             case 'maandag':
                 nummer = 0;
                 break;
@@ -51,7 +51,7 @@ class ContactPage extends React.Component {
         // De Binnentuin
         axios.get(UrlService.BinnentuinOpeningstijden(), {}).then(res => {
             const data = res.data
-            
+
             // States
             let statusMaandag = data[0].status === 1 ? data[0].openingstijd + ' - ' + data[0].sluitingstijd : 'Gesloten';
             let statusDinsdag = data[1].status === 1 ? data[1].openingstijd + ' - ' + data[1].sluitingstijd : 'Gesloten';
@@ -71,9 +71,9 @@ class ContactPage extends React.Component {
                 statusZondag,
             })
         })
-        .catch((error) => {
-            console.log(error)
-        })
+            .catch((error) => {
+                console.log(error)
+            })
 
         // The Roof
         axios.get(UrlService.TheRoofOpeningstijden(), {}).then(res => {
@@ -98,9 +98,9 @@ class ContactPage extends React.Component {
                 statusRoofZondag,
             })
         })
-        .catch((error) => {
-            console.log(error)
-        })
+            .catch((error) => {
+                console.log(error)
+            })
     }
 
     componentDidMount() {
@@ -113,83 +113,98 @@ class ContactPage extends React.Component {
                 <Header/>
                 <article className="contact__content">
                     <section className="contact__info">
-                        <h1 className="contact__title">
-                            <span className="contact__title">Openingstijden</span></h1>
+                        <h1 className="contact__title">Openingstijden</h1>
                     </section>
-                    <section>
-                        <h3 className="contact__subtitle">Binnentuin</h3>
-                        <table className="table">
-                            <tbody className="table__body">
-                            <tr>
-                                <th className="table__day">Maandag</th>
-                                <td className="table__time">{this.state.statusMaandag}</td>
-                            </tr>
-                            <tr>
-                                <th className="table__day">Dinsdag</th>
-                                <td className="table__time">{this.state.statusDinsdag}</td>
-                            </tr>
-                            <tr>
-                                <th className="table__day">Woensdag</th>
-                                <td className="table__time">{this.state.statusWoensdag}</td>
-                            </tr>
-                            <tr>
-                                <th className="table__day">Donderdag</th>
-                                <td className="table__time">{this.state.statusDonderdag}</td>
-                            </tr>
-                            <tr>
-                                <th className="table__day">Vrijdag</th>
-                                <td className="table__time">{this.state.statusVrijdag}</td>
-                            </tr>
-                            <tr>
-                                <th className="table__day">Zaterdag</th>
-                                <td className="table__time">{this.state.statusZaterdag}</td>
-                            </tr>
-                            <tr>
-                                <th className="table__day">Zondag</th>
-                                <td className="table__time">{this.state.statusZondag}</td>
-                            </tr>
-                            </tbody>
-                        </table>
+                    <div className="contact__openingstijden">
+                        <section>
+                            <h3 className="contact__subtitle">Binnentuin</h3>
+                            <table className="table">
+                                <tbody className="table__body">
+                                <tr>
+                                    <th className="table__day contact__text">Maandag</th>
+                                    <td className="table__time contact__text">{this.state.statusMaandag}</td>
+                                </tr>
+                                <tr>
+                                    <th className="table__day contact__text">Dinsdag</th>
+                                    <td className="table__time contact__text">{this.state.statusDinsdag}</td>
+                                </tr>
+                                <tr>
+                                    <th className="table__day contact__text">Woensdag</th>
+                                    <td className="table__time contact__text">{this.state.statusWoensdag}</td>
+                                </tr>
+                                <tr>
+                                    <th className="table__day contact__text">Donderdag</th>
+                                    <td className="table__time contact__text">{this.state.statusDonderdag}</td>
+                                </tr>
+                                <tr>
+                                    <th className="table__day contact__text">Vrijdag</th>
+                                    <td className="table__time contact__text">{this.state.statusVrijdag}</td>
+                                </tr>
+                                <tr>
+                                    <th className="table__day contact__text">Zaterdag</th>
+                                    <td className="table__time contact__text">{this.state.statusZaterdag}</td>
+                                </tr>
+                                <tr>
+                                    <th className="table__day contact__text">Zondag</th>
+                                    <td className="table__time contact__text">{this.state.statusZondag}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                        <section>
+                            <h3 className="contact__subtitle">The Roof</h3>
+                            <table className="table">
+                                <tbody className="table__body">
+                                <tr>
+                                    <th className="table__day contact__text">Maandag</th>
+                                    <td className="table__time contact__text">{this.state.statusRoofMaandag}</td>
+                                </tr>
+                                <tr>
+                                    <th className="table__day contact__text">Dinsdag</th>
+                                    <td className="table__time contact__text">{this.state.statusRoofDinsdag}</td>
+                                </tr>
+                                <tr>
+                                    <th className="table__day contact__text">Woensdag</th>
+                                    <td className="table__time contact__text">{this.state.statusRoofWoensdag}</td>
+                                </tr>
+                                <tr>
+                                    <th className="table__day contact__text">Donderdag</th>
+                                    <td className="table__time contact__text">{this.state.statusRoofDonderdag}</td>
+                                </tr>
+                                <tr>
+                                    <th className="table__day contact__text">Vrijdag</th>
+                                    <td className="table__time contact__text">{this.state.statusRoofVrijdag}</td>
+                                </tr>
+                                <tr>
+                                    <th className="table__day contact__text">Zaterdag</th>
+                                    <td className="table__time contact__text">{this.state.statusRoofZaterdag}</td>
+                                </tr>
+                                <tr>
+                                    <th className="table__day contact__text">Zondag</th>
+                                    <td className="table__time contact__text">{this.state.statusRoofZondag}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                        <section className="contact__info">
+                            <h1 className="contact__title">Contact</h1>
+                        </section>
+                        <section>
+                            <h3 className="contact__subtitle">Adres</h3>
+                            <p className="contact__text"> Langegracht 70 (2e verdieping en daktuin)</p>
+                            <p className="contact__text"> 2312 NV, Leiden</p>
+                            <p className="contact__text"> kvk: 66755204</p>
+                        </section>
+                    <section className="contact__phone">
+                        <h3 className="contact__subtitle">Telefoonnummer</h3>
+                        <p className="contact__text"> 06-81278152</p>
                     </section>
-                    <section>
-                        <h3 className="contact__subtitle">The Roof</h3>
-                        <table className="table">
-                            <tbody className="table__body">
-                            <tr>
-                                <th className="table__day">Maandag</th>
-                                <td className="table__time">{this.state.statusRoofMaandag}</td>
-                            </tr>
-                            <tr>
-                                <th className="table__day">Dinsdag</th>
-                                <td className="table__time">{this.state.statusRoofDinsdag}</td>
-                            </tr>
-                            <tr>
-                                <th className="table__day">Woensdag</th>
-                                <td className="table__time">{this.state.statusRoofWoensdag}</td>
-                            </tr>
-                            <tr>
-                                <th className="table__day">Donderdag</th>
-                                <td className="table__time">{this.state.statusRoofDonderdag}</td>
-                            </tr>
-                            <tr>
-                                <th className="table__day">Vrijdag</th>
-                                <td className="table__time">{this.state.statusRoofVrijdag}</td>
-                            </tr>
-                            <tr>
-                                <th className="table__day">Zaterdag</th>
-                                <td className="table__time">{this.state.statusRoofZaterdag}</td>
-                            </tr>
-                            <tr>
-                                <th className="table__day">Zondag</th>
-                                <td className="table__time">{this.state.statusRoofZondag}</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </section>
+
                 </article>
             </section>
-        );
+    );
     }
-}
+    }
 
-export default ContactPage;
+    export default ContactPage;

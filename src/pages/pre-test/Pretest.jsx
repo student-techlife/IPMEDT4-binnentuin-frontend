@@ -8,7 +8,8 @@ import Optie from "../Optie/Optie";
 
 import axios from "axios";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCheck, faHandsWash, faPeopleArrows, faSoap} from "@fortawesome/free-solid-svg-icons";
+import {faCheck, faHandsWash, faHistory, faPeopleArrows, faSoap} from "@fortawesome/free-solid-svg-icons";
+import logo_white from "../../assets/img/logo_white.png";
 
 class PretestPage extends React.Component {
     constructor(props) {
@@ -22,7 +23,8 @@ class PretestPage extends React.Component {
             time: null,
             persons: null,
             pretestComponent: false,
-            timeComponent: false
+            timeComponent: false,
+            error: null
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -79,9 +81,18 @@ class PretestPage extends React.Component {
         event.preventDefault();
         const data = new FormData(event.target);
 
+        console.log(data);
+
         axios.post(UrlService.StorePretestSubmission(), data)
             .then(data => {
                 // Todo: error handeling als er een error is.
+                console.log(data);
+            })
+            .catch(error => {
+                const data = JSON.parse(error.request.response);
+                this.setState({
+                    error: data.message
+                })
             })
     }
 
@@ -95,16 +106,18 @@ class PretestPage extends React.Component {
                         <p className="choice__text">Komt u gezellig zitten in ons met planten gevulde café om heerlijk te lunchen of te genieten van fantastische koffie? Het is ook mogelijk om uw bestelling slechts af te halen om vanuit huis of kantoor te genieten van bijvoorbeeld onze wisselende daghap.</p>
                     </section>
                     <section className="container opties">
-                        <Optie title="De Binnentuin"
-                               content="Eetcafé"
-                               id="Binnentuin"
-                               optieClicked={this.onBinnentuinClicked}
-                        />
-                        <Optie title="Afhalen"
-                               content=" "
-                               id="Afhalen"
-                               optieClicked={this.onAfhalenClicked}
-                        />
+                        <article className="optie">
+                            <section className="optie__knop"  onClick = {this.onBinnentuinClicked}>
+                                <p>Eetcafé</p>
+                                <img src={logo_white} alt="Logo van Ruben en Jerry's eetcafé de Binnentuin"/>
+                            </section>
+                        </article>
+                        <article className="optie">
+                            <section className="optie__knop"
+                                     onClick = {this.onAfhalenClicked}>
+                                <h2>Afhalen</h2>
+                            </section>
+                        </article>
                     </section>
                 </article>
 
@@ -146,6 +159,7 @@ class PretestPage extends React.Component {
                                    id="persons"
                                    value={this.state.persons}
                                    onChange={this.onPersonsChanged}/>
+                            {this.state.error && this.state.error.persons ? <p className="error__message">{this.state.error.persons}</p> : null}
                             <p className="pretest__text">Heeft u of een huisgenoot last gehad van hoesten,
                                 neusverkoudheid,
                                 benauwdheidsklachten of koorts vanaf 38 graden?</p>
@@ -162,6 +176,7 @@ class PretestPage extends React.Component {
                                         icon={faCheck}/></label>
                                     <label className="pretest__checkbox-label" htmlFor="ja">Ja</label>
                                 </div>
+                                {this.state.error && this.state.error.symptoms ? <p className="error__message">{this.state.error.symptoms}</p> : null}
                                 <div className="pretest__checkbox-field">
                                     <input checked={this.state.symptoms === "0"}
                                            onChange={this.onSymptomsChanged}
@@ -199,8 +214,9 @@ class PretestPage extends React.Component {
                                     ))}
                                 </select>
                             </label>
+                            {this.state.error && this.state.error.symptoms ? <p className="error__message">{this.state.error.symptoms}</p> : null}
                         </section>
-                        <input type='submit' className="pretest__button" style={{display: this.state.time ? 'block' : 'none'}}/>
+                        <input type='submit' className="pretest__button" style={{display: this.state.timeComponent ? 'block' : 'none'}}/>
                     </form>
                 </article>
             </section>
