@@ -32,7 +32,7 @@ const guestRoutes: Array<GuestRouteInterface> = [
   { path: "/binnentuin/menu", component: MenuPageBinnentuin, exact: true },
   { path: "/inloggen", component: Login, exact: true },
   { path: "/register", component: Register, exact: true },
-  { path: "/winkelmand", component: WinkelmandPage, exact: true},
+  { path: "/winkelmand", component: WinkelmandPage, exact: true },
 ];
 
 const protectedRoutes: Array<any> = [
