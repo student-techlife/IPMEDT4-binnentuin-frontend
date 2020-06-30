@@ -4,8 +4,8 @@ import {Link} from "react-router-dom";
 
 import Header from "../../components/header/Header";
 
-import {faCheck, faHandsWash, faPeopleArrows, faSoap} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCheck, faHandsWash, faPeopleArrows, faSoap, faHistory, faClipboard} from "@fortawesome/free-solid-svg-icons";
 import Optie from "../Optie/Optie";
 
 
@@ -59,9 +59,10 @@ class PretestPage extends React.Component {
                 <Header/>
                 <article className="choice__content">
                     <section>
-                        <p className="choice__subtitle">Wilt u uw eten afhalen of op locatie eten</p>
+                        <h1 className="choice__subtitle">Wilt u uw eten afhalen of op locatie eten?</h1>
+                        <p className="choice__text">Komt u gezellig zitten in ons met planten gevulde café om heerlijk te lunchen of te genieten van fantastische koffie? Het is ook mogelijk om uw bestelling slechts af te halen om vanuit huis of kantoor te genieten van bijvoorbeeld onze wisselende daghap.</p>
                     </section>
-                    <section className=" opties">
+                    <section className="container opties">
                         <Optie title="De Binnentuin"
                             content="Eetcafé"
                             id="Binnentuin"
@@ -101,7 +102,7 @@ class PretestPage extends React.Component {
                         </ul>
                     </section>
                     <section style={{display: this.state.pretest ? 'block' : 'none'}} className="pretest__checklist">
-                        <h2 className="pretest__secundarytitle">Checklist</h2>
+                        <h2 className="pretest__secundarytitle"><span className="pretest__secundarytitle--icon"><FontAwesomeIcon icon={faClipboard}/></span> Checklist</h2>
                         <p className="pretest__text">Met hoeveel personen wilt u komen?</p>
                         <input className="pretest__amount" type="numeric" placeholder="1"/>
                         <p className="pretest__text">Heeft u of een huisgenoot last gehad van hoesten, neusverkoudheid,
@@ -121,8 +122,8 @@ class PretestPage extends React.Component {
                     </section>
                     <section className="pretest__reserveren"
                             style={{display: this.state.time ? 'block' : 'none'}}>
-                        <h2 className="pretest__secundarytitle__reserveren">&#8635;<span
-                            className="pretest__secundarytitle__reserveren--gold">  Tijd reserveren</span></h2>
+                        <h2 className="pretest__secundarytitle__reserveren"><FontAwesomeIcon icon={faHistory}/><span
+                            className="pretest__secundarytitle__reserveren--gold"> Tijd reserveren</span></h2>
                         <p className="pretest__text__reserveren">U kunt een plek in het restaurant reserveren. Dit houdt
                             in dat er een
                             plek vrijgehouden wordt gedurende het gekozen tijdstip. Op locatie kunt u uw stoel/ tafel
