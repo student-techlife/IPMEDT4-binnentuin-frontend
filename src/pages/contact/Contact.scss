@@ -12,8 +12,9 @@
   &__content {
     padding: 26px 20px;
   }
-
+  
   &__info {
+    margin-top: 30px;
     margin-bottom: 20px;
   }
 
@@ -40,20 +41,54 @@
 
   &__openingstijden{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-bottom: 36px;
   }
-
+  
   &__phone{
     margin-top: 20px;
   }
-
+  
 }
 
 .table{
+  margin-right: 80px;
 
+  &:nth-last-child() {
+    margin-right: 0px;
+  }
+  
   &__day{
     text-align: left;
     padding-right: 20px;
   }
+}
+
+@media screen and (max-width: $bp_tablet){
+  .table {
+    margin-right: 0px;
+  }
+}
+
+@media screen and (max-width: 505px){
+  .contact {
+
+    &__openingstijden {
+      flex-direction: column;
+    }
+
+    &__theroof {
+      margin-top: 20px;
+    }
+
+  }
+
+  .table {
+    // margin-top: 20px;
+
+    &:nth-last-child() {
+      margin: 0;
+    }
+  }
+
 }

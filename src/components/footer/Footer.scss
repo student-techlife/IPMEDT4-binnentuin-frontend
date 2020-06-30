@@ -4,6 +4,17 @@
     text-align: center;
     padding: 40px;
 
+    &__link {
+        color: $color_green;
+        text-decoration: none;
+        line-height: 2.5;
+        transition: .2s color ease;
+
+        &:hover {
+            color: $color_dark;
+        }
+    }
+
     &__adres {
         font-size: 1em;
         color: $color_grey;

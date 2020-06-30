@@ -1,5 +1,6 @@
 import React from "react";
 import './Footer.scss';
+import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faInstagram , faFacebook , faTwitter } from '@fortawesome/free-brands-svg-icons';
 
@@ -8,6 +9,9 @@ class Footer extends React.Component {
     render() {
         return(
             <footer className="footer">
+                <section>
+                    <Link className="footer__link" to="/contact">Contact</Link>
+                </section>
                 <section className="footer__adres">
                     <p>Langegracht 70, Leiden</p>
                     <p>2e verdieping PLNT en daktuin</p>
