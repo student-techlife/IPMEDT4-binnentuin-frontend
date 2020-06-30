@@ -41,7 +41,6 @@ const protectedRoutes: Array<any> = [
   { path: "/dashboard", component: Dashboard, exact: true },
 ];
 
-// const VPS = process.env.REACT_APP_URL_VPS
 class App extends Component {
   // Onderstaand dient als test om te zien of de backend nog altijd te benaderen is
   componentDidMount() {
@@ -53,17 +52,6 @@ class App extends Component {
 
   render() {
     return (
-      // <Router>
-      //   <Switch>
-      //     <Route exact path="/" component={MainPage} />
-      //     <Route exact path="/keuze" component={KeuzePage} />
-      //     <Route exact path="/inloggen" component={Login} />
-      //     <Route exact path="/register" component={Register} />
-      //     <Route exact path="/dashboard" component={Dashboard} />
-      //     {/* Onderstaand verwijst naar backend side */}
-      //     <Route path="/system" />
-      //   </Switch>
-      // </Router>
       <BrowserRouter>
         <Switch>
           {guestRoutes.map((route, key) => {

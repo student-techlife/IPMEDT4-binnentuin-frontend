@@ -2,50 +2,83 @@ import React from "react";
 import './Pretest.scss';
 
 import Header from "../../components/header/Header";
-
-import {faCheck, faHandsWash, faPeopleArrows, faSoap} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import UrlService from "../../services/UrlService";
 import Optie from "../Optie/Optie";
 
+
+import axios from "axios";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCheck, faHandsWash, faPeopleArrows, faSoap, faHistory, faClipboard} from "@fortawesome/free-solid-svg-icons";
 
 class PretestPage extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
+            value: 'hallo',
+            alles: [],
             activeTijd: '12:00-12:30',
-            tijden: [{id: "1", tijd: '12:00-12:30'},
-                {id: "2", tijd: '12:30-13:00'},
-                {id: "3", tijd: '13:00-13:30'},
-            ],
-            pretest: false,
-            time: false
+            symptoms: "0",
+            time: null,
+            persons: null,
+            pretestComponent: false,
+            timeComponent: false
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onBinnentuinClicked = this.onBinnentuinClicked.bind(this);
         this.onAfhalenClicked = this.onAfhalenClicked.bind(this);
+        this.onTimeChanged = this.onTimeChanged.bind(this);
+        this.onSymptomsChanged = this.onSymptomsChanged.bind(this);
+        this.onPersonsChanged = this.onPersonsChanged.bind(this);
     }
+
+    componentDidMount() {
+      axios.get(UrlService.ReserveerTijden(), {}).then(res => {
+          const alles = res.data;
+          let time = alles[0].openingstijd + " - " + alles[0].sluitingstijd;
+          this.setState({ alles, time });
+      })
+    }
+
+      // handleChange = event => {
+      //   this.setState({ value: event.target.value });
+      // };
+
 
     onBinnentuinClicked(event) {
         this.setState({
-            pretest: true,
-            time: true
+            pretestComponent: true,
+            timeComponent: true
         })
     }
 
     onAfhalenClicked(event) {
         this.setState({
-            pretest: false,
-            time: true
+            pretestComponent: false,
+            timeComponent: true
         })
-
-
     }
 
-    handleChange = event => {
-        this.setState({activeTijd: event.target.value});
+    onPersonsChanged(event) {
+        this.setState({
+            persons: event.target.value
+        })
     }
+
+    onSymptomsChanged(event) {
+        this.setState({
+            symptoms: event.target.value
+        })
+    }
+
+    onTimeChanged(event) {
+        this.setState({
+            time: event.target.value
+        })
+    }
+
+
 
     handleSubmit = event => {
         event.preventDefault();
@@ -53,18 +86,13 @@ class PretestPage extends React.Component {
 
         // Todo: data.set(..., ...);
         for (var pair of data.entries()) {
-            console.log(pair);
+            // console.log(pair);
         }
 
-        fetch('https://admin.binnentuin.live/api/pretest', {
-            method: 'POST',
-            body: data,
-        })
-            .then(response => response.json())
+        axios.post(UrlService.StorePretestSubmission(), data)
             .then(data => {
                 // Todo: error handeling als er een error is.
-                console.log(data);
-            });
+            })
     }
 
     render() {
@@ -73,9 +101,10 @@ class PretestPage extends React.Component {
                 <Header/>
                 <article className="choice__content">
                     <section>
-                        <p className="choice__subtitle">Wilt u uw eten afhalen of op locatie eten</p>
+                        <h1 className="choice__subtitle">Wilt u uw eten afhalen of op locatie eten?</h1>
+                        <p className="choice__text">Komt u gezellig zitten in ons met planten gevulde café om heerlijk te lunchen of te genieten van fantastische koffie? Het is ook mogelijk om uw bestelling slechts af te halen om vanuit huis of kantoor te genieten van bijvoorbeeld onze wisselende daghap.</p>
                     </section>
-                    <section className=" opties">
+                    <section className="container opties">
                         <Optie title="De Binnentuin"
                                content="Eetcafé"
                                id="Binnentuin"
@@ -91,7 +120,7 @@ class PretestPage extends React.Component {
 
                 <article className="pretest__content">
                     <form onSubmit={this.handleSubmit}>
-                        <section style={{display: this.state.pretest ? 'block' : 'none'}} className="pretest__info">
+                        <section style={{display: this.state.pretestComponent ? 'block' : 'none'}} className="pretest__info">
                             <h1 className="prestest__title">
                                 <span className="pretest__title pretest__title--normal">Pré controle</span>
                                 <span className="pretest__title pretest__title--bold">Covid-19</span></h1>
@@ -116,25 +145,40 @@ class PretestPage extends React.Component {
                                 </li>
                             </ul>
                         </section>
-                        <section style={{display: this.state.pretest ? 'block' : 'none'}}
+                        <section style={{display: this.state.pretestComponent ? 'block' : 'none'}}
                                  className="pretest__checklist">
                             <h2 className="pretest__secundarytitle">Checklist</h2>
                             <p className="pretest__text">Met hoeveel personen wilt u komen?</p>
-                            <input className="pretest__amount" type="numeric" placeholder="1" value="1" name="persons"
-                                   id="persons"/>
+                            <input className="pretest__amount"
+                                   type="numeric"
+                                   placeholder="1"
+                                   name="persons"
+                                   id="persons"
+                                   value={this.state.persons}
+                                   onChange={this.onPersonsChanged}/>
                             <p className="pretest__text">Heeft u of een huisgenoot last gehad van hoesten,
                                 neusverkoudheid,
                                 benauwdheidsklachten of koorts vanaf 38 graden?</p>
                             <fieldset className="pretest__checkboxes">
                                 <div className="pretest__checkbox-field">
-                                    <input id="ja" className="pretest__checkbox" name="symptoms" type="radio"
+                                    <input id="ja"
+                                           className="pretest__checkbox"
+                                           name="symptoms"
+                                           checked={this.state.symptoms === "1"}
+                                           onChange={this.onSymptomsChanged}
+                                           type="radio"
                                            value="1"/>
                                     <label className="pretest__checkbox-box" htmlFor="ja"><FontAwesomeIcon
                                         icon={faCheck}/></label>
                                     <label className="pretest__checkbox-label" htmlFor="ja">Ja</label>
                                 </div>
                                 <div className="pretest__checkbox-field">
-                                    <input checked id="nee" className="pretest__checkbox" name="symptoms" type="radio"
+                                    <input checked={this.state.symptoms === "0"}
+                                           onChange={this.onSymptomsChanged}
+                                           id="nee"
+                                           className="pretest__checkbox"
+                                           name="symptoms"
+                                           type="radio"
                                            value="0"/>
                                     <label className="pretest__checkbox-box" htmlFor="nee"><FontAwesomeIcon
                                         icon={faCheck}/></label>
@@ -143,7 +187,7 @@ class PretestPage extends React.Component {
                             </fieldset>
                         </section>
                         <section className="pretest__reserveren"
-                                 style={{display: this.state.time ? 'block' : 'none'}}>
+                                 style={{display: this.state.timeComponent ? 'block' : 'none'}}>
                             <h2 className="pretest__secundarytitle__reserveren">&#8635;<span
                                 className="pretest__secundarytitle__reserveren--gold">  Tijd reserveren</span></h2>
                             <p className="pretest__text__reserveren">U kunt een plek in het restaurant reserveren. Dit
@@ -153,17 +197,20 @@ class PretestPage extends React.Component {
                                 tafel
                                 kiezen.</p>
                             <label>
-                                <select className="pretest__dropdown" value={this.state.activeTijd}
-                                        onChange={this.handleChange} name="reservation_time" id="reservation_time">
-                                    {this.state.tijden.map(tijd => (
-                                        <option key={tijd.id} value={tijd.tijd}>
-                                            {tijd.tijd}
+                                <select className="pretest__dropdown"
+                                        value={this.state.time}
+                                        onChange={this.onTimeChanged}
+                                        name="reservation_time"
+                                        id="reservation_time">
+                                    {this.state.alles.map(tijd => (
+                                        <option key={tijd.id} value={tijd.openingstijd + " - " + tijd.sluitingstijd}>
+                                            {tijd.openingstijd + " - " + tijd.sluitingstijd}
                                         </option>
                                     ))}
                                 </select>
                             </label>
                         </section>
-                        <input type='submit' style={{display: this.state.time ? 'block' : 'none'}}/>
+                        <input type='submit' className="pretest__button" style={{display: this.state.time ? 'block' : 'none'}}/>
                     </form>
                 </article>
             </section>
