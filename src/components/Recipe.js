@@ -19,20 +19,15 @@ class Recipe extends Component {
 
     render() {
         return (
-            <div className="container">
-                <div className="collection">
-                    {/* <li className="collection-item">
-                        <label>
-                            <input type="checkbox" ref="shipping" onChange= {this.handleChecked} />
-                            <span>Shipping(+6$)</span>
-                        </label>
-                    </li> */}
-                    <li className="collection-item"><b>Totaal: € {this.props.total}</b></li>
-                </div>
-                    <div className="checkout">
-                        <button className="waves-effect waves-light btn">Afrekenen</button>
-                    </div>
-                </div>
+            <section>
+                <article className="total-price">
+                    <p className="total-price__item">Totaal:</p>
+                    <p className="total-price__item">&euro; {this.props.total}</p>
+                </article>
+                <article className="checkout">
+                    <button className="checkout__button">Afrekenen</button>
+                </article>
+            </section>
         )
     }
 }

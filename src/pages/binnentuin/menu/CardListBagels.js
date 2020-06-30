@@ -27,7 +27,7 @@ class CardListBagels extends React.Component {
               content={"€" + u.prijs}
               buttonText="+"
               id={u.id}
-              img="https://drazero.nl/binnentuin/1.jpg"
+              img={u.img}
               cardClicked={this.cardBagelClicked}
               key={u.id}
         />
