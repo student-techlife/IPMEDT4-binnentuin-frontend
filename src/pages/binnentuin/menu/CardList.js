@@ -27,7 +27,7 @@ class CardList extends React.Component {
               content={"€" + u.prijs}
               buttonText="+"
               id={u.id}
-              img="https://www.thuisbezorgd.nl/blog/wp-content/uploads/2019/04/bibimbap-eten-vanavond.png"
+              img={u.img}
               cardClicked={this.cardClicked}
               key={u.id}
         />
