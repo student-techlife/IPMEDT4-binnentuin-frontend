@@ -1,32 +1,42 @@
 import React from "react";
 import './Pretest.scss';
-import {Link} from "react-router-dom";
-
 import Header from "../../components/header/Header";
-
-import {faCheck, faHandsWash, faPeopleArrows, faSoap} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import UrlService from "../../services/UrlService";
 import Optie from "../Optie/Optie";
 
+
+import {Link} from "react-router-dom";
+import axios from "axios";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCheck, faHandsWash, faPeopleArrows, faSoap, faHistory, faClipboard} from "@fortawesome/free-solid-svg-icons";
 
 class PretestPage extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            activeTijd: '12:00-12:30',
-            tijden: [{id: "1", tijd: '12:00-12:30'},
-                {id: "2", tijd: '12:30-13:00'},
-                {id: "3", tijd: '13:00-13:30'},
-            ],
-            pretest: false,
-            time: false
+          value: 'hallo',
+          alles: [],
+          pretest: false,
+          time: false
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onBinnentuinClicked = this.onBinnentuinClicked.bind(this);
         this.onAfhalenClicked = this.onAfhalenClicked.bind(this);
     }
+
+    componentDidMount() {
+      axios.get(UrlService.ReserveerTijden(), {}).then(res => {
+          const alles = res.data;
+          this.setState({ alles });
+      })
+    }
+ 
+      handleChange = event => {
+        this.setState({ value: event.target.value });
+      };
+
 
     onBinnentuinClicked(event) {
         this.setState({
@@ -40,12 +50,6 @@ class PretestPage extends React.Component {
             pretest: false,
             time: true
         })
-
-
-    }
-
-    handleChange = event => {
-        this.setState({activeTijd: event.target.value});
     }
 
     handleSubmit = event => {
@@ -74,9 +78,10 @@ class PretestPage extends React.Component {
                 <Header/>
                 <article className="choice__content">
                     <section>
-                        <p className="choice__subtitle">Wilt u uw eten afhalen of op locatie eten</p>
+                        <h1 className="choice__subtitle">Wilt u uw eten afhalen of op locatie eten?</h1>
+                        <p className="choice__text">Komt u gezellig zitten in ons met planten gevulde café om heerlijk te lunchen of te genieten van fantastische koffie? Het is ook mogelijk om uw bestelling slechts af te halen om vanuit huis of kantoor te genieten van bijvoorbeeld onze wisselende daghap.</p>
                     </section>
-                    <section className=" opties">
+                    <section className="container opties">
                         <Optie title="De Binnentuin"
                                content="Eetcafé"
                                id="Binnentuin"

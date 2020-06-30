@@ -151,11 +151,36 @@ button.card__button {
   }
 }
 
+@media screen and (max-width: 357px){
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 383px){
+  article.card {
+    width: 10.5rem;
+    height: 23rem;
+  }
+
+  .card__figure {
+    &__img {
+      max-width: 10.5rem;
+    }
+  }
+
+}
+
 @media screen and (min-width: $bp_tablet) {
   .menupage {
     font-size: 1.8rem;
     .header {
       font-size: 1rem;
+    }
+
+    .footer {
+      font-size: 1rem;
+      line-height: 1.2rem;
     }
   }
 
@@ -170,19 +195,23 @@ button.card__button {
     }
   }
 
+  .menu_title--gold {
+    font-size: 2rem;
+  }
+
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
 
   article.card {
-    width: 13rem;
+    width: 12rem;
     height: 23rem;
   }
 
   .card__figure {
     max-height: 194px;
     &__img {
-      max-width: 13rem;
+      max-width: 12rem;
     }
   }
 
@@ -193,7 +222,7 @@ button.card__button {
   }
 }
 
-@media screen and (min-width: $bp_laptop) {
+@media screen and (min-width: 1500px) {
 
   .menu {
     &__menu {
@@ -210,6 +239,10 @@ button.card__button {
     }
   }
 
+  .menu_title--gold {
+    font-size: 2rem;
+  }
+
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -224,7 +257,7 @@ button.card__button {
   .card__figure {
     max-height: 164px;
     &__img {
-      max-width: 11rem;
+      max-width: 10.22rem;
       border-top-left-radius: 0.5rem;
       border-top-right-radius: 0rem;
       border-bottom-left-radius: 0.5rem;
@@ -238,6 +271,59 @@ button.card__button {
   header.card__header {
     & h2 {
       font-size: 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1920px) {
+
+  .menu {
+    &__menu {
+      overflow-x: hidden;
+
+      &__button {
+        padding: 20px 50px;
+        font-size: 24px;
+
+        &.first {
+          margin-left: 28rem;
+        }
+      }
+    }
+  }
+
+  .menu_title--gold {
+    font-size: 2rem;
+  }
+
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  article.card {
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 32rem;
+    height: 10.25rem;
+  }
+
+  .card__figure {
+    max-height: 164px;
+    &__img {
+      max-width: 10.25rem;
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0rem;
+      border-bottom-left-radius: 0.5rem;
+    }
+  }
+
+  section.card__content {
+    margin-bottom: 0.6rem;
+  }
+
+  header.card__header {
+    & h2 {
+      font-size: 1.1rem;
     }
   }
 }
