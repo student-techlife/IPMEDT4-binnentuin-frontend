@@ -27,7 +27,7 @@ class CardList extends React.Component {
               content={"€" + u.prijs}
               buttonText="+"
               id={u.id}
-              img={u.img}
+              img="https://drazero.nl/binnentuin/1.jpg"
               cardClicked={this.cardClicked}
               key={u.id}
         />
