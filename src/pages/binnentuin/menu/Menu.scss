@@ -151,6 +151,26 @@ button.card__button {
   }
 }
 
+@media screen and (max-width: 357px){
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 383px){
+  article.card {
+    width: 10.5rem;
+    height: 23rem;
+  }
+
+  .card__figure {
+    &__img {
+      max-width: 10.5rem;
+    }
+  }
+
+}
+
 @media screen and (min-width: $bp_tablet) {
   .menupage {
     font-size: 1.8rem;
@@ -184,14 +204,14 @@ button.card__button {
   }
 
   article.card {
-    width: 13rem;
+    width: 12rem;
     height: 23rem;
   }
 
   .card__figure {
     max-height: 194px;
     &__img {
-      max-width: 13rem;
+      max-width: 12rem;
     }
   }
 
@@ -202,7 +222,7 @@ button.card__button {
   }
 }
 
-@media screen and (min-width: $bp_laptop) {
+@media screen and (min-width: 1500px) {
 
   .menu {
     &__menu {
@@ -237,7 +257,7 @@ button.card__button {
   .card__figure {
     max-height: 164px;
     &__img {
-      max-width: 11rem;
+      max-width: 10.22rem;
       border-top-left-radius: 0.5rem;
       border-top-right-radius: 0rem;
       border-bottom-left-radius: 0.5rem;
@@ -290,7 +310,7 @@ button.card__button {
   .card__figure {
     max-height: 164px;
     &__img {
-      max-width: 11rem;
+      max-width: 10.25rem;
       border-top-left-radius: 0.5rem;
       border-top-right-radius: 0rem;
       border-bottom-left-radius: 0.5rem;
