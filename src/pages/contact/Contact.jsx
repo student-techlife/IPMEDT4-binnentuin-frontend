@@ -2,6 +2,7 @@ import React from "react";
 import UrlService from "../../services/UrlService";
 
 import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
 import './Contact.scss';
 import axios from "axios";
 
@@ -80,7 +81,7 @@ class ContactPage extends React.Component {
         return (
             <section className="contact">
                 <Header/>
-                <article className="contact__content">
+                <article className="contact__content container">
                     <section className="contact__info">
                         <h1 className="contact__title">Openingstijden</h1>
                     </section>
@@ -120,7 +121,7 @@ class ContactPage extends React.Component {
                                 </tbody>
                             </table>
                         </section>
-                        <section>
+                        <section className="contact__theroof">
                             <h3 className="contact__subtitle">The Roof</h3>
                             <table className="table">
                                 <tbody className="table__body">
@@ -170,6 +171,7 @@ class ContactPage extends React.Component {
                         <p className="contact__text"> 06-81278152</p>
                     </section>
                 </article>
+                <Footer />
             </section>
         );
     }
