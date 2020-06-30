@@ -130,7 +130,7 @@ class OptieList extends React.Component {
         children;
 
         const RoofWrap = ({children}) => this.state.status2 === 1 ?
-        <Link className="opties__link" to="/menuRoof">{children}</Link> :
+        <Link className="opties__link" to="/theroof/menu">{children}</Link> :
         children;
 
         return(
