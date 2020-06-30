@@ -12,19 +12,22 @@ class Header extends React.Component {
     render() {
         return(
             <header className="header">
-                <section className="container">
-                    <Link to="/keuze">
-                        <figure className="header__figure">
-                            <img src={logo_white} alt="Logo van Ruben en Jerry's eetcafé de Binnentuin"/>
-                        </figure>
+
+                <Link to="/keuze">
+                    <figure className="header__figure">
+                        <img src={logo_white} alt="Logo van Ruben en Jerry's eetcafé de Binnentuin"/>
+                    </figure>
+                </Link>
+
+                <section className="header__fa-icons">
+                    <Link to="/winkelmand">
+                        <FontAwesomeIcon className="header__fa-icon" icon={faShoppingBasket}/>
                     </Link>
+                    <Link to="/dashboard">
+                        <FontAwesomeIcon className="header__fa-icon" icon={faUser}/>
+                    </Link>
+
                 </section>
-                <Link to="/winkelmand">
-                    <FontAwesomeIcon className="header__fa_icons" icon={faShoppingBasket} size="2x" />
-                </Link>
-                <Link to="/dashboard">
-                    <FontAwesomeIcon className="header__fa_icons" icon={faUser} size="2x" />
-                </Link>
             </header>
         );
     }

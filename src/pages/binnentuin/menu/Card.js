@@ -12,8 +12,8 @@ class Card extends React.Component {
     return (
       <article className="card__container">
         <article className="card">
-          <figure>
-            <img className="card__img" src={this.props.img} alt={this.props.title} />
+          <figure className="card__figure">
+            <img className="card__figure__img" src={this.props.img} alt={this.props.title} />
           </figure>
           <header className="card__header">
             <h2> {this.props.title || "Gerecht met ingredienten xxxx"} </h2>
