@@ -5,7 +5,7 @@
 // import Item5 from '../../images/item5.jpg'
 // import Item6 from '../../images/item6.jpg'
 import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,ADD_SHIPPING } from '../actions/action-types/cart-actions';
-import axios from 'axios';
+// import axios from 'axios';
 
 // axios.get("https://admin.binnentuin.live/api/producten")
 //     .then(function (response) {
