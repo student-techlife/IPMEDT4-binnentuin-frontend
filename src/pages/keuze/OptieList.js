@@ -125,12 +125,12 @@ class OptieList extends React.Component {
     }
 
     render(){
-        const BinnentuinWrap = ({children}) => this.state.status === 1 ? 
-        <Link className="opties__link" to="/pretest">{children}</Link> : 
+        const BinnentuinWrap = ({children}) => this.state.status === 1 ?
+        <Link className="opties__link" to="/pretest">{children}</Link> :
         children;
 
-        const RoofWrap = ({children}) => this.state.status2 === 1 ? 
-        <Link className="opties__link" to="/pretest">{children}</Link> : 
+        const RoofWrap = ({children}) => this.state.status2 === 1 ?
+        <Link className="opties__link" to="/pretest">{children}</Link> :
         children;
 
         return(
@@ -157,7 +157,7 @@ class OptieList extends React.Component {
                         optieClicked={this.optieClicked}
                     />
                 </RoofWrap>
-                
+
             </section>
         );
     }

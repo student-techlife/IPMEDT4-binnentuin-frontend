@@ -1,26 +1,24 @@
 import React from "react";
 import './Pretest.scss';
-import {Link} from "react-router-dom";
-
 import Header from "../../components/header/Header";
-
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCheck, faHandsWash, faPeopleArrows, faSoap, faHistory, faClipboard} from "@fortawesome/free-solid-svg-icons";
+import UrlService from "../../services/UrlService";
 import Optie from "../Optie/Optie";
 
+
+import {Link} from "react-router-dom";
+import axios from "axios";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCheck, faHandsWash, faPeopleArrows, faSoap, faHistory, faClipboard} from "@fortawesome/free-solid-svg-icons";
 
 class PretestPage extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            activeTijd: '12:00-12:30',
-            tijden: [{id: "1", tijd: '12:00-12:30'},
-                {id: "2", tijd: '12:30-13:00'},
-                {id: "3", tijd: '13:00-13:30'},
-            ],
-            pretest: false,
-            time: false
+          value: 'hallo',
+          alles: [],
+          pretest: false,
+          time: false
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,10 +26,21 @@ class PretestPage extends React.Component {
         this.onAfhalenClicked = this.onAfhalenClicked.bind(this);
     }
 
-    handleSubmit(event) {
-        alert('De tijd van jou reservering is ' + this.state.activeTijd);
-        event.preventDefault();
+    componentDidMount() {
+      axios.get(UrlService.ReserveerTijden(), {}).then(res => {
+          const alles = res.data;
+          this.setState({ alles });
+      })
     }
+      handleSubmit(event) {
+        alert('De tijd van jou reservering is ' + this.state.value);
+        event.preventDefault();
+      }
+
+      handleChange = event => {
+        this.setState({ value: event.target.value });
+      };
+
 
     onBinnentuinClicked(event) {
         this.setState({
@@ -45,12 +54,6 @@ class PretestPage extends React.Component {
             pretest: false,
             time: true
         })
-
-
-    }
-
-    handleChange = event => {
-        this.setState({activeTijd: event.target.value});
     }
 
     render() {
@@ -128,16 +131,15 @@ class PretestPage extends React.Component {
                             in dat er een
                             plek vrijgehouden wordt gedurende het gekozen tijdstip. Op locatie kunt u uw stoel/ tafel
                             kiezen.</p>
-                        <label>
-                            <select className="pretest__dropdown" value={this.state.activeTijd}
-                                    onChange={this.handleChange}>
-                                {this.state.tijden.map(tijd => (
-                                    <option key={tijd.id} value={tijd.tijd}>
-                                        {tijd.tijd}
-                                    </option>
-                                ))}
-                            </select>
-                        </label>
+                            <label>
+                                <select className="pretest__dropdown"value={this.state.value} onChange={this.handleChange}>
+                                    {this.state.alles.map(tijd =>(
+                                        <option key={tijd.id} value={tijd.openingstijd + tijd.sluitingstijd}>
+                                            {tijd.openingstijd + " - " + tijd.sluitingstijd + " (Beschikbare plekken: " + tijd.max_aantal + ")" }
+                                        </option>
+                                    ))}
+                                </select>
+                            </label>
                     </section>
                     <section style={{display: this.state.time ? 'block' : 'none'}}>
                         <form className="pretest__button" onSubmit={this.handleSubmit}>
