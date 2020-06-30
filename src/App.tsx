@@ -12,6 +12,7 @@ import TijdPage from "./pages/tijd/Tijd";
 import PretestPage from "./pages/pre-test/Pretest";
 import ContactPage from "./pages/contact/Contact";
 import WinkelmandPage from "./pages/winkelmand/winkelmand";
+import TheRoofPage from "./pages/theRoof/MenuRoof";
 
 // Auth
 import Login from "./pages/auth/inloggen";
@@ -33,6 +34,7 @@ const guestRoutes: Array<GuestRouteInterface> = [
   { path: "/register", component: Register, exact: true },
   { path: "/contact", component: ContactPage, exact: true },
   { path: "/winkelmand", component: WinkelmandPage, exact: true},
+  { path: "/menuRoof", component: TheRoofPage, exact: true},
 ];
 
 const protectedRoutes: Array<any> = [
