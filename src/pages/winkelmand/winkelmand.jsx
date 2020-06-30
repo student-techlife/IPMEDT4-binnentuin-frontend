@@ -55,7 +55,7 @@ class Winkelmand extends Component {
             ):
 
             (
-                <p>Niets.</p>
+                <p className="shop-error">Uw winkelmandje is nog leeg</p>
             )
         return(
             <section className="winkelmand">
