@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from 'react-redux';
+import { addToCart } from '../../components/actions/cartActions';
 
 import '../binnentuin/menu/Menu.scss';
 
@@ -9,11 +11,14 @@ import Footer from "../../components/footer/Footer"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faShoppingBasket} from "@fortawesome/free-solid-svg-icons";
 
-class MenuPage extends React.Component {
+class MenuPageTheRoof extends React.Component {
     cardClicked = (id) => {
       console.log(`Gekozen gerecht nummer: ${id}`);
     }
 
+    handleClick = (id) => {
+      this.props.addToCart(id);
+    }
 
     render() {
       return (
@@ -27,8 +32,7 @@ class MenuPage extends React.Component {
             </section>
           </article>
 
-          <CardList cardClicked = {this.cardClicked} />
-
+          <CardList cardClicked = {this.handleClick} />
 
           <Footer />
 
@@ -37,4 +41,16 @@ class MenuPage extends React.Component {
     }
 }
 
-export default MenuPage;
+const mapStateToProps = (state) => {
+  return {
+      items: state.items
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+      addToCart: (id) => {dispatch(addToCart(id))}
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(MenuPageTheRoof);
