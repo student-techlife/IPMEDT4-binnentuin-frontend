@@ -10,6 +10,7 @@ import axios from "axios";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheck, faHandsWash, faHistory, faPeopleArrows, faSoap} from "@fortawesome/free-solid-svg-icons";
 import logo_white from "../../assets/img/logo_white.png";
+import { Redirect } from "react-router-dom";
 
 class PretestPage extends React.Component {
     constructor(props) {
@@ -24,7 +25,8 @@ class PretestPage extends React.Component {
             persons: null,
             pretestComponent: false,
             timeComponent: false,
-            error: null
+            error: null,
+            redirect: null
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -81,22 +83,29 @@ class PretestPage extends React.Component {
         event.preventDefault();
         const data = new FormData(event.target);
 
-        console.log(data);
-
         axios.post(UrlService.StorePretestSubmission(), data)
             .then(data => {
-                // Todo: error handeling als er een error is.
-                console.log(data);
+                if (data.status === 200) {
+                    this.setState({
+                        redirect: "/binnentuin/menu"
+                    })
+                }
             })
             .catch(error => {
-                const data = JSON.parse(error.request.response);
-                this.setState({
-                    error: data.message
-                })
+                if (error.request) {
+                    const data = JSON.parse(error.request.response);
+                    this.setState({
+                        error: data.message
+                    })
+                }
             })
+
     }
 
     render() {
+        if (this.state.redirect) {
+            return <Redirect to={this.state.redirect} />
+        }
         return (
             <section className="pretest">
                 <Header/>
