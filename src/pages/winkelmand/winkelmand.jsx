@@ -57,17 +57,20 @@ class Winkelmand extends Component {
                 <p>Niets.</p>
             )
         return(
-            <div className="container">
-            <Header />
-                <div className="cart">
-                    <h5>Je hebt het volgende in de winkelwagen liggen:</h5>
-                    <ul className="collection">
-                        {addedItems}
-                    </ul>
-                </div>
-                <Recipe />
-                <Footer />
-            </div>
+            <section>
+                <Header />
+
+                <main className="container">
+                    <div className="cart">
+                        <h5>Je hebt het volgende in de winkelwagen liggen:</h5>
+                        <ul className="collection">
+                            {addedItems}
+                        </ul>
+                    </div>
+                    <Recipe />
+                    <Footer />
+                </main>
+            </section>
         )
     }
 }
