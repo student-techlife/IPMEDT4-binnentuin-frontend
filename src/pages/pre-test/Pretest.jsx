@@ -41,11 +41,6 @@ class PretestPage extends React.Component {
       })
     }
 
-      // handleChange = event => {
-      //   this.setState({ value: event.target.value });
-      // };
-
-
     onBinnentuinClicked(event) {
         this.setState({
             pretestComponent: true,
@@ -83,11 +78,6 @@ class PretestPage extends React.Component {
     handleSubmit = event => {
         event.preventDefault();
         const data = new FormData(event.target);
-
-        // Todo: data.set(..., ...);
-        for (var pair of data.entries()) {
-            // console.log(pair);
-        }
 
         axios.post(UrlService.StorePretestSubmission(), data)
             .then(data => {
