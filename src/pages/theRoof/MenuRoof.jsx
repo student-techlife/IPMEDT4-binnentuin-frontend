@@ -7,7 +7,6 @@ import CardList from "../../pages/theRoof/CardListRoof";
 import Footer from "../../components/footer/Footer"
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faUtensils, faMortarPestle, faShoppingBasket, faBreadSlice, faBacon} from "@fortawesome/free-solid-svg-icons";
 
 class MenuPage extends React.Component {
     cardClicked = (id) => {
