@@ -4,11 +4,9 @@ import Header from "../../components/header/Header";
 import UrlService from "../../services/UrlService";
 import Optie from "../Optie/Optie";
 
-
-import {Link} from "react-router-dom";
 import axios from "axios";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCheck, faHandsWash, faPeopleArrows, faSoap, faHistory, faClipboard} from "@fortawesome/free-solid-svg-icons";
+import {faCheck, faHandsWash, faPeopleArrows, faSoap} from "@fortawesome/free-solid-svg-icons";
 
 class PretestPage extends React.Component {
     constructor(props) {
