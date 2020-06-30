@@ -3,12 +3,12 @@ import './Pretest.scss';
 
 import Header from "../../components/header/Header";
 import UrlService from "../../services/UrlService";
-import Optie from "../Optie/Optie";
+// import Optie from "../Optie/Optie";
 
 
 import axios from "axios";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCheck, faHandsWash, faHistory, faPeopleArrows, faSoap} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck, faHandsWash, faPeopleArrows, faSoap } from "@fortawesome/free-solid-svg-icons";
 import logo_white from "../../assets/img/logo_white.png";
 import { Redirect } from "react-router-dom";
 
@@ -38,11 +38,11 @@ class PretestPage extends React.Component {
     }
 
     componentDidMount() {
-      axios.get(UrlService.ReserveerTijden(), {}).then(res => {
-          const alles = res.data;
-          let time = alles[0].openingstijd + " - " + alles[0].sluitingstijd;
-          this.setState({ alles, time });
-      })
+        axios.get(UrlService.ReserveerTijden(), {}).then(res => {
+            const alles = res.data;
+            let time = alles[0].openingstijd + " - " + alles[0].sluitingstijd;
+            this.setState({ alles, time });
+        })
     }
 
     onBinnentuinClicked(event) {
@@ -116,14 +116,14 @@ class PretestPage extends React.Component {
                     </section>
                     <section className="container opties">
                         <article className="optie">
-                            <section className="optie__knop"  onClick = {this.onBinnentuinClicked}>
+                            <section className="optie__knop" onClick = {this.onBinnentuinClicked}>
                                 <p>Eetcafé</p>
                                 <img src={logo_white} alt="Logo van Ruben en Jerry's eetcafé de Binnentuin"/>
                             </section>
                         </article>
                         <article className="optie">
                             <section className="optie__knop"
-                                     onClick = {this.onAfhalenClicked}>
+                                    onClick = {this.onAfhalenClicked}>
                                 <h2>Afhalen</h2>
                             </section>
                         </article>
