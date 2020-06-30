@@ -15,7 +15,7 @@ import Footer from "../../../components/footer/Footer"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faUtensils, faMortarPestle, faShoppingBasket, faBreadSlice, faBacon} from "@fortawesome/free-solid-svg-icons";
 
-class MenuPage extends React.Component {
+class MenuPageBinnentuin extends React.Component {
 
     handleClick = (id) => {
         this.props.addToCart(id);
@@ -104,4 +104,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 // export default MenuPage;
-export default connect(mapStateToProps,mapDispatchToProps)(MenuPage);
+export default connect(mapStateToProps,mapDispatchToProps)(MenuPageBinnentuin);
