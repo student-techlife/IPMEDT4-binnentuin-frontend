@@ -67,22 +67,22 @@ class MenuPage extends React.Component {
           <section id="salads" className="menu_title">
             <FontAwesomeIcon className="menu__list-icon" icon={faMortarPestle}/><h2 className="menu_title--gold">Salads</h2>
           </section>
-          <CardListSalads cardSaladClicked = {this.cardSaladClicked} />
+          <CardListSalads cardSaladClicked = {this.handleClick} />
 
           <section id="toasts" className="menu_title">
             <FontAwesomeIcon className="menu__list-icon" icon={faBreadSlice}/><h2 className="menu_title--gold">Toasts</h2>
           </section>
-          <CardListToasts cardToastClicked = {this.cardToastClicked} />
+          <CardListToasts cardToastClicked = {this.handleClick} />
 
           <section id="sandwiches" className="menu_title">
             <FontAwesomeIcon className="menu__list-icon" icon={faBacon}/><h2 className="menu_title--gold">Sandwiches</h2>
           </section>
-          <CardListSandwiches cardSandwichClicked = {this.cardSandwichClicked} />
+          <CardListSandwiches cardSandwichClicked = {this.handleClick} />
 
           <section id="bagels" className="menu_title">
             <FontAwesomeIcon className="menu__list-icon" icon={faBacon}/><h2 className="menu_title--gold">Bagels</h2>
           </section>
-          <CardListBagels cardBagelClicked = {this.cardBagelClicked} />
+          <CardListBagels cardBagelClicked = {this.handleClick} />
 
           <Footer />
 
