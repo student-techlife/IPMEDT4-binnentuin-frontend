@@ -13,7 +13,7 @@ class Header extends React.Component {
         return(
             <header className="header">
 
-                <Link to="/keuze">
+                <Link to="/">
                     <figure className="header__figure">
                         <img src={logo_white} alt="Logo van Ruben en Jerry's eetcafé de Binnentuin"/>
                     </figure>
