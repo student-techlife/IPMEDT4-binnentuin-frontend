@@ -12,6 +12,7 @@ import MenuPageBinnentuin from "./pages/binnentuin/menu/Menu";
 import TijdPage from "./pages/tijd/Tijd";
 import PretestPage from "./pages/pre-test/Pretest";
 import ContactPage from "./pages/contact/Contact";
+import WinkelmandPage from "./pages/winkelmand/winkelmand";
 
 // Auth
 import Login from "./pages/auth/inloggen";
@@ -33,6 +34,7 @@ const guestRoutes: Array<GuestRouteInterface> = [
   { path: "/inloggen", component: Login, exact: true },
   { path: "/register", component: Register, exact: true },
   { path: "/contact", component: ContactPage, exact: true },
+  { path: "/winkelmand", component: WinkelmandPage, exact: true},
 ];
 
 const protectedRoutes: Array<any> = [

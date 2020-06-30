@@ -9,6 +9,9 @@ let apiDomain = 'https://admin.binnentuin.live/'
 class UrlService {
     static loginUrl() { return apiDomain + 'api/login'; }
     static registerUrl() { return apiDomain + 'api/register'; }
+    static BinnentuinMenu(category) { return apiDomain + 'api/producten/' + category; }
+    static BinnentuinOpeningstijden() { return apiDomain + 'api/openingstijden_binnentuin'; }
+    static TheRoofOpeningstijden() { return apiDomain + 'api/openingstijden_theroof'; }
 }
 
 export default UrlService;
