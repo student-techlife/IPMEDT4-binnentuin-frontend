@@ -1,9 +1,16 @@
+@import '../../assets/scss/var';
+
 .banner {
     background-image: url(../../assets/img/banner.jpg);
     background-position: center;
     background-size: cover;
     min-height: 350px;
-    animation: banner_slide 45s cubic-bezier(0.75, 0, 0.15, 1) infinite;
+}
+
+@media screen and (min-width: $bp_tablet) {
+    .banner {
+        animation: banner_slide 45s cubic-bezier(0.75, 0, 0.15, 1) infinite;
+    }
 }
 
 @keyframes banner_slide {
