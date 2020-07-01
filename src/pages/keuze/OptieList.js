@@ -59,11 +59,15 @@ class OptieList extends React.Component {
             const openingstijd = data[nummer].openingstijd
             const sluitingstijd = data[nummer].sluitingstijd
 
-            let d = new Date();
+            let tijdEcht = new Date();
 
-            let tijdOpen = openingstijd[0] + openingstijd[1] + openingstijd[3] + openingstijd[4]
-            let tijdDicht = sluitingstijd[0] + sluitingstijd[1] + sluitingstijd[3] + sluitingstijd[4]
-            let tijdEcht = "0" + d.getHours().toString() + d.getMinutes().toString();
+            let tijdOpen = new Date()
+            tijdOpen.setHours(openingstijd[0] + openingstijd[1])
+            tijdOpen.setMinutes(openingstijd[3] + openingstijd[4])
+
+            let tijdDicht = new Date();
+            tijdDicht.setHours(sluitingstijd[0] + sluitingstijd[1])
+            tijdDicht.setMinutes(sluitingstijd[3] + sluitingstijd[4])
 
             if (status === 1) { // Als status van huidige dag 1 (OPEN) is
 
@@ -93,11 +97,15 @@ class OptieList extends React.Component {
             const openingstijd2 = dataTheRoof[nummer].openingstijd
             const sluitingstijd2 = dataTheRoof[nummer].sluitingstijd
 
-            let d = new Date();
+            let tijdEcht = new Date();
 
-            let tijdOpen = openingstijd2[0] + openingstijd2[1] + openingstijd2[3] + openingstijd2[4]
-            let tijdDicht = sluitingstijd2[0] + sluitingstijd2[1] + sluitingstijd2[3] + sluitingstijd2[4]
-            let tijdEcht = "0" + d.getHours().toString() + d.getMinutes().toString();
+            let tijdOpen = new Date()
+            tijdOpen.setHours(openingstijd2[0] + openingstijd2[1])
+            tijdOpen.setMinutes(openingstijd2[3] + openingstijd2[4])
+
+            let tijdDicht = new Date();
+            tijdDicht.setHours(sluitingstijd2[0] + sluitingstijd2[1])
+            tijdDicht.setMinutes(sluitingstijd2[3] + sluitingstijd2[4])
 
             if (status2 === 1) { // Als status van huidige dag 1 (OPEN) is
 
