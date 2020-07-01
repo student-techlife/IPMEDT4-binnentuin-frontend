@@ -27,7 +27,7 @@ class CardListToasts extends React.Component {
               content={"€" + u.prijs}
               buttonText="+"
               id={u.id}
-              img={u.img}
+              img={UrlService.MenuImages(u.img)}
               cardClicked={this.cardToastClicked}
               key={u.id}
         />
