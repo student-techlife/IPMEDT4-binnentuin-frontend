@@ -54,7 +54,7 @@
 .table{
   margin-right: 80px;
 
-  &:nth-last-child() {
+  &:last-child {
     margin-right: 0px;
   }
   
@@ -86,7 +86,7 @@
   .table {
     // margin-top: 20px;
 
-    &:nth-last-child() {
+    &:last-child {
       margin: 0;
     }
   }
