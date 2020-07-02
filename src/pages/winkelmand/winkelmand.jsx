@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import UrlService from "../../services/UrlService";
 import { removeItem,addQuantity,subtractQuantity} from '../../components/actions/cartActions';
 
 import Recipe from '../../components/Recipe';
@@ -35,7 +36,7 @@ class Winkelmand extends Component {
                     return (
                         <li className="shop-item avatar" key={item.id}>
                             <div className="shop-item__img">
-                                <img src={item.img} alt={item.img} className=""/>
+                                <img src={UrlService.MenuImages(item.img)} alt={UrlService.MenuImages(item.img)} className=""/>
                             </div>
 
                             <div className="shop-item__desc">
