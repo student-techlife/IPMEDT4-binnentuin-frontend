@@ -27,7 +27,7 @@ class CardListSandwiches extends React.Component {
               content={"€" + u.prijs}
               buttonText="+"
               id={u.id}
-              img={u.img}
+              img={UrlService.MenuImages(u.img)}
               cardClicked={this.cardSandwichClicked}
               key={u.id}
         />
