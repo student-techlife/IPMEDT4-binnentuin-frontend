@@ -5,8 +5,6 @@ import UrlService from "../../services/UrlService";
 import axios from "axios";
 import { removeItem,addQuantity,subtractQuantity} from '../../components/actions/cartActions';
 
-import Recipe from '../../components/Recipe';
-// import Navbar from './Navbar';
 import Header from "../../components/header/Header"
 import Footer from "../../components/footer/Footer"
 import history from "../../history";
@@ -23,18 +21,10 @@ class Winkelmand extends Component {
         this.state = {
             error: null,
             redirect: null,    
-            naam: '',
-            productId: '',
-            productQt: '',
-            totaalPrijs: '',
 
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
-        this.naam = React.createRef();
-        this.productId = React.createRef();
-        this.productQt = React.createRef();
-        this.totaalPrijs = React.createRef();
     }
 
     onChange = (e) => {
@@ -43,32 +33,9 @@ class Winkelmand extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        const { naam, productId, productQt, totaalPrijs } = this.state;
-        
-        console.log(`Naam: ${this.naam.current.value}`);
-        console.log(`Product ID: ${this.productId.value}`);
-        console.log(`Product QT: ${this.productQt.current.value}`);
-        console.log(`Totaal prijs: ${this.totaalPrijs.current.value}`);
-        // let test = {this.naam.current.value;
 
-        
-        // const formData = new FormData();
-        // console.log(formData);
-        // formData.append("naam", this.naam.current.value);
-        // formData.append("productId", this.productId.current.value);
-        // formData.append("productQt", this.productQt.current.value);
-        // formData.append("totaalPrijs", this.totaalPrijs.current.value);
-
-
-        // for (var pair of formData.entries()) {
-        //     console.log(pair[0]+ ', ' + pair[1]); 
-        // }
         const data = new FormData(e.target);
         
-
-
-        // axios.post( 'https://postman-echo.com/post/', data, {
-        // axios.post( 'https://postman-echo.com/post/', { naam, productId, productQt, totaalPrijs })
         axios.post(UrlService.Checkout(), data, {
             headers: {
                 'Content-Type': 'multipart/form-data',
@@ -113,7 +80,6 @@ class Winkelmand extends Component {
 
 
     render() {
-        let { naam, productId, productQt, totaalPrijs } = this.state;
         let addedItems = this.props.items.length ?
             (
                 this.props.items.map(item=>{
@@ -124,8 +90,6 @@ class Winkelmand extends Component {
                                 type="text" 
                                 name="productId"
                                 value={item.id}
-                                // onChange={this.onChange}
-                                ref={this.productId}
                             />
                             <div className="shop-item__img">
                                 <img src={UrlService.MenuImages(item.img)} alt={UrlService.MenuImages(item.img)} className=""/>
@@ -144,8 +108,6 @@ class Winkelmand extends Component {
                                         type="text" 
                                         name="productQt"
                                         value={item.quantity}
-                                        // onChange={this.onChange}
-                                        ref={this.productQt}
                                     />
                                 </div>
                                 <button className="shop-item__remove" onClick={()=>{this.handleRemove(item.id)}}><FontAwesomeIcon icon={faTimes}/></button>
@@ -184,7 +146,6 @@ class Winkelmand extends Component {
                                 type="text" 
                                 name="totaalPrijs"
                                 value={this.props.total}
-                                // onChange={this.onChange}
                                 ref={this.totaalPrijs}
                             />
                         </article>
@@ -194,8 +155,6 @@ class Winkelmand extends Component {
                         <input 
                             type="text" 
                             name="naam"
-                            // value={naam}
-                            // onChange={this.onChange}
                             ref={this.naam}
                         />
                     </form>
