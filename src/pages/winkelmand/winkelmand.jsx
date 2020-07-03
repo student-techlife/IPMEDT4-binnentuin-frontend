@@ -87,7 +87,7 @@ class Winkelmand extends Component {
                         <li className="shop-item avatar" key={item.id}>
                             <input readOnly
                                 id="productId"
-                                type="text" 
+                                type="hidden" 
                                 name="productId"
                                 value={item.id}
                             />
@@ -105,7 +105,7 @@ class Winkelmand extends Component {
                                     <Link to="/winkelmand"><i onClick={()=>{this.handleAddQuantity(item.id)}}><FontAwesomeIcon icon={faPlus}/></i></Link>
                                     <input readOnly
                                         id="productQt"
-                                        type="text" 
+                                        type="hidden" 
                                         name="productQt"
                                         value={item.quantity}
                                     />
@@ -143,7 +143,7 @@ class Winkelmand extends Component {
                             <p className="total-price__item">Totaal:</p>
                             <p className="total-price__item">&euro; {this.props.total}</p>
                             <input readOnly
-                                type="text" 
+                                type="hidden" 
                                 name="totaalPrijs"
                                 value={this.props.total}
                                 ref={this.totaalPrijs}
@@ -153,7 +153,7 @@ class Winkelmand extends Component {
                             <button className="checkout__button">Afrekenen</button>
                         </article>
                         <input 
-                            type="text" 
+                            type="hidden" 
                             name="naam"
                             ref={this.naam}
                         />
