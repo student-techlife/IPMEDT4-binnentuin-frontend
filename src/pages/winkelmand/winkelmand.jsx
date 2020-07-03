@@ -36,8 +36,8 @@ class Winkelmand extends Component {
 
         const data = new FormData(e.target);
         
-        // axios.post(UrlService.Checkout(), data, {
-        axios.post('http://51.15.49.66:8001/checkout/save', data, {
+        // axios.post('http://51.15.49.66:8001/checkout/save', data, {
+        axios.post(UrlService.Checkout(), data, {
             headers: {
                 'Content-Type': 'multipart/form-data',
                 'Access-Control-Allow-Origin': '*'
