@@ -17,12 +17,22 @@ class Recipe extends Component {
         }
     }
 
+    onChange = (e) => {
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
     render() {
         return (
             <section>
                 <article className="total-price">
                     <p className="total-price__item">Totaal:</p>
                     <p className="total-price__item">&euro; {this.props.total}</p>
+                    <input 
+                            type="text" 
+                            name="totaalPrijs"
+                            value={this.props.total}
+                            onChange={this.onChange}
+                    />
                 </article>
                 <article className="checkout">
                     <button className="checkout__button">Afrekenen</button>
