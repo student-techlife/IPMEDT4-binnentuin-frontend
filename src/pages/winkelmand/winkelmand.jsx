@@ -35,8 +35,8 @@ class Winkelmand extends Component {
         e.preventDefault();
 
         const data = new FormData(e.target);
-        const producten = new FormData();
-        const aantallen = new FormData();
+        // const producten = new FormData();
+        // const aantallen = new FormData();
 
         // for (var pair of data.entries()) {
         //     console.log(pair[0]+ ', ' + pair[1]);
@@ -50,27 +50,26 @@ class Winkelmand extends Component {
             proArray.push(valueProd)
         }
         data.append("producten", proArray);
-        for (var value of producten) {
-            // console.log(value);
-        }
+        // for (var value of producten) {
+        //     console.log(value);
+        // }
 
         // Producten aantallen
         for (var valueAantal of data.getAll("productQt")) {
             aantalArray.push(valueAantal);
         }
         data.append("aantal", aantalArray);
-        for (var value of aantallen) {
-            // console.log(value);
-        }
+        // for (var value of aantallen) {
+        //     console.log(value);
+        // }
 
         // Verwijder product ID's en aantallen
         data.delete("productId")
         data.delete("productQt")
         
-        for (var value of data) {
-            console.log(value);
+        for (var valueResult of data) {
+            console.log(valueResult);
         }
-
 
         // axios.post('http://51.15.49.66:8001/checkout/save', data, {
         // axios.post('https://postman-echo.com/post/', data, {
