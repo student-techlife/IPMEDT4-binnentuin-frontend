@@ -20,7 +20,7 @@ class Winkelmand extends Component {
 
         this.state = {
             error: null,
-            redirect: null,    
+            redirect: null,
 
         };
         this.onChange = this.onChange.bind(this);
@@ -35,7 +35,43 @@ class Winkelmand extends Component {
         e.preventDefault();
 
         const data = new FormData(e.target);
+        const producten = new FormData();
+        const aantallen = new FormData();
+
+        // for (var pair of data.entries()) {
+        //     console.log(pair[0]+ ', ' + pair[1]);
+        // }
+
+        var proArray = [];
+        var aantalArray = [];
+
+        // Producten nummers
+        for (var valueProd of data.getAll("productId")) {
+            proArray.push(valueProd)
+        }
+        data.append("producten", proArray);
+        for (var value of producten) {
+            // console.log(value);
+        }
+
+        // Producten aantallen
+        for (var valueAantal of data.getAll("productQt")) {
+            aantalArray.push(valueAantal);
+        }
+        data.append("aantal", aantalArray);
+        for (var value of aantallen) {
+            // console.log(value);
+        }
+
+        // Verwijder product ID's en aantallen
+        data.delete("productId")
+        data.delete("productQt")
         
+        for (var value of data) {
+            console.log(value);
+        }
+
+
         // axios.post('http://51.15.49.66:8001/checkout/save', data, {
         // axios.post('https://postman-echo.com/post/', data, {
         axios.post(UrlService.Checkout(), data, {
@@ -43,22 +79,20 @@ class Winkelmand extends Component {
                 'Content-Type': 'multipart/form-data',
                 'Access-Control-Allow-Origin': '*'
             }
+        }).then((res) => {
+            if (res.status === 200) {
+                const result = res.data;
+                console.log('RESULT:');
+                console.log(result);
+                console.log(result.form);
+            }
+        }).catch(error => {
+            if (error.request) {
+                const data = JSON.parse(error.request.response);
+                console.log(data);
+                
+            }
         })
-            .then((res) => {
-                if (res.status === 200) {
-                    const result = res.data;
-                    console.log('RESULT:');
-                    console.log(result);
-                    console.log(result.form);
-                }
-            })
-            .catch(error => {
-                if (error.request) {
-                    const data = JSON.parse(error.request.response);
-                    console.log(data);
-                    
-                }
-            })
     }
 
     goback = () => {
@@ -170,7 +204,7 @@ class Winkelmand extends Component {
 const mapStateToProps = (state)=>{
     return{
         items: state.addedItems,
-        // addedItems: state.addedItems,
+        addedItems: state.addedItems,
         total: state.total
     }
 }
