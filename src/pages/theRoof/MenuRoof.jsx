@@ -34,11 +34,6 @@ class MenuPageTheRoof extends React.Component {
           </article>
 
           <CardList cardClicked = {this.handleClick} />
-          <section className= "menu__button">
-            <Link to="/winkelmand">
-              <input type='submit' className="pretest__button"/>
-            </Link>
-          </section>
           <section className= "menu__mini">
             <Link to="/winkelmand">
             <FontAwesomeIcon className="menu__mini--button" icon={faShoppingBasket}/>
