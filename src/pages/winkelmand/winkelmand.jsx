@@ -147,7 +147,6 @@ class Winkelmand extends Component {
                                 type="hidden" 
                                 name="totaalPrijs"
                                 value={this.props.total}
-                                ref={this.totaalPrijs}
                             />
                         </article>
                         <article className="checkout">
@@ -171,6 +170,7 @@ const mapStateToProps = (state)=>{
     return{
         items: state.addedItems,
         // addedItems: state.addedItems,
+        total: state.total
     }
 }
 const mapDispatchToProps = (dispatch)=>{
