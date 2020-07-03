@@ -152,6 +152,35 @@
     }
 }
 
+.contacten {
+
+    &__title {
+        margin-top: 20px;
+        color: $color_gold;
+        font-size: 24px;
+        font-weight: 900;
+        margin-bottom: 10px;
+    }
+
+    &__naam {
+        font-size: 14px;
+        color: $color_darkgrey;
+        margin: 4px 0;
+    }
+
+    > input {
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid $color_green;
+        margin-bottom: 30px;
+        height: 40px;
+        padding: 0 0 0 7px;
+        width: 98%;
+        font-size: 20px;
+        color: black;
+    }
+}
+
 @media screen and (max-width: 350px) {
     
     .total-price {

@@ -183,14 +183,20 @@ class Winkelmand extends Component {
                                 value={this.props.total}
                             />
                         </article>
+                        <article className="contacten">
+                            <h2 className="contacten__title">Contact</h2>
+                            <p className="contacten__naam">Wat is uw naam?</p>
+                            <input
+                                required
+                                type="text" 
+                                name="naam"
+                                placeholder="Vul uw naam in"
+                                ref={this.naam}
+                            />
+                        </article>
                         <article className="checkout">
                             <button className="checkout__button">Afrekenen</button>
                         </article>
-                        <input 
-                            type="text" 
-                            name="naam"
-                            ref={this.naam}
-                        />
                     </form>
                 </main>
 
