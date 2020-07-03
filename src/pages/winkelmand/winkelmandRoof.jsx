@@ -14,7 +14,7 @@ import {faShoppingBasket, faArrowLeft, faPlus, faMinus, faTimes} from "@fortawes
 
 import './winkelmand.scss';
 
-class Winkelmand extends Component {
+class WinkelmandRoof extends Component {
 
     //to remove the item completely
     handleRemove = (id) => {
@@ -64,7 +64,7 @@ class Winkelmand extends Component {
 
                 <main className="container">
                     <nav className="go-back">
-                        <Link to="/binnentuin/menu">
+                        <Link to="/theroof/menu">
                             <FontAwesomeIcon className="go-back__icon" icon={faArrowLeft}/>
                         </Link>
                     </nav>
@@ -97,4 +97,4 @@ const mapDispatchToProps = (dispatch)=>{
         subtractQuantity: (id)=>{dispatch(subtractQuantity(id))}
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(Winkelmand)
+export default connect(mapStateToProps,mapDispatchToProps)(WinkelmandRoof)

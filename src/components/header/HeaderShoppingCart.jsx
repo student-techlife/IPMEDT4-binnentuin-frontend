@@ -7,7 +7,7 @@ import './Header.scss';
 import { faShoppingBasket, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-class Header extends React.Component {
+class HeaderShoppingCart extends React.Component {
 
     render() {
         return(
@@ -20,6 +20,9 @@ class Header extends React.Component {
                 </Link>
 
                 <section className="header__fa-icons">
+                    <Link to="/winkelmand">
+                        <FontAwesomeIcon className="header__fa-icon" icon={faShoppingBasket}/>
+                    </Link>
                     <Link to="/dashboard">
                         <FontAwesomeIcon className="header__fa-icon" icon={faUser}/>
                     </Link>
@@ -30,4 +33,4 @@ class Header extends React.Component {
     }
 }
 
-export default Header;
+export default HeaderShoppingCart;
