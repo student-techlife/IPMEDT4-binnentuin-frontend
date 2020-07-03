@@ -13,15 +13,17 @@ class Dashboard extends Component {
         return (
             <section className="ingelogd">
                 <HeaderDashboard/>
-                <article className="ingelogd__content">
-                    <section className="ingelogd__info">
-                        <h1 className="ingelogd__title">Je bent ingelogd</h1>
-                    </section>
-                    <section className="ingelogd__wrapper">
-                        <Link to="">
-                            <button className="ingelogd__button">Ga door om te bestellen</button>
-                        </Link>
-                    </section>
+                <article className="ingelogd__box">
+                  <article className="ingelogd__content">
+                      <section className="ingelogd__info">
+                          <h1 className="ingelogd__title">Je bent ingelogd</h1>
+                      </section>
+                      <section className="ingelogd__wrapper">
+                          <Link to="">
+                              <button className="ingelogd__button">Ga door om te bestellen</button>
+                          </Link>
+                      </section>
+                  </article>
                 </article>
                 <Footer />
             </section>
