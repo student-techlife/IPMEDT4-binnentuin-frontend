@@ -12,7 +12,6 @@ import TijdPage from "./pages/tijd/Tijd";
 import PretestPage from "./pages/pre-test/Pretest";
 import ContactPage from "./pages/contact/Contact";
 import WinkelmandPage from "./pages/winkelmand/winkelmand";
-import WinkelmandRoofPage from "./pages/winkelmand/winkelmandRoof";
 import TheRoofPage from "./pages/theRoof/MenuRoof";
 import BevestigingPage from "./pages/bevestiging/Bevestiging";
 
@@ -36,7 +35,6 @@ const guestRoutes: Array<GuestRouteInterface> = [
   { path: "/register", component: Register, exact: true },
   { path: "/contact", component: ContactPage, exact: true },
   { path: "/winkelmand", component: WinkelmandPage, exact: true},
-  { path: "/winkelmandRoof", component: WinkelmandRoofPage, exact: true},
   { path: "/theroof/menu", component: TheRoofPage, exact: true},
   { path: "/bevestiging", component: BevestigingPage, exact: true},
 ];
