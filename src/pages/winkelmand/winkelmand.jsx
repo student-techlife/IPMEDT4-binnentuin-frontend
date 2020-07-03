@@ -153,7 +153,7 @@ class Winkelmand extends Component {
                             <button className="checkout__button">Afrekenen</button>
                         </article>
                         <input 
-                            type="hidden" 
+                            type="text" 
                             name="naam"
                             ref={this.naam}
                         />
