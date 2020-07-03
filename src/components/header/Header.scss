@@ -1,0 +1,77 @@
+@import '../../assets/scss/var';
+
+.header {
+    background-color: $color_green;
+    padding: 25px 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    max-height: 25px;
+
+    &__figure {
+        margin: 0;
+        padding: 0;
+
+        > img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 220px;
+            width: 100%;
+        }
+    }
+
+    &__fa-icons {
+        margin-right: 20px;
+    }
+    
+    &__fa-icon {
+        padding-left: 15px;
+        transition: .2s transform ease;
+        font-size: 1.6em;
+        color: white;
+
+        &:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen and (max-width: $bp_tablet) {
+    .header {
+        justify-content: space-between;
+
+        &__figure {
+            margin-left: 20px;
+
+            > img {
+                position: static;
+                transform: none;
+            }
+        }
+
+        &__fa-icon {
+            font-size: 1.4em;
+        }
+    }
+}
+
+@media screen and (max-width: $bp_mobile) {
+    .header {
+
+        &__figure {
+
+            > img {
+                max-width: 150px;
+            }
+        }
+
+        &__fa-icon {
+            padding-left: 10px;
+            font-size: 1.3em;
+        }
+    }
+}

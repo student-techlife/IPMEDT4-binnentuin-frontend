@@ -1,0 +1,16 @@
+name: Assign to Pull Request
+on:
+  pull_request:
+    branches-ignore:
+      - 'dependabot/**'
+    types: [opened, ready_for_review, reopened]
+
+jobs:
+  assign:
+    name: Assign member
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: uesteibar/reviewer-lottery@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}

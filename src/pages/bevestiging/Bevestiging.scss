@@ -1,0 +1,53 @@
+@import '../../assets/scss/var';
+@import '../../assets/scss/default';
+@import url('https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600;700;800;900&display=swap');
+
+.bevestiging{
+
+  &__content{
+    max-width: 1280px;
+    padding: 0 40px;
+    margin: 0 auto;
+    // background-image: url("");
+  }
+
+  &__info{
+    margin-top: 60px;
+  }
+
+  &__title{
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 900;
+    color: $color_gold;
+    text-align: center;
+  }
+
+  &__text{
+    font-size: 18px;
+    color: black;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: center;
+  }
+  &__wrapper{
+    display: flex;
+    justify-content: center;
+  }
+
+  &__button{
+    height: 56px;
+    width: 100%;
+    background-color: $color_gold;
+    color: white;
+    border-radius: 28px;
+    font-size: 16px;
+    box-shadow: 0px 4px 15px rgba(153, 101, 1, 0.45);
+    border:none;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 80px 0 40px;
+    padding: 10px 20px;
+    max-width: 600px;
+  }
+}

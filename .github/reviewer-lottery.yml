@@ -1,0 +1,10 @@
+groups:
+  - name: devs
+    reviewers: 1
+    usernames:
+      - klaasnicolaas
+      - larsniet
+      - draZer0
+      - veracompagner
+      - annesophie-h
+      - Joeriubink

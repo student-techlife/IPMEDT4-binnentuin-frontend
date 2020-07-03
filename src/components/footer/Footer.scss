@@ -1,0 +1,47 @@
+@import '../../assets/scss/var';
+
+.footer {
+    text-align: center;
+    padding: 40px;
+
+    &__link {
+        color: $color_green;
+        text-decoration: none;
+        line-height: 2.5;
+        transition: .2s color ease;
+
+        &:hover {
+            color: $color_dark;
+        }
+    }
+
+    &__adres {
+        font-size: 1em;
+        color: $color_grey;
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    &__social {
+        margin-top: 20px;
+
+        a {
+            font-size: 1.3em;
+            text-decoration: none;
+            color: $color_grey;
+            margin-right: 5px;
+            transition: .2s color ease;
+
+            &:hover {
+                color: $color_green;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}

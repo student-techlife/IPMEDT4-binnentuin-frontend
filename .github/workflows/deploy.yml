@@ -1,6 +1,15 @@
-name: Binnentuin - Frontend
+name: Binnentuin - Frontend deploy
 on:
   push:
+    # Negeer commits die zijn gemaakt in:
+    paths-ignore:
+      - '.github/**'
+      - 'extra/**'
+      - '.vscode/**'
+      - '.devcontainer/**'
+      - 'README.md'
+      - LICENSE
+    # De branch waarop het getriggerd wordt
     branches:
       - dev
 
@@ -16,15 +25,15 @@ jobs:
       - name: Docker registry login
         # run: docker login ${{ secrets.DOCKER_REGISTRY }}:5000
         run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
-      - name: Create backend.conf file
-        run: |
-          mkdir location
-          cd location
-          echo "$BACKEND_LOCATION" > backend.conf
-        shell: bash
-        env:
-          BACKEND_LOCATION: ${{ secrets.BACKEND_LOCATION }}
-        working-directory: nginx/sites-available
+      # - name: Create backend.conf file
+      #   run: |
+      #     mkdir location
+      #     cd location
+      #     echo "$BACKEND_LOCATION" > backend.conf
+      #   shell: bash
+      #   env:
+      #     BACKEND_LOCATION: ${{ secrets.BACKEND_LOCATION }}
+      #   working-directory: nginx/sites-available
       # Build image {USERID}/REPO:TAG
       - name: Create new docker image
         run: docker build -t studenttechlife/plant:frontend .

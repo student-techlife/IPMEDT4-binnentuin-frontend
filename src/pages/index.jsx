@@ -1,19 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from '../logo.svg';
+import '../App.css';
 
-import axios from 'axios';
-
-// const VPS = process.env.REACT_APP_URL_VPS
-class App extends React.Component {
-  componentDidMount() {
-    axios.get("system/api/test")
-      .then(res => {
-          console.log(res.data);
-      })
-  }
-
-  render() {
+const MainPage = () => {
     return (
       <div className="App">
         <header className="App-header">
@@ -32,7 +21,6 @@ class App extends React.Component {
         </header>
       </div>
     );
-  }
 }
 
-export default App;
+export default MainPage;
