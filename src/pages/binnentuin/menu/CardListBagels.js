@@ -20,7 +20,6 @@ class CardListBagels extends React.Component {
   getProductsData() {
     axios.get(UrlService.BinnentuinMenu("bagels"), {}).then(res => {
       const data = res.data
-      console.log(data)
       const producten = data.map(u =>
         <Card title={u.naam}
               desc={u.beschrijving}

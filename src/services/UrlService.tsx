@@ -15,6 +15,7 @@ class UrlService {
     static ReserveerTijden() { return apiDomain + 'api/reserveertijden'; }
     static StorePretestSubmission() { return apiDomain + 'api/pretest'; }
     static MenuImages(filename) { return apiDomain + 'binnentuin/img/producten/' + filename; }
+    static Checkout() { return apiDomain + 'api/checkout/save'; }
 }
 
 export default UrlService;

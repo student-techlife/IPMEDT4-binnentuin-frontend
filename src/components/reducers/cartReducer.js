@@ -1,17 +1,4 @@
-// import Item1 from '../../images/item1.jpg'
-// import Item2 from '../../images/item2.jpg'
-// import Item3 from '../../images/item3.jpg'
-// import Item4 from '../../images/item4.jpg'
-// import Item5 from '../../images/item5.jpg'
-// import Item6 from '../../images/item6.jpg'
 import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,ADD_SHIPPING } from '../actions/action-types/cart-actions';
-// import axios from 'axios';
-
-// axios.get("https://admin.binnentuin.live/api/producten")
-//     .then(function (response) {
-//         console.log(response.data)
-//         return response.data
-//     })
 
 const lijstData = [];
 
@@ -19,23 +6,11 @@ fetch("https://admin.binnentuin.live/api/producten")
     .then(response => response.json())
     .then(result => lijstData.push(...result));
 
-// console.log(lijstData)
-
 const initState = {
-    // items: [
-        // {id:1,title:'Winter body', desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.", price:110,img:Item1},
-        // {id:2,title:'Adidas', desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.", price:80,img: Item2},
-        // {id:3,title:'Vans', desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.",price:120,img: Item3},
-        // {id:4,title:'White', desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.", price:260,img:Item4},
-        // {id:5,title:'Cropped-sho', desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.", price:160,img: Item5},
-        // {id:6,title:'Blues', desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.",price:90,img: Item6}
-    // ],
     items: lijstData,
     addedItems:[],
     total: 0
 }
-
-console.log(initState)
 
 const cartReducer = (state = initState,action) => {
 
@@ -69,7 +44,7 @@ const cartReducer = (state = initState,action) => {
         
         //calculating the total
         let newTotal = state.total - (itemToRemove.prijs * itemToRemove.quantity )
-        console.log(itemToRemove)
+
         return{
             ...state,
             addedItems: new_items,

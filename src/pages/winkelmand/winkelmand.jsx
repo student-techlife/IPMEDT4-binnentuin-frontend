@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import UrlService from "../../services/UrlService";
+import axios from "axios";
 import { removeItem,addQuantity,subtractQuantity} from '../../components/actions/cartActions';
 
-import Recipe from '../../components/Recipe';
-// import Navbar from './Navbar';
 import Header from "../../components/header/Header"
 import Footer from "../../components/footer/Footer"
 import history from "../../history";
@@ -16,6 +15,85 @@ import {faShoppingBasket, faArrowLeft, faPlus, faMinus, faTimes} from "@fortawes
 import './winkelmand.scss';
 
 class Winkelmand extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            error: null,
+            redirect: null,
+
+        };
+        this.onChange = this.onChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+    }
+
+    onChange = (e) => {
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
+    onSubmit = (e) => {
+        e.preventDefault();
+
+        const data = new FormData(e.target);
+        // const producten = new FormData();
+        // const aantallen = new FormData();
+
+        // for (var pair of data.entries()) {
+        //     console.log(pair[0]+ ', ' + pair[1]);
+        // }
+
+        var proArray = [];
+        var aantalArray = [];
+
+        // Producten nummers
+        for (var valueProd of data.getAll("productId")) {
+            proArray.push(valueProd)
+        }
+        data.append("producten", proArray);
+        // for (var value of producten) {
+        //     console.log(value);
+        // }
+
+        // Producten aantallen
+        for (var valueAantal of data.getAll("productQt")) {
+            aantalArray.push(valueAantal);
+        }
+        data.append("aantal", aantalArray);
+        // for (var value of aantallen) {
+        //     console.log(value);
+        // }
+
+        // Verwijder product ID's en aantallen
+        data.delete("productId")
+        data.delete("productQt")
+        
+        for (var valueResult of data) {
+            console.log(valueResult);
+        }
+
+        // axios.post('http://51.15.49.66:8001/checkout/save', data, {
+        // axios.post('https://postman-echo.com/post/', data, {
+        axios.post(UrlService.Checkout(), data, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+                'Access-Control-Allow-Origin': '*'
+            }
+        }).then((res) => {
+            if (res.status === 200) {
+                const result = res.data;
+                console.log('RESULT:');
+                console.log(result);
+                console.log(result.form);
+                history.push("/bevestiging");
+            }
+        }).catch(error => {
+            if (error.request) {
+                const data = JSON.parse(error.request.response);
+                console.log(data);
+                
+            }
+        })
+    }
 
     goback = () => {
         history.goBack();
@@ -34,12 +112,21 @@ class Winkelmand extends Component {
         this.props.subtractQuantity(id);
     }
 
+    // form submit
+
+
     render() {
         let addedItems = this.props.items.length ?
             (
                 this.props.items.map(item=>{
                     return (
                         <li className="shop-item avatar" key={item.id}>
+                            <input readOnly
+                                id="productId"
+                                type="hidden" 
+                                name="productId"
+                                value={item.id}
+                            />
                             <div className="shop-item__img">
                                 <img src={UrlService.MenuImages(item.img)} alt={UrlService.MenuImages(item.img)} className=""/>
                             </div>
@@ -52,6 +139,12 @@ class Winkelmand extends Component {
                                     <Link to="/winkelmand"><i onClick={()=>{this.handleSubtractQuantity(item.id)}}><FontAwesomeIcon icon={faMinus}/></i></Link>
                                     <span>{item.quantity}</span>
                                     <Link to="/winkelmand"><i onClick={()=>{this.handleAddQuantity(item.id)}}><FontAwesomeIcon icon={faPlus}/></i></Link>
+                                    <input readOnly
+                                        id="productQt"
+                                        type="hidden" 
+                                        name="productQt"
+                                        value={item.quantity}
+                                    />
                                 </div>
                                 <button className="shop-item__remove" onClick={()=>{this.handleRemove(item.id)}}><FontAwesomeIcon icon={faTimes}/></button>
                             </div>
@@ -74,26 +167,51 @@ class Winkelmand extends Component {
                         </Link> */}
                         <FontAwesomeIcon className="go-back__icon" icon={faArrowLeft} onClick={this.goback}/>
                     </nav>
-                    <article className="cart">
-                        <h1 className="cart__title"><FontAwesomeIcon className="cart__icon" icon={faShoppingBasket}/> U heeft het volgende in uw winkelwagen liggen:</h1>
-
-                        <ul className="shop">
-                            {addedItems}
-                        </ul>
-                    </article>
-                    <Recipe />
+                    <form onSubmit={this.onSubmit}>
+                        <article className="cart">
+                            <h1 className="cart__title"><FontAwesomeIcon className="cart__icon" icon={faShoppingBasket}/> U heeft het volgende in uw winkelwagen liggen:</h1>
+                            
+                            <ul className="shop">
+                                {addedItems}
+                            </ul>
+                        </article>
+                        <article className="total-price">
+                            <p className="total-price__item">Totaal:</p>
+                            <p className="total-price__item">&euro; {this.props.total}</p>
+                            <input readOnly
+                                type="hidden" 
+                                name="totaalPrijs"
+                                value={this.props.total}
+                            />
+                        </article>
+                        <article className="contacten">
+                            <h2 className="contacten__title">Contact</h2>
+                            <p className="contacten__naam">Wat is uw naam?</p>
+                            <input
+                                required
+                                type="text" 
+                                name="naam"
+                                placeholder="Vul uw naam in"
+                                ref={this.naam}
+                            />
+                        </article>
+                        <article className="checkout">
+                            <button className="checkout__button">Afrekenen</button>
+                        </article>
+                    </form>
                 </main>
-                    <Footer />
+
+                <Footer />
             </section>
         )
     }
 }
 
-
 const mapStateToProps = (state)=>{
     return{
         items: state.addedItems,
-        //addedItems: state.addedItems
+        addedItems: state.addedItems,
+        total: state.total
     }
 }
 const mapDispatchToProps = (dispatch)=>{
