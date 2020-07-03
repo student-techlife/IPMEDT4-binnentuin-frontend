@@ -14,7 +14,6 @@ import ContactPage from "./pages/contact/Contact";
 import WinkelmandPage from "./pages/winkelmand/winkelmand";
 import TheRoofPage from "./pages/theRoof/MenuRoof";
 import BevestigingPage from "./pages/bevestiging/Bevestiging";
-import IngelogdPage from "./pages/ingelogd/Ingelogd";
 
 // Auth
 import Login from "./pages/auth/inloggen";
@@ -38,7 +37,6 @@ const guestRoutes: Array<GuestRouteInterface> = [
   { path: "/winkelmand", component: WinkelmandPage, exact: true},
   { path: "/theroof/menu", component: TheRoofPage, exact: true},
   { path: "/bevestiging", component: BevestigingPage, exact: true},
-  { path: "/ingelogd", component: IngelogdPage, exact: true}
 ];
 
 const protectedRoutes: Array<any> = [

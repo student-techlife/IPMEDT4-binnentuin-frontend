@@ -1,29 +1,30 @@
 import React, { Component } from 'react';
-import theme from "../styles";
-import { ThemeProvider } from '@material-ui/core/styles';
-import { Button } from '@material-ui/core';
-import auth from '../../components/common/router/protected/auth';
+import { Link } from "react-router-dom";
 
 // Component imports
-import Header from "../../components/header/Header";
+import HeaderDashboard from "../../components/header/HeaderDashboard";
 import Footer from "../../components/footer/Footer";
+
+// Style
+import "./Ingelogd.scss";
 
 class Dashboard extends Component {
     render() {
         return (
-            <ThemeProvider theme={theme}>
-                <Header/>
-                <React.Fragment>
-                    <h1>Deze pagina mag je alleen zien als je bent ingelogd</h1>
-                    <Button variant="contained" color="secondary" onClick={() => {
-                        auth.logout(() => {
-                            this.props.history.push("/");
-                        })
-                    }}>Uitloggen
-                    </Button>
-                </React.Fragment>
-                <Footer/>
-            </ThemeProvider>
+            <section className="ingelogd">
+                <HeaderDashboard/>
+                <article className="ingelogd__content">
+                    <section className="ingelogd__info">
+                        <h1 className="ingelogd__title">Je bent ingelogd</h1>
+                    </section>
+                    <section className="ingelogd__wrapper">
+                        <Link to="">
+                            <button className="ingelogd__button">Ga door om te bestellen</button>
+                        </Link>
+                    </section>
+                </article>
+                <Footer />
+            </section>
         );
     }
 }
