@@ -39,7 +39,6 @@ class Winkelmand extends Component {
         axios.post(UrlService.Checkout(), data, {
             headers: {
                 'Content-Type': 'multipart/form-data',
-                'X-CSRF-TOKEN':'csrf_field()',
                 'Access-Control-Allow-Origin': '*'
             }
         })
