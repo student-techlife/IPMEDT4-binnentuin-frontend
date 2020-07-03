@@ -39,7 +39,8 @@ class Winkelmand extends Component {
         axios.post(UrlService.Checkout(), data, {
             headers: {
                 'Content-Type': 'multipart/form-data',
-                'X-CSRF-TOKEN':'csrf_field()'
+                'X-CSRF-TOKEN':'csrf_field()',
+                'Access-Control-Allow-Origin': '*'
             }
         })
             .then((res) => {
@@ -169,8 +170,7 @@ class Winkelmand extends Component {
 const mapStateToProps = (state)=>{
     return{
         items: state.addedItems,
-        addedItems: state.addedItems,
-        total: state.total
+        // addedItems: state.addedItems,
     }
 }
 const mapDispatchToProps = (dispatch)=>{
