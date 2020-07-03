@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import { addToCart } from '../../../components/actions/cartActions';
+import { Link } from 'react-router-dom';
 
 import './Menu.scss';
 
@@ -83,6 +84,19 @@ class MenuPageBinnentuin extends React.Component {
             <FontAwesomeIcon className="menu__list-icon" icon={faBacon}/><h2 className="menu_title--gold">Bagels</h2>
           </section>
           <CardListBagels cardBagelClicked = {this.handleClick} />
+
+            <section className= "menu__button">
+              <Link to="/winkelmand">
+                <input type='submit' className="pretest__button"/>
+              </Link>
+            </section>
+
+            <section className= "menu__mini">
+              <Link to="/winkelmand">
+              <FontAwesomeIcon className="menu__mini--button" icon={faShoppingBasket}/>
+              </Link>
+            </section>
+
 
           <Footer />
 
