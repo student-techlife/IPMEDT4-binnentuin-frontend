@@ -34,7 +34,7 @@ class MenuPageTheRoof extends React.Component {
           </article>
 
           <CardList cardClicked = {this.handleClick} />
-          <section className= "menu__mini">
+          <section className= "menu__mini--hide">
             <Link to="/winkelmand">
             <FontAwesomeIcon className="menu__mini--button" icon={faShoppingBasket}/>
             </Link>
