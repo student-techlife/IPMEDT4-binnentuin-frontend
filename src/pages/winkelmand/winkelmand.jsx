@@ -70,7 +70,7 @@ class Winkelmand extends Component {
                     </nav>
                     <article className="cart">
                         <h1 className="cart__title"><FontAwesomeIcon className="cart__icon" icon={faShoppingBasket}/> U heeft het volgende in uw winkelwagen liggen:</h1>
-                        
+
                         <ul className="shop">
                             {addedItems}
                         </ul>

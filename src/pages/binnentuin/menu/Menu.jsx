@@ -4,7 +4,7 @@ import { addToCart } from '../../../components/actions/cartActions';
 
 import './Menu.scss';
 
-import Header from "../../../components/header/Header"
+import HeaderShoppingCart from "../../../components/header/HeaderShoppingCart"
 import CardList from "../../../pages/binnentuin/menu/CardList";
 import CardListSalads from "../../../pages/binnentuin/menu/CardListSalads";
 import CardListToasts from "../../../pages/binnentuin/menu/CardListToasts";
@@ -45,7 +45,7 @@ class MenuPageBinnentuin extends React.Component {
       return (
         <section className="menupage">
 
-          <Header />
+          <HeaderShoppingCart />
           <article className="menu">
             <section className="menu_title">
               <FontAwesomeIcon className="menu__list-icon" icon={faShoppingBasket}/><h2 className="menu_title--gold">Menu</h2>

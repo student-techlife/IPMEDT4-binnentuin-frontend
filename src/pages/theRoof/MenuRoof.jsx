@@ -4,7 +4,7 @@ import { addToCart } from '../../components/actions/cartActions';
 
 import '../binnentuin/menu/Menu.scss';
 
-import Header from "../../components/header/Header"
+import HeaderShoppingCart from "../../components/header/HeaderShoppingCart"
 import CardList from "../../pages/theRoof/CardListRoof";
 import Footer from "../../components/footer/Footer"
 
@@ -24,7 +24,7 @@ class MenuPageTheRoof extends React.Component {
       return (
         <section className="menupage">
 
-          <Header />
+          <HeaderShoppingCart />
           <article className="menu">
             <p className="menu_text">Neemt u deel uit van de <span className="menu_title--gold">Community</span> dan hoef je geen kaartje te kopen. Jullie kunnen langs komen en aanschuiven als er plek is!</p>
             <section className="menu_title">
