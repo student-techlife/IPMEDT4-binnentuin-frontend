@@ -71,15 +71,25 @@ class Winkelmand extends Component {
         // axios.post( 'https://postman-echo.com/post/', { naam, productId, productQt, totaalPrijs })
         axios.post(UrlService.Checkout(), data, {
             headers: {
-                'Content-Type': 'multipart/form-data'
+                'Content-Type': 'multipart/form-data',
+                'X-CSRF-TOKEN':'csrf_field()'
             }
         })
             .then((res) => {
-                const result = res.data;
-                console.log('RESULT:');
-                console.log(result);
-                console.log(result.form);
-        });
+                if (res.status === 200) {
+                    const result = res.data;
+                    console.log('RESULT:');
+                    console.log(result);
+                    console.log(result.form);
+                }
+            })
+            .catch(error => {
+                if (error.request) {
+                    const data = JSON.parse(error.request.response);
+                    console.log(data);
+                    
+                }
+            })
     }
 
     goback = () => {
