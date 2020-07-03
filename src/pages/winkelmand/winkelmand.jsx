@@ -84,6 +84,7 @@ class Winkelmand extends Component {
                 console.log('RESULT:');
                 console.log(result);
                 console.log(result.form);
+                history.push("/bevestiging");
             }
         }).catch(error => {
             if (error.request) {
