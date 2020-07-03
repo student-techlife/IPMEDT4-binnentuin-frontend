@@ -21,8 +21,9 @@ class PretestPage extends React.Component {
             alles: [],
             activeTijd: '12:00-12:30',
             symptoms: "0",
-            time: null,
-            persons: null,
+            time: "",
+            name: "",
+            persons: "",
             pretestComponent: false,
             timeComponent: false,
             error: null,
@@ -34,6 +35,7 @@ class PretestPage extends React.Component {
         this.onAfhalenClicked = this.onAfhalenClicked.bind(this);
         this.onTimeChanged = this.onTimeChanged.bind(this);
         this.onSymptomsChanged = this.onSymptomsChanged.bind(this);
+        this.onNameChanged = this.onNameChanged.bind(this);
         this.onPersonsChanged = this.onPersonsChanged.bind(this);
     }
 
@@ -56,6 +58,12 @@ class PretestPage extends React.Component {
         this.setState({
             pretestComponent: false,
             timeComponent: true
+        })
+    }
+
+    onNameChanged(event) {
+        this.setState({
+            name: event.target.value
         })
     }
 
@@ -157,6 +165,19 @@ class PretestPage extends React.Component {
                                 </li>
                             </ul>
                         </section>
+
+                        <section style={{display: this.state.timeComponent ? 'block' : 'none'}} className="pretest__nameform">
+                          <h2 className="pretest__secundarytitle">Naam</h2>
+                          <p className="pretest__text">Wat is uw naam?</p>
+                          <input className="pretest__amount"
+                                 type="string"
+                                 placeholder="Naam"
+                                 name="name"
+                                 id="name"
+                                 value={this.state.name}
+                                 onChange={this.onNameChanged}/>
+                        </section>
+
                         <section style={{display: this.state.pretestComponent ? 'block' : 'none'}}
                                  className="pretest__checklist">
                             <h2 className="pretest__secundarytitle">Checklist</h2>
