@@ -18,7 +18,7 @@ class CardListSandwiches extends React.Component {
   }
 
   getProductsData() {
-    axios.get(UrlService.BinnentuinMenu("sandwitches"), {}).then(res => {
+    axios.get(UrlService.BinnentuinMenu("sandwiches"), {}).then(res => {
       const data = res.data
       console.log(data)
       const producten = data.map(u =>
