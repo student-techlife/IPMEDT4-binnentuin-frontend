@@ -167,7 +167,7 @@ class PretestPage extends React.Component {
                         </section>
 
                         <section style={{display: this.state.timeComponent ? 'block' : 'none'}} className="pretest__nameform">
-                          <h2 className="pretest__secundarytitle">Naam</h2>
+                          <h2 className="pretest__secundarytitle">Contact</h2>
                           <p className="pretest__text">Wat is uw naam?</p>
                           <input className="pretest__amount"
                                  type="string"
@@ -184,7 +184,7 @@ class PretestPage extends React.Component {
                             <p className="pretest__text">Met hoeveel personen wilt u komen?</p>
                             <input className="pretest__amount"
                                    type="numeric"
-                                   placeholder="1"
+                                   placeholder="Aantal"
                                    name="persons"
                                    id="persons"
                                    value={this.state.persons}
