@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
 // Component imports
-import HeaderDashboard from "../../components/header/HeaderDashboard";
+import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 
 // Style
@@ -12,7 +12,7 @@ class Dashboard extends Component {
     render() {
         return (
             <section className="ingelogd">
-                <HeaderDashboard/>
+                <Header />
                 <article className="ingelogd__box">
                   <article className="ingelogd__content">
                       <section className="ingelogd__info">
