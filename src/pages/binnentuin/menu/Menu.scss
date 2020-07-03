@@ -26,6 +26,22 @@ html {
     // text-align: center;
     margin-top: 15px;
   }
+  &__mini--button{
+    position:fixed;
+    border: none;
+    background-color: $color_gold;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    right:10px;
+    bottom:30px;
+    border-radius: 50%;
+  }
 
   &_title {
     font-family: 'Muli', sans-serif;
@@ -45,6 +61,8 @@ html {
     overflow-y: hidden;
     white-space: nowrap;
     margin-top: 0.4rem;
+
+
 
     &__button {
       display: inline-block;
@@ -126,7 +144,7 @@ header.card__header {
     font-weight: 400;
     font-size: 1rem;
     white-space: normal;
-    line-height: 1.8rem;
+    line-height: 1.0rem;
   }
 }
 
