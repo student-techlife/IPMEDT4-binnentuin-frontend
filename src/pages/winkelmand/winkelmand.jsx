@@ -8,6 +8,7 @@ import Recipe from '../../components/Recipe';
 // import Navbar from './Navbar';
 import Header from "../../components/header/Header"
 import Footer from "../../components/footer/Footer"
+import history from "../../history";
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faShoppingBasket, faArrowLeft, faPlus, faMinus, faTimes} from "@fortawesome/free-solid-svg-icons";
@@ -15,6 +16,10 @@ import {faShoppingBasket, faArrowLeft, faPlus, faMinus, faTimes} from "@fortawes
 import './winkelmand.scss';
 
 class Winkelmand extends Component {
+
+    goback = () => {
+        history.goBack();
+    }
 
     //to remove the item completely
     handleRemove = (id) => {
@@ -64,9 +69,10 @@ class Winkelmand extends Component {
 
                 <main className="container">
                     <nav className="go-back">
-                        <Link to="/binnentuin/menu">
+                        {/* <Link to="/binnentuin/menu">
                             <FontAwesomeIcon className="go-back__icon" icon={faArrowLeft}/>
-                        </Link>
+                        </Link> */}
+                        <FontAwesomeIcon className="go-back__icon" icon={faArrowLeft} onClick={this.goback}/>
                     </nav>
                     <article className="cart">
                         <h1 className="cart__title"><FontAwesomeIcon className="cart__icon" icon={faShoppingBasket}/> U heeft het volgende in uw winkelwagen liggen:</h1>

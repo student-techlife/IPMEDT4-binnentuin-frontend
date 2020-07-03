@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Route, Router, Switch } from "react-router-dom";
+import history from "./history";
 import { ProtectedRoute } from './components/common/router/protected';
-import axios from 'axios';
 
 // Pages
 import KeuzePage from "./pages/keuze/Keuze";
@@ -44,17 +44,9 @@ const protectedRoutes: Array<any> = [
 ];
 
 class App extends Component {
-  // Onderstaand dient als test om te zien of de backend nog altijd te benaderen is
-  componentDidMount() {
-    axios.get("https://api.binnentuin.live/api/test")
-      .then(res => {
-          console.log(res.data);
-      })
-  }
-
   render() {
     return (
-      <BrowserRouter>
+      <Router history={history}>
         <Switch>
           {guestRoutes.map((route, key) => {
             return (
@@ -77,7 +69,7 @@ class App extends Component {
             );
           })}
         </Switch>
-      </BrowserRouter>
+      </Router>
     );
   }
 }
